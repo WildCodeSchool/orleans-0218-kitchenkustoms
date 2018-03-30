@@ -10,10 +10,11 @@
  */
 
 $routes = [
-    'Item' => [ // Controller
+    'App' => [ // Controller
         ['index', '/', 'GET'], // action, url, method
-        ['add', '/item/add', 'GET'], // action, url, method
-        ['edit', '/item/edit/{id:\d+}', 'GET'], // action, url, method
-        ['show', '/item/{id:\d+}', 'GET'], // action, url, method
+        ['restauration', '/restauration', 'GET'],
+        ['workshop', '/atelier', 'GET'],
+        ['kustom', '/kustom', 'GET'],
+        ['shop', '/boutique', 'GET'],
     ],
 ];
