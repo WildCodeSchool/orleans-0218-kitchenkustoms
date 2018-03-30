@@ -1,0 +1,26 @@
+#content {
+    padding-top: 51px;
+}
+
+/******  NAVBAR  ******/
+
+nav {
+    height: 150px;
+}
+
+nav div {
+    height: 100%;
+    width: 100%;
+}
+
+a.navbar-brand {
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+a.navbar-brand > img {
+    margin: auto;
+}
+
+/******  FIN NAVBAR  ******/
