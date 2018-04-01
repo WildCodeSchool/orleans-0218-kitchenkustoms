@@ -1,16 +1,69 @@
+/******* FONTS *******/
+
+@font-face {
+    font-family: linowrite;
+    src: url('../fonts/linowrite.ttf');
+}
+
+@font-face {
+    font-family: albertsthal;
+    src: url('../fonts/Albertsthal Typewriter.ttf');
+}
+
+/******* FIN FONTS *******/
+
 #content {
     padding-top: 51px;
 }
 
-/******  NAVBAR  ******/
-
-nav {
-    height: 150px;
+a {
+    color: white;
+    font-weight: bold;
+    font-size: 1.6em;
 }
 
-nav div {
-    height: 100%;
-    width: 100%;
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+a:focus {
+    text-decoration: none;
+}
+
+/******  NAVBAR  ******/
+
+.navbar {
+    border-radius: 0;
+}
+
+.navbar-kustoms {
+    color: black;
+    background-color: #A72222;
+    font-family: linowrite;
+    letter-spacing: 5px;
+}
+
+.navbar-kustoms span {
+    font-family: albertsthal;
+}
+
+@media screen and (min-width: 767px) {
+    nav {
+        height: 150px;
+    }
+
+    nav div {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.active a {
+    color: black;
 }
 
 a.navbar-brand {
@@ -21,6 +74,23 @@ a.navbar-brand {
 
 a.navbar-brand > img {
     margin: auto;
+}
+
+.navbar-brand {
+    display: flex;
+    justify-content: center;
+}
+
+button.navbar-toggle {
+    border: 2px solid black;
+}
+
+button.navbar-toggle:hover {
+    background-color: #eee;
+}
+
+button.navbar-toggle > span {
+    background-color: black;
 }
 
 /******  FIN NAVBAR  ******/

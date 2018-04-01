@@ -29,7 +29,7 @@ class AppController extends AbstractController
         ]);
     }
 
-    public function kustom()
+    public function kustoms()
     {
         echo $this->twig->render('App/kustom.html.twig', [
 
