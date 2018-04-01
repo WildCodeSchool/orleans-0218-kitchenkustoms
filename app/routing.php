@@ -14,7 +14,7 @@ $routes = [
         ['index', '/', 'GET'], // action, url, method
         ['restauration', '/restauration', 'GET'],
         ['workshop', '/atelier', 'GET'],
-        ['kustom', '/kustom', 'GET'],
+        ['kustoms', '/kustoms', 'GET'],
         ['shop', '/boutique', 'GET'],
     ],
 ];
