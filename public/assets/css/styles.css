@@ -76,10 +76,13 @@ a.navbar-brand > img {
     margin: auto;
 }
 
+<<<<<<< HEAD
 .navbar-brand {
     display: flex;
     justify-content: center;
 }
+=======
+>>>>>>> d771de92879f73492f7c9f0c84baf3c0ddc61a32
 
 button.navbar-toggle {
     border: 2px solid black;
