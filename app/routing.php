@@ -10,9 +10,9 @@
  */
 
 $routes = [
-    'App' => [ // Controller
+    'Home' => [ // Controller
         ['index', '/', 'GET'], // action, url, method
-        ['restauration', '/restauration', 'GET'],
+        ['restoration', '/restauration', 'GET'],
         ['workshop', '/atelier', 'GET'],
         ['kustoms', '/kustoms', 'GET'],
         ['shop', '/boutique', 'GET'],
