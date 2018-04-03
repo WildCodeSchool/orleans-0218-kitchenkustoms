@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{% block title %}Kitchen Kustom{% endblock %}</title>
+    <title>{% block title %}Kitchen Kustoms{% endblock %}</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -18,70 +18,7 @@
 <body>
 <header>
 {% block header %}
-    <!-- NAVBAR DESKTOP -->
-    <nav class="hidden-xs navbar navbar-kustoms container-fluid" role="navigation">
-        <div class="row">
-            <div class="col-sm-5">
-                <div class="col-sm-12 nav navbar-nav">
-                    <div class="active col-sm-6">
-                        <a href="restauration">Caf<span>é</span>-Cantine</a>
-                    </div>
-                    <div class="col-sm-6">
-                        <a href="atelier">Atelier</a>
-                    </div>
-                </div>
-            </div>
-            <div class="navbar-header col-sm-2">
-                <a class="navbar-brand" href="/">
-                    <img class="" src="assets/images/logo_kitchen_kustoms_nav.png" alt="logo kitchen kustoms">
-                </a>
-            </div>
-            <div class="col-sm-5">
-                <div class="col-sm-12 nav navbar-nav">
-                    <div class="col-sm-6">
-                        <a href="kustoms">Kustoms</a>
-                    </div>
-                    <div class="col-sm-6">
-                        <a href="boutique">Boutique</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- NAVBAR MOBILE -->
-    <nav class="visible-xs navbar navbar-kustoms navbar-fixed-top" role="navigation">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xs-2">
-                    <a class="navbar-brand" href="/">
-                        <img src="assets/images/logo_kitchen_kustoms_nav.png" alt="logo kitchen kustoms" height="50px">
-                    </a>
-                </div>
-                <div class="col-xs-1 col-xs-offset-9">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-links" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-            </div>
-           <div class="row">
-               <div class="collapse navbar-collapse" id="navbar-links">
-                   <div>
-                       <ul class="nav navbar-nav">
-                           <li class="active"><a href="restauration">Caf<span>é</span>-Cantine <span class="sr-only">(current)</span></a></li>
-                           <li><a href="atelier">Atelier</a></li>
-                           <li><a href="kustoms">Kustoms</a></li>
-                           <li><a href="boutique">Boutique</a></li>
-
-                       </ul>
-                   </div>
-               </div>
-           </div>
-        </div>
-    </nav>
+    {% include 'App/header.html.twig' %}
 {% endblock %}
 </header>
 <div id="content">

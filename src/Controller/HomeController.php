@@ -3,10 +3,10 @@
 namespace Controller;
 
 /**
- * Class AppController
+ * Class HomeController
  *
  */
-class AppController extends AbstractController
+class HomeController extends AbstractController
 {
     public function index()
     {
@@ -15,7 +15,7 @@ class AppController extends AbstractController
         ]);
     }
 
-    public function restauration()
+    public function restoration()
     {
         echo $this->twig->render('App/restauration.html.twig', [
 
