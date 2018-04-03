@@ -12,10 +12,6 @@
 
 /******* FIN FONTS *******/
 
-#content {
-    padding-top: 51px;
-}
-
 a {
     color: white;
     font-weight: bold;
@@ -29,6 +25,10 @@ a:hover {
 
 a:focus {
     text-decoration: none;
+}
+
+.width-max {
+    width: 100%;
 }
 
 /******  NAVBAR  ******/
@@ -93,4 +93,8 @@ button.navbar-toggle > span {
     background-color: black;
 }
 
+.button-center {
+    height: 80px;
+    padding-top: 14px;
+}
 /******  FIN NAVBAR  ******/
