@@ -108,8 +108,6 @@ p
 {
     text-align: center;
     color: white;
-    font-family: albertsthal;
-    src: url('../fonts/Albertsthal Typewriter.ttf');
-    font-weight: bold;
+    font-family: roboto;
 
 }
