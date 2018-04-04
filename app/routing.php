@@ -12,7 +12,7 @@
 $routes = [
     'Home' => [ // Controller
         ['index', '/', 'GET'], // action, url, method
-        ['restoration', '/restauration', 'GET'],
+        ['catering', '/restauration', 'GET'],
         ['workshop', '/atelier', 'GET'],
         ['kustoms', '/kustoms', 'GET'],
         ['shop', '/boutique', 'GET'],
