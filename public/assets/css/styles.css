@@ -107,5 +107,9 @@ button.navbar-toggle > span {
 p
 {
     text-align: center;
-    color: black;
+    color: white;
+    font-family: albertsthal;
+    src: url('../fonts/Albertsthal Typewriter.ttf');
+    font-weight: bold;
+
 }
