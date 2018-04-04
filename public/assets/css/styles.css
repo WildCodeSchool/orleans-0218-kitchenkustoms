@@ -98,3 +98,14 @@ button.navbar-toggle > span {
     padding-top: 14px;
 }
 /******  FIN NAVBAR  ******/
+
+/****** FOOTER ******/
+.footer-kustoms
+{
+    background-color: #A72222;
+}
+p
+{
+    text-align: center;
+    color: black;
+}
