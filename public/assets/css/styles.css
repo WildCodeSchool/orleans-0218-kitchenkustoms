@@ -31,6 +31,18 @@ a:focus {
     width: 100%;
 }
 
+.pt-5 {
+    padding-top: 5px;
+}
+
+/******* COLORS ********/
+
+.bg-red {
+    background-color: #A72222;
+}
+
+/******* FIN COLORS ********/
+
 /******  NAVBAR  ******/
 
 .navbar {
