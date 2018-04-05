@@ -100,14 +100,10 @@ button.navbar-toggle > span {
 /******  FIN NAVBAR  ******/
 
 /****** FOOTER ******/
-.footer-kustoms
-{
+.footer-kustoms {
     background-color: #A72222;
 }
-p
-{
+p {
     text-align: center;
     color: white;
-    font-family: roboto;
-
 }
