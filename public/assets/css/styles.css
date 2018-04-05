@@ -123,3 +123,17 @@ p
     font-family: roboto;
 
 }
+/****** Google Map ******/
+#map {
+    height: 300px;
+    width: 100%;
+
+}
+#map:parent {
+    padding: 0px;
+}
+
+.map-container {
+    padding-left: 0px;
+    padding-right: 0px;
+}
