@@ -12,10 +12,23 @@
 
 /******* FIN FONTS *******/
 
+/******* GENERAL *******/
+
+h1, h2, h3, .h1, .h2, .h3 {
+    font-family: linowrite;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+}
+
+.e-cute {
+    font-family: albertsthal;
+}
+
 a {
     color: white;
     font-weight: bold;
-    font-size: 1.6em;
 }
 
 a:hover {
@@ -34,8 +47,12 @@ a:focus {
 .pt-5 {
     padding-top: 5px;
 }
+/******* FIN GENERAL *******/
 
 /******* COLORS ********/
+.white {
+    color: #FFF;
+}
 
 .bg-red {
     background-color: #A72222;
@@ -45,6 +62,9 @@ a:focus {
 
 /******  NAVBAR  ******/
 
+nav a {
+    font-size: 1.6em;
+}
 .navbar {
     border-radius: 0;
 }
