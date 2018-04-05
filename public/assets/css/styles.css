@@ -107,3 +107,8 @@ p.footer-kustoms{
     text-align: center;
     color: white;
 }
+.footer-kustoms .flux{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    max-width: 100%;
+}
