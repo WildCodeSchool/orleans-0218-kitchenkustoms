@@ -103,7 +103,7 @@ button.navbar-toggle > span {
 .footer-kustoms {
     background-color: #A72222;
 }
-p {
+p.footer-kustoms{
     text-align: center;
     color: white;
 }
