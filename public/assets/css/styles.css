@@ -152,16 +152,20 @@ button.navbar-toggle > span {
 /******  FIN NAVBAR  ******/
 
 /****** FOOTER ******/
-.footer-kustoms
-{
+.footer-kustoms {
     background-color: #A72222;
 }
-p
-{
+
+p.footer-kustoms{
     text-align: center;
     color: white;
     font-family: roboto;
+}
 
+.footer-kustoms .flux{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    max-width: 100%;
 }
 
 /****** Google Map ******/
@@ -185,4 +189,3 @@ p
     margin-left: 15px;
     margin-right: 15px;
 }
-
