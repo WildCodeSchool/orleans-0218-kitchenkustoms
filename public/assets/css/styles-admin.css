@@ -1,0 +1,39 @@
+body {
+    padding-top: 70px;
+}
+
+a.navbar-brand {
+    padding: 0;
+}
+
+a {
+    color: white;
+    font-weight: bold;
+    font-size: 1.6em;
+}
+
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+a:focus {
+    text-decoration: none;
+}
+
+.navbar-kustoms {
+    color: black;
+    background-color: #A72222;
+}
+
+button.navbar-toggle {
+    border: 2px solid black;
+}
+
+button.navbar-toggle:hover {
+    background-color: #eee;
+}
+
+button.navbar-toggle > span {
+    background-color: black;
+}
