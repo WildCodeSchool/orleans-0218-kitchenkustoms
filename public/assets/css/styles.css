@@ -15,7 +15,7 @@
 /******* GENERAL *******/
 
 h1, h2, h3, .h1, .h2, .h3 {
-    font-family: linowrite;
+    font-family: linowrite, sans-serif;
 }
 
 p {
@@ -23,7 +23,7 @@ p {
 }
 
 .e-cute {
-    font-family: albertsthal;
+    font-family: albertsthal, sans-serif;
 }
 
 a {
@@ -48,8 +48,18 @@ a:focus {
     padding-top: 5px;
 }
 
+.pt-10 {
+    padding-top: 10px;
+}
+
 .pb-10 {
     padding-bottom: 10px;
+}
+
+.vertical-align {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 /******* FIN GENERAL *******/
 
@@ -92,12 +102,12 @@ nav a {
 .navbar-kustoms {
     color: black;
     background-color: #A72222;
-    font-family: linowrite;
+    font-family: linowrite, sans-serif;
     letter-spacing: 5px;
 }
 
 .navbar-kustoms span {
-    font-family: albertsthal;
+    font-family: albertsthal, sans-serif;
 }
 
 @media screen and (min-width: 767px) {
@@ -152,6 +162,10 @@ button.navbar-toggle > span {
 /******  FIN NAVBAR  ******/
 
 /****** FOOTER ******/
+.height-300 {
+    height: 300px;
+}
+
 .footer-kustoms {
     background-color: #A72222;
 }
@@ -159,30 +173,15 @@ button.navbar-toggle > span {
 p.footer-kustoms{
     text-align: center;
     color: white;
-    font-family: roboto;
-}
-
-.footer-kustoms .flux{
-    margin-top: 15px;
-    margin-bottom: 15px;
-    max-width: 100%;
+    font-family: roboto, sans-serif;
 }
 
 /****** Google Map ******/
-#map {
-    height: 300px;
-    width: 100%;
-
-}
-#map:parent {
-    padding: 0px;
-}
 
 .map-container {
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
-
 
 /****** footer social links ******/
 .mx-middle {
