@@ -2,6 +2,7 @@
 
 namespace Controller;
 
+
 /**
  * Class HomeController
  *
@@ -10,7 +11,7 @@ class HomeController extends AbstractController
 {
     public function index()
     {
-        echo $this->twig->render('Home/index.html.twig', [
+        echo $this->twig->render('Home/index.html.twig', [ 'api_key' => API_GOOGLE
 
         ]);
     }
