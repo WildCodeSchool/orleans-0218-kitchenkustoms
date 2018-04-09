@@ -147,6 +147,22 @@ p.footer-kustoms{
     max-width: 100%;
 }
 
+/****** Google Map ******/
+#map {
+    height: 300px;
+    width: 100%;
+
+}
+#map:parent {
+    padding: 0px;
+}
+
+.map-container {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+
 /****** footer social links ******/
 .mx-middle {
     margin-left: 15px;
