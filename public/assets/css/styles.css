@@ -47,6 +47,10 @@ a:focus {
 .pt-5 {
     padding-top: 5px;
 }
+
+.pb-10 {
+    padding-bottom: 10px;
+}
 /******* FIN GENERAL *******/
 
 /******* COLORS ********/
@@ -56,6 +60,22 @@ a:focus {
 
 .bg-red {
     background-color: #A72222;
+}
+
+.white {
+    color: white;
+}
+
+.blue_FB {
+    color:#3b5998;
+}
+
+.red_INSTA {
+    color:#d62976;
+}
+
+.blue_TWIT {
+    color: #1dcaff;
 }
 
 /******* FIN COLORS ********/
@@ -142,4 +162,10 @@ p
     color: white;
     font-family: roboto;
 
+}
+
+/****** footer social links ******/
+.mx-middle {
+    margin-left: 15px;
+    margin-right: 15px;
 }
