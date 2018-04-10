@@ -12,10 +12,23 @@
 
 /******* FIN FONTS *******/
 
+/******* GENERAL *******/
+
+h1, h2, h3, .h1, .h2, .h3 {
+    font-family: linowrite, sans-serif;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+}
+
+.e-cute {
+    font-family: albertsthal, sans-serif;
+}
+
 a {
     color: white;
     font-weight: bold;
-    font-size: 1.6em;
 }
 
 a:hover {
@@ -35,16 +48,53 @@ a:focus {
     padding-top: 5px;
 }
 
+.pt-10 {
+    padding-top: 10px;
+}
+
+.pb-10 {
+    padding-bottom: 10px;
+}
+
+.vertical-align {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+/******* FIN GENERAL *******/
+
 /******* COLORS ********/
+.white {
+    color: #FFF;
+}
 
 .bg-red {
     background-color: #A72222;
+}
+
+.white {
+    color: white;
+}
+
+.blue_FB {
+    color:#3b5998;
+}
+
+.red_INSTA {
+    color:#d62976;
+}
+
+.blue_TWIT {
+    color: #1dcaff;
 }
 
 /******* FIN COLORS ********/
 
 /******  NAVBAR  ******/
 
+nav a {
+    font-size: 1.6em;
+}
 .navbar {
     border-radius: 0;
 }
@@ -52,12 +102,12 @@ a:focus {
 .navbar-kustoms {
     color: black;
     background-color: #A72222;
-    font-family: linowrite;
+    font-family: linowrite, sans-serif;
     letter-spacing: 5px;
 }
 
 .navbar-kustoms span {
-    font-family: albertsthal;
+    font-family: albertsthal, sans-serif;
 }
 
 @media screen and (min-width: 767px) {
@@ -112,14 +162,29 @@ button.navbar-toggle > span {
 /******  FIN NAVBAR  ******/
 
 /****** FOOTER ******/
-.footer-kustoms
-{
+.height-300 {
+    height: 300px;
+}
+
+.footer-kustoms {
     background-color: #A72222;
 }
-p
-{
+
+p.footer-kustoms{
     text-align: center;
     color: white;
-    font-family: roboto;
+    font-family: roboto, sans-serif;
+}
 
+/****** Google Map ******/
+
+.map-container {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/****** footer social links ******/
+.mx-middle {
+    margin-left: 15px;
+    margin-right: 15px;
 }
