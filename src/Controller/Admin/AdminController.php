@@ -1,6 +1,8 @@
 <?php
 
-namespace Controller;
+namespace Controller\Admin;
+
+use Controller\AbstractController;
 
 /**
  * Class AdminController
@@ -10,8 +12,9 @@ class AdminController extends AbstractController
 {
     public function index()
     {
+
         try {
-            echo $this->twig->render('Admin/index.html.twig', [
+            return $this->twig->render('Admin/index.html.twig', [
 
             ]);
         } catch (\Exception $e) {
