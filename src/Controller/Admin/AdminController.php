@@ -12,13 +12,8 @@ class AdminController extends AbstractController
 {
     public function index()
     {
-
-        try {
             return $this->twig->render('Admin/index.html.twig', [
 
             ]);
-        } catch (\Exception $e) {
-            echo $e->getMessage();
-        }
     }
 }
