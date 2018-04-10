@@ -3,5 +3,31 @@
 {% block title %}{{ parent() }} - Accueil{% endblock %}
 
 {% block content %}
-    <h1>Bienvenue sur la page d'accueil.</h1>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+            </div>
+            <div class="col-md-6 ">
+                <h2>Gallerie</h2>
+                <div class="row">
+                {% for i in 0..2 %}
+                        <div class="col-md-4">
+                            <a href="assets/images/GalleryHome/home{{ i+1 }}.jpg" class="home_gallery gallery img-thumbnail">
+                                <img class="img-responsive center-block" src="assets/images/GalleryHome/home{{ i+1 }}.jpg" alt="placeholder">
+                            </a>
+                        </div>
+                {% endfor %}
+                </div>
+                <div class="row">
+                {% for i in 3..5 %}
+                        <div class="col-md-4">
+                            <a href="assets/images/GalleryHome/home{{ i+1 }}.jpg" class="home_gallery gallery img-thumbnail">
+                                <img class="img-responsive center-block" src="assets/images/GalleryHome/home{{ i+1 }}.jpg" alt="placeholder">
+                            </a>
+                        </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

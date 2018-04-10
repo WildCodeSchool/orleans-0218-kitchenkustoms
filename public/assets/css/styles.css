@@ -161,6 +161,11 @@ button.navbar-toggle > span {
 }
 /******  FIN NAVBAR  ******/
 
+/******  GalleryHome  ******/
+.home_gallery{
+    height: 240px;
+    width: 220px;
+}
 /****** FOOTER ******/
 .height-300 {
     height: 300px;
