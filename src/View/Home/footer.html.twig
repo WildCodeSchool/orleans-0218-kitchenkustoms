@@ -1,7 +1,7 @@
-<footer>
-    <div class=" footer-kustoms container-fluid">
+<footer class="footer-kustoms pt-10 pb-10">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4 hidden-sm hidden-xs">
+            <section class="col-md-4 hidden-sm hidden-xs">
                 <div class="flux text-center">
                     <div id="fb-root"></div>
                     <div class="fb-page "
@@ -18,10 +18,10 @@
                         </blockquote>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="col-md-4 col-xs-12">
-                <div class="address">
+            <section class="col-md-4 col-xs-12 text-center white vertical-align height-300">
+                <div class="row address">
                     <address>
                         <strong>Tous les jours de 10h00 à 20h00, y compris le dimanche.</strong><br>
                         Fermé le mardi. <br>
@@ -30,7 +30,7 @@
                         <a href="mailto:#">velo-cafe@kitchen-kustoms.com</a>
                     </address>
                 </div>
-                <div class="row text-center pb-10">
+                <div class="row">
                     <div class="col-xl-12">
                         <a href="https://www.facebook.com/KitchenKustoms/">
                         <span class="fa-layers fa-2x">
@@ -52,13 +52,13 @@
                         </a>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 hidden-sm hidden-xs map-container">
-                <div id="map"></div>
-                <script type="application/javascript" src="/assets/js/googleMap.js"></script>
-                <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ constant('API_GOOGLE') }}&
-callback=initMap"> </script>
-            </div>
+            </section>
+
+            <section class="col-md-4 hidden-sm hidden-xs map-container">
+                <div>
+                    <div id="map" class="height-300"></div>
+                </div>
+            </section>
         </div>
     </div>
 </footer>
