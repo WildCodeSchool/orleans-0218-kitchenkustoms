@@ -1,0 +1,61 @@
+{% extends 'layout-admin.html.twig' %}
+
+{% block title %}{{ parent() }} - Vélos{% endblock %}
+
+{% block content %}
+    <section class="container">
+        <div class="row">
+            <h1>Liste des vélos enregistrés</h1>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-xs-offset-8 col-sm-2 col-sm-offset-10 margin-b-10">
+                <a href="/admin/bike/add" class="btn btn-success">+ Ajouter</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th class="hidden-xs">Id</th>
+                        <th>Nom</th>
+                        <th class="hidden-xs">Description</th>
+                        <th>Photo Kustom</th>
+                        <th class="hidden-xs">Prix</th>
+                        <th class="hidden-xs">Vendu</th>
+                        <th class="hidden-xs">Affiché sur</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for bike in bikes %}
+                        <tr>
+                            <td class="hidden-xs">{{ bike.id }}</td>
+                            <td>{{ bike.name }}</td>
+                            <td class="hidden-xs">{{ bike.description }}</td>
+                            <td>
+                                {% if bike.photo_after %}
+                                    <img src="{{ bike.photo_after }}" alt="{{ bike.name }} kustom" height="50px">
+                                {% else %}
+                                    Not Set
+                                {% endif %}
+                            </td>
+                            <td class="hidden-xs">{{ bike.price }}</td>
+                            <td class="hidden-xs">
+                                <input type="checkbox" disabled {% if bike.sold == 1 %}checked{%  endif %}>
+                            </td>
+                            <td class="hidden-xs">
+                                {% if bike.is_sold == 1 %}<button class="btn btn-boutique" disabled>Boutique</button>{% endif %}
+                                {% if bike.is_kustom %}<button class="btn btn-boutique" disabled>Kustom</button>{% endif %}
+                            </td>
+                            <td>
+                                <a href="/admin/bike/{{ bike.id }}" class="btn btn-warning">Modifier</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+{% endblock %}

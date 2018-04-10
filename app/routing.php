@@ -19,5 +19,6 @@ $routes = [
     ],
     'Admin\Admin' => [
         ['index', '/admin/', 'GET'],
+        ['bike', '/admin/bike/', 'GET'],
     ],
 ];

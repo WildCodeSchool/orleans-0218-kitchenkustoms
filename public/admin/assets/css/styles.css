@@ -37,3 +37,7 @@ button.navbar-toggle:hover {
 button.navbar-toggle > span {
     background-color: black;
 }
+
+.margin-b-10 {
+    margin-bottom: 10px;
+}
