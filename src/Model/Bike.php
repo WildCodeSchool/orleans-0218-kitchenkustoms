@@ -83,7 +83,7 @@ class Bike
     /**
      * @return null|string
      */
-    public function getPhoto_before(): ?string
+    public function getPhotoBefore(): ?string
     {
         return $this->photo_before;
     }
@@ -92,7 +92,7 @@ class Bike
      * @param string $photo_before
      * @return Bike
      */
-    public function setPhoto_before(string $photo_before): Bike
+    public function setPhotoBefore(string $photo_before): Bike
     {
         $this->photo_before = $photo_before;
         return $this;
@@ -101,17 +101,17 @@ class Bike
     /**
      * @return null|string
      */
-    public function getPhoto_after(): ?string
+    public function getPhotoAfter(): ?string
     {
         return $this->photo_after;
     }
 
 
     /**
-     * @param string $photo_after
+     * @param string $photoAafter
      * @return Bike
      */
-    public function setPhoto_after(string $photo_after): Bike
+    public function setPhotoAfter(string $photo_after): Bike
     {
         $this->photo_after = $photo_after;
         return $this;
@@ -121,7 +121,7 @@ class Bike
     /**
      * @return null|int
      */
-    public function getRate_look(): ?int
+    public function getRateLook(): ?int
     {
         return $this->rate_look;
     }
@@ -131,7 +131,7 @@ class Bike
      * @param int $rate_look
      * @return Bike
      */
-    public function setRate_look(int $rate_look): Bike
+    public function setRateLook(int $rate_look): Bike
     {
         $this->rate_look = $rate_look;
         return $this;
@@ -141,7 +141,7 @@ class Bike
     /**
      * @return null|int
      */
-    public function getRate_practice(): ?int
+    public function getRatePractice(): ?int
     {
         return $this->rate_practice;
     }
@@ -151,7 +151,7 @@ class Bike
      * @param int $rate_practice
      * @return Bike
      */
-    public function setRate_practice(int $rate_practice): Bike
+    public function setRatePractice(int $rate_practice): Bike
     {
         $this->rate_practice = $rate_practice;
         return $this;
@@ -161,7 +161,7 @@ class Bike
     /**
      * @return null|int
      */
-    public function getRate_fun(): ?int
+    public function getRateFun(): ?int
     {
         return $this->rate_fun;
     }
@@ -171,7 +171,7 @@ class Bike
      * @param $rate_Fun
      * @return Bike
      */
-    public function setRate_fun($rate_fun): Bike
+    public function setRateFun($rate_fun): Bike
     {
         $this->rate_fun = $rate_fun;
         return $this;
@@ -221,7 +221,7 @@ class Bike
     /**
      * @return bool
      */
-    public function getIs_kustom(): bool
+    public function getIsKustom(): bool
     {
         return $this->is_kustom;
     }
@@ -230,7 +230,7 @@ class Bike
      * @param bool $is_kustom
      * @return Bike
      */
-    public function setIs_kustom(bool $is_kustom): Bike
+    public function setIsKustom(bool $is_kustom): Bike
     {
         $this->is_kustom = $is_kustom;
         return $this;
@@ -240,7 +240,7 @@ class Bike
     /**
      * @return bool
      */
-    public function getIs_sold(): bool
+    public function getIsSold(): bool
     {
         return $this->is_sold;
     }
@@ -250,10 +250,9 @@ class Bike
      * @param bool $is_sold
      * @return Bike
      */
-    public function setIs_sold(bool $is_sold): Bike
+    public function setIsSold(bool $is_sold): Bike
     {
         $this->is_sold = $is_sold;
         return $this;
     }
-
 }
