@@ -247,6 +247,19 @@ button.navbar-toggle > span {
     height: 300px;
 }
 
+.width-300 {
+    width: 300px;
+}
+
+.flex-end {
+    display: flex;
+    justify-content: flex-end;
+}
+.flex-center {
+    display: flex;
+    justify-content: center;
+}
+
 .footer-kustoms {
     background-color: #A72222;
 }
