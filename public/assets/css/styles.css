@@ -161,17 +161,17 @@ button.navbar-toggle > span {
 }
 /******  FIN NAVBAR  ******/
 
-/******  GalleryHome  ******/
-
+/******  galleryhome  ******/
 .gallery_container{
     padding-top: 10px;
     padding-bottom: 10px ;
 }
+
 .gallery_image{
     box-shadow: 5px 5px 5px grey;
 }
-.gallery_home{
 
+.gallery_home{
     height: 240px;
     width: 220px;
     border: 0px;
