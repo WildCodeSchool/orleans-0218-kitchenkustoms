@@ -28,7 +28,7 @@ a:focus {
 }
 
 .width-max {
-    width: 100%;
+   width: 100%;
 }
 
 .pt-5 {
@@ -74,8 +74,82 @@ a:focus {
     }
 }
 
-.active a {
-    color: black;
+/*TODO burger*/
+@media screen and (min-width: 900px) {
+    /* navabar active links backgroundx */
+    .button-bg > a {
+        padding-top: 4px;
+        color: white;
+    }
+
+    a:hover {
+        color: #A72222;
+        text-decoration: none;
+    }
+
+    .button-bg-side.active > .button-bg {
+        padding: 4px;
+        color: black;
+        background: url("../images/white_bg.png"), repeat-x;
+        background-size: auto 40px;
+        height: 40px;
+        width: auto;
+    }
+
+    .button-bg-side.active > .button-bg a {
+        color: black;
+    }
+
+    .button-bg-side.active::before {
+        content: " ";
+        color: black;
+        background: url("../images/white_side.png"), repeat-x;
+        transform: rotate(180deg);
+        background-size: auto 40px;
+        height: 40px;
+        width: auto;
+    }
+
+    .button-bg-side.active::after {
+        content: " ";
+        color: black;
+        background: url("../images/white_side.png"), repeat-x;
+        background-size: auto 40px;
+        height: 40px;
+        width: auto;
+    }
+
+    /* navabar links background */
+    .button-bg {
+        min-width: 150px;
+        background: url("../images/black_bg.png"), repeat-x;
+        background-size: auto 40px;
+        height: 40px;
+        width: auto;
+    }
+
+    .button-bg-side {
+        text-align: center;
+    }
+
+    .button-bg-side::before {
+        content: " ";
+        background: url("../images/black_side.png"), no-repeat;
+        transform: rotate(180deg);
+        background-size: auto 40px;
+        height: 40px;
+        width: auto;
+        padding-left: 16px;
+    }
+
+    .button-bg-side::after {
+        content: " ";
+        background: url("../images/black_side.png"), no-repeat;
+        background-size: auto 40px;
+        height: 40px;
+        width: auto;
+        padding-left: 16px;
+    }
 }
 
 a.navbar-brand {
@@ -109,6 +183,8 @@ button.navbar-toggle > span {
     height: 80px;
     padding-top: 14px;
 }
+
+
 /******  FIN NAVBAR  ******/
 
 /****** FOOTER ******/
