@@ -35,7 +35,7 @@
                             <td class="hidden-xs">{{ bike.description }}</td>
                             <td>
                                 {% if bike.photo_after %}
-                                    <img src="{{ bike.photo_after }}" alt="{{ bike.name }} kustom" height="50px">
+                                    <img src="{{ bike.photoAfter }}" alt="{{ bike.name }} kustom" height="50px">
                                 {% else %}
                                     Not Set
                                 {% endif %}
@@ -45,8 +45,8 @@
                                 <input type="checkbox" disabled {% if bike.sold == 1 %}checked{%  endif %}>
                             </td>
                             <td class="hidden-xs">
-                                {% if bike.is_sold == 1 %}<button class="btn btn-boutique" disabled>Boutique</button>{% endif %}
-                                {% if bike.is_kustom %}<button class="btn btn-boutique" disabled>Kustom</button>{% endif %}
+                                {% if bike.isSold == 1 %}<button class="btn btn-boutique" disabled>Boutique</button>{% endif %}
+                                {% if bike.isKustom %}<button class="btn btn-boutique" disabled>Kustom</button>{% endif %}
                             </td>
                             <td>
                                 <a href="/admin/bike/{{ bike.id }}/" class="btn btn-warning">Modifier</a>
