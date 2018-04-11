@@ -161,6 +161,21 @@ button.navbar-toggle > span {
 }
 /******  FIN NAVBAR  ******/
 
+/******  galleryhome  ******/
+.gallery_container{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.gallery_image{
+    box-shadow: 5px 5px 5px grey;
+}
+
+.gallery_home{
+    height: 240px;
+    width: 220px;
+    border: 0px;
+}
 /****** FOOTER ******/
 .height-300 {
     height: 300px;
