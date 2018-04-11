@@ -188,3 +188,61 @@ p.footer-kustoms{
     margin-left: 15px;
     margin-right: 15px;
 }
+
+/****** Home - activities ******/
+
+.activities .thumbnail {
+    border: none;
+    padding: 0;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+.activity-name, .activity-description, .activity-overlay {
+    position: absolute;
+    padding: 0 15px;
+    width: 100%;
+    font-weight: bold;
+}
+
+.activity-description {
+    opacity: 0;
+    top: 100%;
+    transition: top 0.4s ease, opacity 0.4s ease;
+}
+
+.activity-name {
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5em;
+    transition: top 0.4s ease, transform 0.2s ease;
+}
+
+.activity-overlay {
+    background-color: #A72222;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    opacity: 0.3;
+    transition: opacity 0.4s ease;
+}
+
+.activity:hover {
+    color: #FFFFFF;
+    border: none;
+}
+
+.activity:hover .activity-name {
+    top: 30%;
+    transform: rotateZ(-3deg);
+}
+
+.activity:hover .activity-description {
+    top: 50%;
+    opacity: 1;
+}
+
+.activity:hover .activity-overlay {
+    opacity: 0.7;
+}

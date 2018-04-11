@@ -3,5 +3,19 @@
 {% block title %}{{ parent() }} - Accueil{% endblock %}
 
 {% block content %}
-    <h1>Bienvenue sur la page d'accueil.</h1>
+    <div class="container">
+        <h2 class="text-center">Nos activit<span class="e-cute">é</span>s</h2>
+        <div class="row activities">
+            {% for activity in activities %}
+                <div class="col-xs-6 col-md-3 ">
+                    <a href="{{ activity.link }}" class="thumbnail activity">
+                        <img src="/assets/images/activities-home/{{ activity.image }}" alt="...">
+                        <div class="activity-overlay"></div>
+                        <h3 class="activity-name">{{ activity.name }}</h3>
+                        <p class="activity-description">{{ activity.description }}</p>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
