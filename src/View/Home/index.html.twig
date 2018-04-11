@@ -1,6 +1,11 @@
 {% extends 'layout.html.twig' %}
 
 {% block title %}{{ parent() }} - Accueil{% endblock %}
+{% block stylesheet %}
+    {{ parent() }}
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.gallery.min.css" type="text/css" rel="stylesheet" />
+{% endblock %}
 
 {% block content %}
     <div class="container">
@@ -59,4 +64,11 @@
                 </a>
           </div>
     </div> 
+{% endblock %}
+{% block javascript %}
+        {{ parent() }}
+        <!-- LightBox -->
+        <script src="//cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="//cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.gallery.min.js" type="text/javascript" charset="utf-8"></script>
+        <script type="application/javascript" src="/assets/js/lightboxgallery.js"> </script>
 {% endblock %}
