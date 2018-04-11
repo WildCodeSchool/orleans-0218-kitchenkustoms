@@ -65,6 +65,10 @@ a:focus {
 /******* FIN GENERAL *******/
 
 /******* COLORS ********/
+.black {
+    color: #000;
+}
+
 .white {
     color: #FFF;
 }
