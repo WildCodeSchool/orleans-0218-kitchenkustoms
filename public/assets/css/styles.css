@@ -61,6 +61,7 @@ a:focus {
     flex-direction: column;
     justify-content: center;
 }
+
 /******* FIN GENERAL *******/
 
 /******* COLORS ********/
@@ -77,11 +78,11 @@ a:focus {
 }
 
 .blue_FB {
-    color:#3b5998;
+    color: #3b5998;
 }
 
 .red_INSTA {
-    color:#d62976;
+    color: #d62976;
 }
 
 .blue_TWIT {
@@ -95,6 +96,7 @@ a:focus {
 nav a {
     font-size: 1.6em;
 }
+
 .navbar {
     border-radius: 0;
 }
@@ -159,38 +161,10 @@ button.navbar-toggle > span {
     height: 80px;
     padding-top: 14px;
 }
+
 /******  FIN NAVBAR  ******/
 
-/****** FOOTER ******/
-.height-300 {
-    height: 300px;
-}
-
-.footer-kustoms {
-    background-color: #A72222;
-}
-
-p.footer-kustoms{
-    text-align: center;
-    color: white;
-    font-family: roboto, sans-serif;
-}
-
-/****** Google Map ******/
-
-.map-container {
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-/****** footer social links ******/
-.mx-middle {
-    margin-left: 15px;
-    margin-right: 15px;
-}
-
 /****** Home - activities ******/
-
 .activities .thumbnail {
     border: none;
     padding: 0;
@@ -246,3 +220,32 @@ p.footer-kustoms{
 .activity:hover .activity-overlay {
     opacity: 0.7;
 }
+
+/****** FOOTER ******/
+.height-300 {
+    height: 300px;
+}
+
+.footer-kustoms {
+    background-color: #A72222;
+}
+
+p.footer-kustoms {
+    text-align: center;
+    color: white;
+    font-family: roboto, sans-serif;
+}
+
+/****** Google Map ******/
+
+.map-container {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/****** footer social links ******/
+.mx-middle {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
