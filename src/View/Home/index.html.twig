@@ -9,20 +9,11 @@
             </div>
             <div class="col-md-6 ">
                 <h2 class="sr-only">Gallerie</h2>
-                <div class="row gallery_container">
-                {% for i in 0..2 %}
-                        <div class="col-md-4">
+                <div class="row ">
+                {% for i in 0..5 %}
+                        <div class="col-md-4 col-xs-6 gallery_container">
                             <a href="assets/images/galleryhome/home{{ i+1 }}.jpg" class="gallery_home gallery ">
                                 <img class="img-responsive gallery_image center-block " height="240px" src="assets/images/galleryhome/Thumb/thumb{{ i+1 }}.jpg" alt="placeholder">
-                            </a>
-                        </div>
-                {% endfor %}
-                </div>
-                <div class="row gallery_container">
-                {% for i in 3..5 %}
-                        <div class="col-md-4">
-                            <a href="assets/images/galleryhome/home{{ i+1 }}.jpg" class="gallery_home gallery">
-                                <img class="img-responsive gallery_image center-block" src="assets/images/galleryhome/Thumb/thumb{{ i+1 }}.jpg" alt="placeholder">
                             </a>
                         </div>
                 {% endfor %}

@@ -163,8 +163,8 @@ button.navbar-toggle > span {
 
 /******  galleryhome  ******/
 .gallery_container{
-    padding-top: 10px;
-    padding-bottom: 10px ;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .gallery_image{
