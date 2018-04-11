@@ -1,23 +1,22 @@
 <?php
 
-namespace Controller\Admin;
+namespace Controller;
 
 use Controller\AbstractController;
 use Model\BikeManager;
 
 /**
- * Class AdminController
+ * Class BikeController
  *
  */
-class AdminController extends AbstractController
+class BikeController extends AbstractController
 {
-    public function index()
-    {
-            return $this->twig->render('Admin/index.html.twig', [
-
-            ]);
-    }
-
+    /**
+     * @return string
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
     public function bike()
     {
         $bikeManager = new BikeManager();

@@ -17,8 +17,10 @@ $routes = [
         ['kustoms', '/kustoms', 'GET'],
         ['shop', '/boutique', 'GET'],
     ],
-    'Admin\Admin' => [
-        ['index', '/admin/', 'GET'],
-        ['bike', '/admin/bike/', 'GET'],
+    'Admin' => [
+        ['index', '/admin', 'GET'],
+    ],
+    'Bike' => [
+        ['bike', '/admin/bike', 'GET'],
     ],
 ];
