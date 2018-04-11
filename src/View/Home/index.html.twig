@@ -3,26 +3,26 @@
 {% block title %}{{ parent() }} - Accueil{% endblock %}
 
 {% block content %}
-    <div class="container-fluid">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
             </div>
             <div class="col-md-6 ">
-                <h2>Gallerie</h2>
-                <div class="row">
+                <h2 class="sr-only">Gallerie</h2>
+                <div class="row gallery_container">
                 {% for i in 0..2 %}
                         <div class="col-md-4">
-                            <a href="assets/images/GalleryHome/home{{ i+1 }}.jpg" class="home_gallery gallery img-thumbnail">
-                                <img class="img-responsive center-block" src="assets/images/GalleryHome/home{{ i+1 }}.jpg" alt="placeholder">
+                            <a href="assets/images/GalleryHome/Thumb/thumb{{ i+1 }}.jpg" class="gallery_home gallery ">
+                                <img class="img-responsive gallery_image center-block" src="assets/images/GalleryHome/home{{ i+1 }}.jpg" alt="placeholder">
                             </a>
                         </div>
                 {% endfor %}
                 </div>
-                <div class="row">
+                <div class="row gallery_container">
                 {% for i in 3..5 %}
                         <div class="col-md-4">
-                            <a href="assets/images/GalleryHome/home{{ i+1 }}.jpg" class="home_gallery gallery img-thumbnail">
-                                <img class="img-responsive center-block" src="assets/images/GalleryHome/home{{ i+1 }}.jpg" alt="placeholder">
+                            <a href="assets/images/GalleryHome/Thumb/thumb{{ i+1 }}.jpg" class="gallery_home gallery">
+                                <img class="img-responsive gallery_image center-block" src="assets/images/GalleryHome/home{{ i+1 }}.jpg" alt="placeholder">
                             </a>
                         </div>
                 {% endfor %}
