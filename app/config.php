@@ -22,5 +22,3 @@ define('APP_CONTROLLER_NAMESPACE', '\Controller\\');
 define('APP_CONTROLLER_SUFFIX', 'Controller');
 
 define('API_GOOGLE', 'AIzaSyBZW5ZlHHF8jXDsR8Svl5g1USFKdYiGVAg');
-
-    
