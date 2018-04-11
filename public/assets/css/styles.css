@@ -75,7 +75,7 @@ a:focus {
 }
 
 /*TODO burger*/
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 767px) {
     /* navabar active links backgroundx */
     .button-bg > a {
         padding-top: 4px;
