@@ -10,5 +10,11 @@ namespace Model;
 
 class BikeManager extends AbstractManager
 {
+    const TABLE = 'bike';
+
+    public function __construct()
+    {
+        parent::__construct(self::TABLE);
+    }
 
 }

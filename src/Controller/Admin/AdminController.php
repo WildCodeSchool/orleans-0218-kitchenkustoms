@@ -20,7 +20,7 @@ class AdminController extends AbstractController
 
     public function bike()
     {
-        $bikeManager = new BikeManager('bike');
+        $bikeManager = new BikeManager();
         $bikes = $bikeManager->selectAll();
 
         return $this->twig->render('Admin/bike.html.twig', [
