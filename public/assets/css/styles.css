@@ -220,7 +220,13 @@ button.navbar-toggle > span {
 .activity:hover .activity-overlay {
     opacity: 0.7;
 }
-
+/******  textpresentation ******/
+.text_presentation{
+    opacity: 0.8;
+    margin-top: 10px;
+    font-size: 1.3em;
+    font-family: roboto, sans-serif;
+}
 /******  galleryhome  ******/
 .gallery_container{
     margin-top: 10px;
