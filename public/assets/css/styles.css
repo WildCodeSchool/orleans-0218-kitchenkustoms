@@ -60,7 +60,7 @@ a:focus {
     font-family: albertsthal;
 }
 
-@media screen and (min-width: 796px) {
+@media screen and (min-width: 767px) {
     nav {
         height: 150px;
     }
