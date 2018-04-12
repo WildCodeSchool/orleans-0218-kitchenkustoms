@@ -3,66 +3,91 @@
 {% block title %}{{ parent() }} - Accueil{% endblock %}
 
 {% block content %}
-    <div class="container">
-            <div class="row justify-content-center">
-            <div class="col-md-6">
-                <h2 class="text-center">Pr<span class="e-cute">é</span>sentation</h2>
-                <p class="text_presentation">Pas le temps d'entretenir votre vélo ? Envie d'un café ? Au Kitchen Kustoms vous pouvez
-                    faire les deux !
-                    Ramenez votre vélo on s'occupe de tout et pendant ce temps profitez de nos services de
-                    bar et de restauration dans une ambiance unique !
-                    Le tout en plein centre ville d'Orléans ! </p>
-            </div>
-            <div class="col-md-6 ">
-                <h2 class="sr-only">Galerie</h2>
-                <div class="row ">
-                {% for i in 0..5 %}
-                        <div class="col-md-4 col-xs-6 gallery_container">
-                            <a href="assets/images/galleryhome/home{{ i+1 }}.jpg" class="gallery_home gallery ">
-                                <img class="img-responsive gallery_image center-block " src="assets/images/galleryhome/Thumb/thumb{{ i+1 }}.jpg" alt="placeholder">
-                            </a>
-                        </div>
-                {% endfor %}
+    <section class="section">
+        <div class="container">
+            <h1>
+                <span>Vélo café</span>
+                <br>
+                KITCHEN KUSTOMS
+            </h1>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="row justify-content-center row-home">
+                <div class="col-md-6">
+                    <h2 class="text-center sr-only">Pr<span class="e-cute">é</span>sentation</h2>
+                    <p class="text-presentation">Pas le temps d'entretenir votre vélo&nbsp;? Envie d'un café&nbsp;? Au
+                        Kitchen
+                        Kustoms vous pouvez
+                        faire les deux&nbsp;!
+                        Ramenez votre vélo on s'occupe de tout et pendant ce temps profitez de nos services de
+                        bar et de restauration dans une ambiance unique&nbsp;!
+                        Le tout en plein centre ville d'Orléans&nbsp;! </p>
+                    <p class="text-presentation hidden-xs hidden-sm">
+                        <img class="home-fork-logo center-block img-responsive "
+                             src="/assets/images/logo_fork_wrench.png" alt="">
+                    </p>
+                    <p class="text-presentation">Kitchen Kustoms vous accueille tous les jours (sauf le mardi) de 10 à
+                        20h y compris le dimanche au 36 ter rue Etienne Dolet.</p>
+                </div>
+                <div class="col-md-6 ">
+                    <h2 class="sr-only">Galerie</h2>
+                    <div class="row ">
+                        {% for i in 0..5 %}
+                            <div class="col-md-4 col-xs-6 gallery_container">
+                                <a href="assets/images/galleryhome/home{{ i+1 }}.jpg" class="gallery_home gallery ">
+                                    <img class="img-responsive gallery_image "
+                                         src="assets/images/galleryhome/Thumb/thumb{{ i+1 }}.jpg" alt="placeholder">
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
-    
-        <h2 class="text-center">Nos activit<span class="e-cute">é</span>s</h2>
-        
-        <div class="row activities">
-            <div class="col-xs-6 col-md-3 ">
-                <a href="/restauration" class="thumbnail activity">
-                    <img src="/assets/images/activities-home/cafe.jpg" alt="Café">
-                    <div class="activity-overlay"></div>
-                    <h3 class="activity-name">Le Bar</h3>
-                    <p class="activity-description">Grignoter, boire un bon café, un bon thé, une bière artisanale, du
-                        vin naturel...</p>
-                </a>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="text-center">Nos activit<span class="e-cute">é</span>s</h2>
+            <div class="row activities">
+                <div class="col-xs-6 col-md-3 ">
+                    <a href="/restauration" class="thumbnail activity">
+                        <img src="/assets/images/activities-home/cafe.jpg" alt="Café">
+                        <div class="activity-overlay"></div>
+                        <h3 class="activity-name">Le Bar</h3>
+                        <p class="activity-description">Grignoter, boire un bon café, un bon thé, une bière artisanale,
+                            du
+                            vin naturel...</p>
+                    </a>
+                </div>
+                <div class="col-xs-6 col-md-3 ">
+                    <a href="/atelier" class="thumbnail activity">
+                        <img src="/assets/images/activities-home/atelier.jpg" alt="Atelier">
+                        <div class="activity-overlay"></div>
+                        <h3 class="activity-name">L&#039;Atelier</h3>
+                        <p class="activity-description">Faire réparer son vélo.</p>
+                    </a>
+                </div>
+                <div class="col-xs-6 col-md-3 ">
+                    <a href="/kustoms" class="thumbnail activity">
+                        <img src="/assets/images/activities-home/kustoms.jpg" alt="Kustoms">
+                        <div class="activity-overlay"></div>
+                        <h3 class="activity-name">Les Kustoms</h3>
+                        <p class="activity-description">Faire enjoliver son vélo pour une touche vintage.</p>
+                    </a>
+                </div>
+                <div class="col-xs-6 col-md-3 ">
+                    <a href="/boutique" class="thumbnail activity">
+                        <img src="/assets/images/activities-home/boutique.jpg" alt="Boutique">
+                        <div class="activity-overlay"></div>
+                        <h3 class="activity-name">La Boutique</h3>
+                        <p class="activity-description">Acheter un vélo unique à partir de chinage et d&#039;un
+                            incroyable
+                            savoir-faire !</p>
+                    </a>
+                </div>
             </div>
-            <div class="col-xs-6 col-md-3 ">
-                <a href="/atelier" class="thumbnail activity">
-                    <img src="/assets/images/activities-home/atelier.jpg" alt="Atelier">
-                    <div class="activity-overlay"></div>
-                    <h3 class="activity-name">L&#039;Atelier</h3>
-                    <p class="activity-description">Faire réparer son vélo.</p>
-                </a>
-            </div>
-            <div class="col-xs-6 col-md-3 ">
-                <a href="/kustoms" class="thumbnail activity">
-                    <img src="/assets/images/activities-home/kustoms.jpg" alt="Kustoms">
-                    <div class="activity-overlay"></div>
-                    <h3 class="activity-name">Les Kustoms</h3>
-                    <p class="activity-description">Faire enjoliver son vélo pour une touche vintage.</p>
-                </a>
-            </div>
-            <div class="col-xs-6 col-md-3 ">
-                <a href="/boutique" class="thumbnail activity">
-                    <img src="/assets/images/activities-home/boutique.jpg" alt="Boutique">
-                    <div class="activity-overlay"></div>
-                    <h3 class="activity-name">La Boutique</h3>
-                    <p class="activity-description">Acheter un vélo unique à partir de chinage et d&#039;un incroyable
-                        savoir-faire !</p>
-                </a>
-          </div>
-    </div> 
+    </section>
 {% endblock %}
