@@ -15,7 +15,7 @@
 a {
     color: white;
     font-weight: bold;
-    font-size: 1.6em;
+    font-size: 1.4em;
 }
 
 a:hover {
@@ -35,6 +35,10 @@ a:focus {
     padding-top: 5px;
 }
 
+.navbar-collapse {
+    border: 0px;
+}
+
 /******* COLORS ********/
 
 .bg-red {
@@ -46,120 +50,164 @@ a:focus {
 /******  NAVBAR  ******/
 
 .navbar {
-    border-radius: 0;
-}
-
-.navbar-kustoms {
-    color: black;
     background-color: #A72222;
     font-family: linowrite;
     letter-spacing: 5px;
+    border-radius: 0;
+    border: 0;
+    height: 200px;
 }
 
-.navbar-kustoms span {
+.navbar span {
     font-family: albertsthal;
 }
 
-@media screen and (min-width: 767px) {
-    nav {
-        height: 150px;
-    }
-
-    nav div {
-        height: 100%;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+.navbar-toggle {
+    background-color: black;
 }
-
 /********************
-MEDIA QUERY NAVBAR LINKS BACKGROUND
+MEDIA QUERY NAVBAR LINKS
 *********************/
 
-@media screen and (min-width: 767px) {
-    /* navabar active links backgroundx */
+@media screen and (min-width: 992px) {
+    /* navabar general links background */
+
+    .navbar > .container-fluid {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
     .button-bg > a {
-        padding-top: 4px;
-        color: white;
+        color: black;
+        display: block;
+        padding-top: 8px;
+        min-width: 125px;
     }
 
+    .button-bg-side:hover {
+        transform: rotate(-1.2deg) scale(1.05);
+    }
+
+    .navbar-brand-centered {
+        position: absolute;
+        left: 50%;
+        display: block;
+        width: 260px;
+        top: -50px;
+        text-align: center;
+        background-color: #A72222;
+    }
+
+    .navbar>.container .navbar-brand-centered,
+    .navbar>.container-fluid .navbar-brand-centered {
+        margin-left: -130px;
+    }
+    /* navabar active links background */
     .button-bg > a:hover {
+        display: block;
         color: #A72222;
         text-decoration: none;
-        transform: rotate(-1deg);
+        transform: rotate(1.2deg) scale(1.05);
     }
 
-    /*TODO fixing rotate*/
     .button-bg-side.active > .button-bg {
-        padding: 4px;
-        color: black;
-        background: url("../images/white_bg.png") repeat-x;
-        background-size: auto 40px;
-        height: 40px;
-        width: auto;
-    }
-
-    .button-bg-side.active > .button-bg a {
-        color: black;
-    }
-
-    .button-bg-side.active::before {
-        content: " ";
-        color: black;
-        background: url("../images/white_side.png") repeat-x;
-        transform: rotate(180deg);
-        background-size: auto 40px;
-        height: 40px;
-        width: auto;
-    }
-
-    .button-bg-side.active::after {
-        content: " ";
-        color: black;
-        background: url("../images/white_side.png") repeat-x;
-        background-size: auto 40px;
-        height: 40px;
-        width: auto;
-    }
-
-    /* navabar links background */
-    .button-bg {
-        min-width: 150px;
+        color: white;
         background: url("../images/black_bg.png") repeat-x;
         background-size: auto 40px;
         height: 40px;
         width: auto;
     }
 
+    .button-bg-side.active > .button-bg a {
+        color: white;
+    }
+
+    .button-bg-side.active::before {
+        display: block;
+        position: relative;
+        content: " ";
+        background: url("../images/black_side.png") no-repeat;
+        transform: rotate(180deg);
+        background-size: auto 40px;
+        padding-bottom: 0px;
+        padding-top: 0px;
+        height: 40px;
+        width: auto;
+        left: 1px;
+    }
+
+    .button-bg-side.active::after {
+        position: relative;
+        content: " ";
+        background: url("../images/black_side.png") no-repeat;
+        background-size: auto 40px;
+        height: 40px;
+        padding-bottom: 0px;
+        padding-top: 0px;
+        width: auto;
+        right: 1px;
+    }
+
+    /* navabar links background */
+    .button-bg {
+        background: url("../images/white_bg.png");
+        background-size: auto 40px;
+        height: 40px;
+        width: auto;
+        display: block;
+        min-width: 150px;
+    }
+
     .button-bg-side {
         text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 62px;
+        margin-left: auto;
+        margin-right: 25px;
+    }
+
+    .button-bg-side.navbar-right {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 62px;
+        margin-left: 25px;
+        margin-right: auto;
+
     }
 
     .button-bg-side::before {
+        position: relative;
         content: " ";
-        background: url("../images/black_side.png") no-repeat;
+        background: url("../images/white_side.png") no-repeat;
         transform: rotate(180deg);
         background-size: auto 40px;
         height: 40px;
         width: auto;
         padding-left: 16px;
-        background-position-x: -1px;
+        left: 1px;
+        padding-bottom: 0px;
+        padding-top: 0px;
     }
 
     .button-bg-side::after {
+        position: relative;
         content: " ";
-        background: url("../images/black_side.png") no-repeat;
+        background: url("../images/white_side.png") no-repeat;
         background-size: auto 40px;
         height: 40px;
         width: auto;
         padding-left: 16px;
+        right: 1px;
+        padding-bottom: 0px;
+        padding-top: 0px;
     }
 }
 
 /********************
-END MEDIA QUERY NAVBAR LINKS BACKGROUND
+END MEDIA QUERY NAVBAR LINKS
 *********************/
 
 a.navbar-brand {
@@ -168,7 +216,7 @@ a.navbar-brand {
     height: 100%;
 }
 
-a.navbar-brand > img {
+a.navbar-brand-centered > img {
     margin: auto;
 }
 
@@ -198,14 +246,12 @@ button.navbar-toggle > span {
 /******  FIN NAVBAR  ******/
 
 /****** FOOTER ******/
-.footer-kustoms
-{
+.footer-kustoms {
     background-color: #A72222;
 }
-p
-{
+
+p {
     text-align: center;
     color: white;
     font-family: roboto;
-
 }
