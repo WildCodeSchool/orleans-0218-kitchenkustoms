@@ -61,6 +61,24 @@ a:focus {
     flex-direction: column;
     justify-content: center;
 }
+/******* .section  *******/
+.section {
+    padding-top: 25px;
+    margin-bottom: 25px;
+}
+
+.section h1 {
+    font-family: albertsthal, sans-serif;
+    text-align: center;
+}
+
+.section h1 > span {
+    color: #A72222;
+}
+
+.section h2 {
+    margin: 20px 0;
+}
 
 /******* FIN GENERAL *******/
 
@@ -172,6 +190,7 @@ button.navbar-toggle > span {
 .activities .thumbnail {
     border: none;
     padding: 0;
+    border-radius: 0;
     position: relative;
     text-align: center;
     overflow: hidden;
@@ -225,11 +244,22 @@ button.navbar-toggle > span {
     opacity: 0.7;
 }
 /******  textpresentation ******/
-.text_presentation{
-    opacity: 0.8;
-    margin-top: 10px;
-    font-size: 1.3em;
+
+.text-presentation {
+    font-size: 1.2em;
     font-family: roboto, sans-serif;
+    padding: 10px;
+    line-height: 1.6em;
+}
+
+.text-presentation:first-letter {
+    font-family: albertsthal, sans-serif;
+    font-size: 1.5em;
+    vertical-align: 0;
+}
+
+.home-fork-logo {
+    max-width: 50px;
 }
 /******  galleryhome  ******/
 .gallery_container{
@@ -237,15 +267,22 @@ button.navbar-toggle > span {
     margin-bottom: 10px;
 }
 
-.gallery_image{
-    box-shadow: 5px 5px 5px grey;
-}
-
 .gallery_home{
     height: 240px;
     width: 220px;
-    border: 0px;
+    border: 0;
 }
+
+.gallery_home img {
+    transition: transform 0.1s ease;
+    transform: scale(1);
+
+}
+
+.gallery_home:hover img{
+   transform: scale(1.02);
+}
+
 /****** FOOTER ******/
 .height-300 {
     height: 300px;
