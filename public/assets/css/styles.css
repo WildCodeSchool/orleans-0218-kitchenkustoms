@@ -65,6 +65,10 @@ a:focus {
 /******* FIN GENERAL *******/
 
 /******* COLORS ********/
+.black {
+    color: #000;
+}
+
 .white {
     color: #FFF;
 }
@@ -245,6 +249,19 @@ button.navbar-toggle > span {
 /****** FOOTER ******/
 .height-300 {
     height: 300px;
+}
+
+.width-300 {
+    width: 300px;
+}
+
+.flex-end {
+    display: flex;
+    justify-content: flex-end;
+}
+.flex-center {
+    display: flex;
+    justify-content: center;
 }
 
 .footer-kustoms {
