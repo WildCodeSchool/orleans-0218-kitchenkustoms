@@ -65,18 +65,35 @@ a:focus {
 .navbar-toggle {
     background-color: black;
 }
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+    .navbar-collapse.collapse {
+        display: none;
+    }
+    .navbar-collapse.collapse.in {
+        display: none;
+    }
+    .navbar-header .collapse, .navbar-toggle {
+        display: block;
+    }
+    .navbar-header {
+        float:none;
+    }
+}
 /********************
 MEDIA QUERY NAVBAR LINKS
 *********************/
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 991px) {
     /* navabar general links background */
 
     .navbar > .container-fluid {
-        margin-left: 50px;
-        margin-right: 50px;
+        margin-left: 0px;
+        margin-right: 0px;
     }
     .button-bg > a {
+        text-align: center;
         color: black;
         display: block;
         padding-top: 8px;
