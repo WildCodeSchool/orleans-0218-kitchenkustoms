@@ -66,21 +66,33 @@ a:focus {
     background-color: black;
 }
 
+/* burger trigger overiding */
 @media (min-width: 768px) and (max-width: 991px) {
-
     .navbar-collapse.collapse {
-        display: none;
+        display: none !important;
+        width: 100%;
     }
     .navbar-collapse.collapse.in {
-        display: none;
+        display: block !important;
+    }
+
+    .navbar-collapse.collapse.in > .button-bg-side {
+        display: block !important;
+        width: 100%;
+    }
+    .navbar-collapse.collapsing > .button-bg-side {
+        display: block !important;
+        width: 100%;
     }
     .navbar-header .collapse, .navbar-toggle {
-        display: block;
+        display:block !important;
     }
     .navbar-header {
         float:none;
     }
 }
+/* end burger trigger overiding */
+
 /********************
 MEDIA QUERY NAVBAR LINKS
 *********************/
