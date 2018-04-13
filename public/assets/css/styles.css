@@ -15,7 +15,6 @@
 a {
     color: white;
     font-weight: bold;
-    font-size: 1.4em;
 }
 
 a:hover {
@@ -57,7 +56,9 @@ a:focus {
     border: 0;
     text-align: center;
 }
-
+.navbar a{
+    font-size: 1.4em;
+}
 .navbar-center > .navbar-item > a:hover,
 .navbar-center > .navbar-item > a:active,
 .navbar-center > .navbar-item > a:focus {
