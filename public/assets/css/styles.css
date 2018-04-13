@@ -12,6 +12,20 @@
 
 /******* FIN FONTS *******/
 
+/******* GENERAL *******/
+
+h1, h2, h3, .h1, .h2, .h3 {
+    font-family: linowrite, sans-serif;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+}
+
+.e-cute {
+    font-family: albertsthal, sans-serif;
+}
+
 a {
     color: white;
     font-weight: bold;
@@ -34,19 +48,79 @@ a:focus {
     padding-top: 5px;
 }
 
-.navbar-collapse {
-    border: 0px;
+
+
+.pt-10 {
+    padding-top: 10px;
 }
 
+.pb-10 {
+    padding-bottom: 10px;
+}
+
+.vertical-align {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+/******* .section  *******/
+.section {
+    padding-top: 25px;
+    margin-bottom: 25px;
+}
+
+.section h1 {
+    font-family: albertsthal, sans-serif;
+    text-align: center;
+}
+
+.section h1 > span {
+    color: #A72222;
+}
+
+.section h2 {
+    margin: 20px 0;
+}
+
+/******* FIN GENERAL *******/
+
+
 /******* COLORS ********/
+.black {
+    color: #000;
+}
+
+.white {
+    color: #FFF;
+}
 
 .bg-red {
     background-color: #A72222;
 }
 
+.white {
+    color: white;
+}
+
+.blue_FB {
+    color: #3b5998;
+}
+
+.red_INSTA {
+    color: #d62976;
+}
+
+.blue_TWIT {
+    color: #1dcaff;
+}
+
 /******* FIN COLORS ********/
 
 /******  NAVBAR  ******/
+
+nav a {
+    font-size: 1.6em;
+}
 
 .navbar {
     background-color: #A72222;
@@ -213,13 +287,142 @@ MEDIA QUERY NAVBAR LINKS
 
 /******  FIN NAVBAR  ******/
 
+/****** Home - activities ******/
+.activities .thumbnail {
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+.activity-name, .activity-description, .activity-overlay {
+    position: absolute;
+    padding: 0 15px;
+    width: 100%;
+    font-weight: bold;
+}
+
+.activity-description {
+    opacity: 0;
+    top: 100%;
+    transition: top 0.4s ease, opacity 0.4s ease;
+}
+
+.activity-name {
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5em;
+    transition: top 0.4s ease, transform 0.2s ease;
+}
+
+.activity-overlay {
+    background-color: #A72222;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    opacity: 0.3;
+    transition: opacity 0.4s ease;
+}
+
+.activity:hover {
+    color: #FFFFFF;
+    border: none;
+}
+
+.activity:hover .activity-name {
+    top: 30%;
+    transform: rotateZ(-3deg);
+}
+
+.activity:hover .activity-description {
+    top: 50%;
+    opacity: 1;
+}
+
+.activity:hover .activity-overlay {
+    opacity: 0.7;
+}
+/******  textpresentation ******/
+
+.text-presentation {
+    font-size: 1.2em;
+    font-family: roboto, sans-serif;
+    padding: 10px;
+    line-height: 1.6em;
+}
+
+.text-presentation:first-letter {
+    font-family: albertsthal, sans-serif;
+    font-size: 1.5em;
+    vertical-align: 0;
+}
+
+.home-fork-logo {
+    max-width: 50px;
+}
+/******  galleryhome  ******/
+.gallery_container{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.gallery_home{
+    height: 240px;
+    width: 220px;
+    border: 0;
+}
+
+.gallery_home img {
+    transition: transform 0.1s ease;
+    transform: scale(1);
+
+}
+
+.gallery_home:hover img{
+   transform: scale(1.02);
+}
+
 /****** FOOTER ******/
+
+.height-300 {
+    height: 300px;
+}
+
+.width-300 {
+    width: 300px;
+}
+
+.flex-end {
+    display: flex;
+    justify-content: flex-end;
+}
+.flex-center {
+    display: flex;
+    justify-content: center;
+}
+
 .footer-kustoms {
     background-color: #A72222;
 }
 
-p {
+p.footer-kustoms {
     text-align: center;
     color: white;
-    font-family: roboto;
+    font-family: roboto, sans-serif;
 }
+
+/****** Google Map ******/
+
+.map-container {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/****** footer social links ******/
+.mx-middle {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
