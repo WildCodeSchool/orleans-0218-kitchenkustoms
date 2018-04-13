@@ -153,10 +153,12 @@ MEDIA QUERY NAVBAR LINKS
     }
 
     /*Links hover*/
-    .navbar-item:hover {
+    .navbar-item:not(.navbar-logo):hover {
         transform: rotate(-1.2deg) scale(1.05);
     }
-
+    .navbar-item.navbar-logo:hover {
+        transform: scale(1.05);
+    }
     .navbar-link > span:hover {
         transform: rotate(1.2deg) scale(1.05);
         color: #A72222;
