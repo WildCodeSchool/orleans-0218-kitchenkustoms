@@ -48,6 +48,8 @@ a:focus {
     padding-top: 5px;
 }
 
+
+
 .pt-10 {
     padding-top: 10px;
 }
@@ -81,6 +83,7 @@ a:focus {
 }
 
 /******* FIN GENERAL *******/
+
 
 /******* COLORS ********/
 .black {
@@ -120,69 +123,167 @@ nav a {
 }
 
 .navbar {
-    border-radius: 0;
-}
-
-.navbar-kustoms {
-    color: black;
     background-color: #A72222;
     font-family: linowrite, sans-serif;
     letter-spacing: 5px;
+    border-radius: 0;
+    border: 0;
+    text-align: center;
+}
+.navbar a{
+    font-size: 1.4em;
+}
+.navbar-center > .navbar-item > a:hover,
+.navbar-center > .navbar-item > a:active,
+.navbar-center > .navbar-item > a:focus {
+    background-color: unset;
+    color: #000000;
 }
 
-.navbar-kustoms span {
-    font-family: albertsthal, sans-serif;
+.navbar .navbar-collapse {
+    box-shadow: none;
 }
 
-@media screen and (min-width: 767px) {
-    nav {
-        height: 150px;
+.navbar-header {
+    min-height: 110px;
+}
+
+.navbar-toggle {
+    border-color: black;
+    margin-top: 38px;
+    margin-right: 38px;
+    border-radius: 0;
+}
+
+.navbar-toggle .icon-bar {
+    background-color: black;
+    border-radius: 0;
+    height: 3px;
+}
+
+
+/********************
+MEDIA QUERY NAVBAR LINKS
+*********************/
+
+@media screen and (min-width: 768px) {
+
+    .navbar > .container-fluid {
+        padding: 0;
+        overflow: hidden;
     }
 
-    nav div {
-        height: 100%;
-        width: 100%;
+    .navbar-center {
         display: flex;
-        justify-content: center;
+        width: 100%;
         align-items: center;
     }
+
+    .navbar-item {
+        flex: 1 1 auto;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .navbar-center .navbar-logo > a {
+        background-color: unset !important;
+        padding: 0;
+    }
+
+    .navbar-logo img {
+        max-height: 160px;
+        margin: 15px -15px;
+    }
+
+    /*Navbar link background*/
+    .navbar-center .navbar-link {
+        background: url("../images/white_bg.png") repeat-x center center;
+        background-size: auto 40px;
+        display: inline-flex;
+        position: relative;
+        color: #000000;
+        padding-top: 19px;
+    }
+
+    .navbar-link:before, .navbar-link:after {
+        background-size: auto 40px;
+        background-repeat: no-repeat;
+        background-position: 0 center;
+        background-image: url("../images/white_side.png");
+        content: "";
+        width: 50px;
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+    }
+
+    .navbar-item > a:after {
+        left: 99%;
+    }
+
+    .navbar-item > a:before {
+        right: 99%;
+        transform: scaleX(-1);
+    }
+
+    /*Links hover*/
+    .navbar-item:not(.navbar-logo):hover {
+        transform: rotate(-1.2deg) scale(1.05);
+    }
+    .navbar-item.navbar-logo:hover {
+        transform: scale(1.05);
+    }
+    .navbar-link > span:hover {
+        transform: rotate(1.2deg) scale(1.05);
+        color: #A72222;
+    }
+
+    /*Active items*/
+    .navbar-item.active > .navbar-link {
+        color: #ffffff;
+        background-image: url("../images/black_bg.png");
+    }
+    .navbar-item.active > .navbar-link:hover ,
+    .navbar-item.active > .navbar-link:focus ,
+    .navbar-item.active > .navbar-link:active {
+        color: #ffffff;
+    }
+
+    .navbar-item.active > a:after {
+        background-image: url("../images/black_side.png");
+    }
+
+    .navbar-item.active > a:before {
+        background-image: url("../images/black_side.png");
+    }
+
+    .navbar-item.active span:hover {
+        color: #ffffff;
+    }
+
+}
+/**On tablets (sm size)**/
+@media (min-width: 768px) and (max-width: 991px) {
+    .navbar {
+        letter-spacing: 4px;
+    }
+
+    .navbar > .container-fluid {
+        overflow: hidden;
+    }
+
+    .navbar .navbar-collapse {
+        padding: 0;
+    }
+
+    .navbar-center > li > a {
+        padding-right: 5px;
+        padding-left: 5px;
+        font-size: 1.3em;
+    }
 }
 
-.active a {
-    color: black;
-}
-
-a.navbar-brand {
-    padding: 0;
-    width: 100%;
-    height: 100%;
-}
-
-a.navbar-brand > img {
-    margin: auto;
-}
-
-.navbar-brand {
-    display: flex;
-    justify-content: center;
-}
-
-button.navbar-toggle {
-    border: 2px solid black;
-}
-
-button.navbar-toggle:hover {
-    background-color: #eee;
-}
-
-button.navbar-toggle > span {
-    background-color: black;
-}
-
-.button-center {
-    height: 80px;
-    padding-top: 14px;
-}
 
 /******  FIN NAVBAR  ******/
 
@@ -284,6 +385,7 @@ button.navbar-toggle > span {
 }
 
 /****** FOOTER ******/
+
 .height-300 {
     height: 300px;
 }
