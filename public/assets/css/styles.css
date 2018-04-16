@@ -129,7 +129,9 @@ nav a {
     border-radius: 0;
     border: 0;
     text-align: center;
+    margin-bottom: 0;
 }
+
 .navbar a{
     font-size: 1.4em;
 }
@@ -165,12 +167,34 @@ nav a {
 /********************
 MEDIA QUERY NAVBAR LINKS
 *********************/
-
 @media screen and (min-width: 768px) {
 
+    .bg-image {
+        background-image: url("../images/background_remaster3.png");
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size:100% auto;
+        background-position: center;
+        background-position-y: -13vw;
+        background-position-x: 50%;
+    }
+
+    /* color rows */
+    .bg-black {
+        background-color: #A72222;
+        height: 0.8vw;
+    }
+
+    .bg-white {
+        background-color: white;
+        height: 0.25vw;
+    }
+
+    /* DESKTOP navbar */
     .navbar > .container-fluid {
         padding: 0;
-        overflow: hidden;
+        overflow: visible;
+        height: 19vw;
     }
 
     .navbar-center {
@@ -183,6 +207,7 @@ MEDIA QUERY NAVBAR LINKS
         flex: 1 1 auto;
         padding-left: 10px;
         padding-right: 10px;
+        top: 7vw;
     }
 
     .navbar-center .navbar-logo > a {
@@ -191,7 +216,7 @@ MEDIA QUERY NAVBAR LINKS
     }
 
     .navbar-logo img {
-        max-height: 160px;
+        height: 13vw;
         margin: 15px -15px;
     }
 
@@ -244,6 +269,7 @@ MEDIA QUERY NAVBAR LINKS
         color: #ffffff;
         background-image: url("../images/black_bg.png");
     }
+
     .navbar-item.active > .navbar-link:hover ,
     .navbar-item.active > .navbar-link:focus ,
     .navbar-item.active > .navbar-link:active {
@@ -265,16 +291,35 @@ MEDIA QUERY NAVBAR LINKS
 }
 /**On tablets (sm size)**/
 @media (min-width: 768px) and (max-width: 991px) {
-    .navbar {
-        letter-spacing: 4px;
+
+    .navbar.bg-image {
+        background-image: url("../images/background_remaster3.png");
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size:100% auto;
+        background-position: center;
+        background-position-y: -13vw;
+        background-position-x: 50%;
     }
 
     .navbar > .container-fluid {
-        overflow: hidden;
+        overflow: visible;
     }
 
     .navbar .navbar-collapse {
         padding: 0;
+    }
+
+    .navbar-item {
+        flex: 1 1 auto;
+        padding-left: 10px;
+        padding-right: 10px;
+        top: 4vw;
+    }
+
+    .navbar-logo img {
+        height: 15vw;
+        margin: 15px -15px;
     }
 
     .navbar-center > li > a {
@@ -283,7 +328,49 @@ MEDIA QUERY NAVBAR LINKS
         font-size: 1.3em;
     }
 }
+/* BURGER Mquery*/
+@media screen and (max-width: 768px) {
 
+    .navbar-collapse {
+        background-color: black;
+    }
+
+    .navbar-link > span:hover {
+        color: #A72222;
+        text-decoration: none;
+    }
+
+    .navbar a{
+        font-size: 1.4em;
+    }
+    .navbar-center > .navbar-item > a:hover,
+    .navbar-center > .navbar-item > a:active,
+    .navbar-center > .navbar-item > a:focus {
+        background-color: unset;
+        color: #A72222;
+    }
+
+    .navbar-header {
+        background-image: url("../images/background_remaster3_XS.png");
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: top;
+        background-position-y: -5vw;
+
+    }
+
+    /* color rows */
+    .bg-black {
+        background-color: #A72222;
+        height: 1vw;
+    }
+
+    .bg-white {
+        background-color: white;
+        height: 0.30vw;
+    }
+}
 
 /******  FIN NAVBAR  ******/
 
