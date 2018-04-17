@@ -1,5 +1,4 @@
 const page = window.location.pathname;
-console.log(page);
 if (page === "/restauration") {
     const activeLink = document.getElementById('cafeteria');
     activeLink.classList.add('active');
