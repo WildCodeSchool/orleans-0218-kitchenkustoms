@@ -537,14 +537,6 @@ p.footer-kustoms {
 .badge{
     font-size: 15px;
 }
-.upload{
-    background-color: #A72222;
-    color: white;
-    font-family: albertsthal, sans-serif;
-    font-weight: bold;
-    font-size: 18px;
-    padding: 10px;
-}
 .list-group-item>img{
     margin-right: 10px;
     padding: 7px;
