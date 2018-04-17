@@ -470,7 +470,18 @@ MEDIA QUERY NAVBAR LINKS
 .gallery_home:hover img{
    transform: scale(1.02);
 }
+/****** BUTTONS DOWNLOAD ****/
+.btn-download {
+    background-color: #A72222;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
 
+.btn-download:hover, .btn-download:focus {
+    color: #FFFFFF;
+    transform: translateY(-1px);
+}
 /****** FOOTER ******/
 
 .height-300 {

@@ -3,5 +3,19 @@
 {% block title %}{{ parent() }} - Atelier{% endblock %}
 
 {% block content %}
-    <h1>Bienvenue sur la page atelier.</h1>
+    <section class="section">
+        <div class="container">
+            <h1 class="text-center">L'Atelier</h1>
+            <p class="text-presentation text-center">Pour faire réparer son vélo ou changer des pièces, passez par notre
+                atelier&nbsp;!</p>
+        </div>
+    </section>
+    <section class="section">
+    </section>
+    <section class="section">
+        <div class="container text-center">
+            <a href="assets/pdf/tarifs-atelier.pdf" target="_blank" class="btn btn-download">
+                Télécharger la liste complète de nos tarifs</a>
+        </div>
+    </section>
 {% endblock %}
