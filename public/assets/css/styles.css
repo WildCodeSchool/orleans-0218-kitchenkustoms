@@ -471,14 +471,15 @@ MEDIA QUERY NAVBAR LINKS
    transform: scale(1.02);
 }
 /****** BUTTONS DOWNLOAD ****/
-.btn-download{
+.btn-download {
     background-color: #A72222;
-    color:#FFFFFF;
+    color: #FFFFFF;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
 }
-.btn-download:hover{
-   color: #FFFFFF;
+
+.btn-download:hover, .btn-download:focus {
+    color: #FFFFFF;
     transform: translateY(-1px);
 }
 /****** FOOTER ******/
