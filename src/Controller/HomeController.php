@@ -22,13 +22,6 @@ class HomeController extends AbstractController
         ]);
     }
 
-    public function workshop()
-    {
-        echo $this->twig->render('Home/workshop.html.twig', [
-
-        ]);
-    }
-
     public function kustoms()
     {
         echo $this->twig->render('Home/kustom.html.twig', [
