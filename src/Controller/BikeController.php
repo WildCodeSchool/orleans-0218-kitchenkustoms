@@ -55,4 +55,24 @@ class BikeController extends AbstractController
             return $this->twig->render('Admin/addBike.html.twig', []);
         }
     }
+
+    public function bikeUpdate(int $id)
+    {
+        $bikeManager = new BikeManager();
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $bike = $_POST['bike'];
+
+
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+
+            $bike = $bikeManager->selectOneById($id);
+
+            return $this->twig->render('Admin/updateBike.html.twig', [
+                'bike' => $bike,
+            ]);
+        }
+    }
 }
