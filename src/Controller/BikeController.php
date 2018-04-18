@@ -46,7 +46,7 @@ class BikeController extends AbstractController
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            $this->twig->render('Admin/addBike.html.twig', []);
+            return $this->twig->render('Admin/addBike.html.twig', []);
         }
     }
 }
