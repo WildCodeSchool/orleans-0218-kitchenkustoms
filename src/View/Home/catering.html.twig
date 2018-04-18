@@ -15,11 +15,9 @@
                 <div class="col-md-6 col-xs-12">
                     <h3 class="text-center title style">Caf<span class="e-cute">é</span></h3>
                     <ul class="list-group">
-                        <li class="list-group-item"><img src="assets/images/wrench_and_fork_BLACK_16.svg" alt="Petit logo décoration"><span class="badge">€</span></li>
-                        <li class="list-group-item"><img src="assets/images/wrench_and_fork_BLACK_16.svg" alt="Petit logo décoration"><span class="badge">€</span></li>
-                        <li class="list-group-item"><img src="assets/images/wrench_and_fork_BLACK_16.svg" alt="Petit logo décoration"><span class="badge">€</span></li>
-                        <li class="list-group-item"><img src="assets/images/wrench_and_fork_BLACK_16.svg" alt="Petit logo décoration"><span class="badge">€</span></li>
-                        <li class="list-group-item"><img src="assets/images/wrench_and_fork_BLACK_16.svg" alt="Petit logo décoration"><span class="badge">€</span></li>
+                        {% for item in itemCatering %}
+                        <li class="list-group-item"><img src="assets/images/wrench_and_fork_BLACK_16.svg" alt="Petit logo décoration">{{ item.name }}<span class="badge">{{ item.price }}€</span></li>
+                        {% endfor %}
                     </ul>
                 </div>
                 <div class="col-md-6 col-xs-12">
@@ -35,11 +33,10 @@
                 <div class="col-md-6 col-md-push-6 col-xs-12">
                     <h3 class="text-center title-style">Cantine</h3>
                     <ul class="list-group">
-                        <li class="list-group-item"><img src="assets/images/wrench_and_fork_BLACK_16.svg" alt="Petit logo décoration"><span class="badge">€</span></li>
-                        <li class="list-group-item"><img src="assets/images/wrench_and_fork_BLACK_16.svg" alt="Petit logo décoration"><span class="badge">€</span></li>
-                        <li class="list-group-item"><img src="assets/images/wrench_and_fork_BLACK_16.svg" alt="Petit logo décoration"><span class="badge">€</span></li>
-                        <li class="list-group-item"><img src="assets/images/wrench_and_fork_BLACK_16.svg" alt="Petit logo décoration"><span class="badge">€</span></li>
-                        <li class="list-group-item"><img src="assets/images/wrench_and_fork_BLACK_16.svg" alt="Petit logo décoration"><span class="badge">€</span></li>
+                        {% for item in itemCatering %}
+
+                        <li class="list-group-item"><img src="assets/images/wrench_and_fork_BLACK_16.svg" alt="Petit logo décoration">{{ item.name }}<span class="badge">{{ item.price }}€</span></li>
+                        {% endfor %}
                     </ul>
                 </div>
                 <div class="col-md-6 col-md-pull-6 col-xs-12">
