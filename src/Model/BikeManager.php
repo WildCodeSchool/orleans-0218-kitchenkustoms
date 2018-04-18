@@ -16,4 +16,15 @@ class BikeManager extends AbstractManager
     {
         parent::__construct(self::TABLE);
     }
+
+    /**
+     * Select all kustom bike who 2 pictures
+     * @return array
+     */
+    public function selectAllKustoms()
+    {
+        return $this->pdoConnection
+            ->query(    'SELECT * FROM '. $this->table . ' WHERE is_kustom',
+                \PDO::FETCH_CLASS, $this->className)->fetchAll();
+    }
 }

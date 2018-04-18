@@ -14,13 +14,13 @@ $routes = [
         ['index', '/', 'GET'], // action, url, method
         ['catering', '/restauration', 'GET'],
         ['workshop', '/atelier', 'GET'],
-        ['kustoms', '/kustoms', 'GET'],
         ['shop', '/boutique', 'GET'],
     ],
     'Admin' => [
         ['index', '/admin', 'GET'],
     ],
     'Bike' => [
-        ['bike', '/admin/bike', 'GET'],
+        ['bikeAdmin', '/admin/bike', 'GET'],
+        ['bikeKustoms', '/kustoms', 'GET']
     ],
 ];
