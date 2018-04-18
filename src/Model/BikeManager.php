@@ -16,4 +16,14 @@ class BikeManager extends AbstractManager
     {
         parent::__construct(self::TABLE);
     }
+
+    public function addBike(Bike $bike)
+    {
+        $query = 'INSERT INTO ' . $this->table . ' (name, description) VALUES (:name, :description)';
+        $prepare = $this->pdoConnection->prepare($query);
+        $prepare->bindValue('name', $bike->getName(), \PDO::PARAM_STR);
+        $prepare->bindValue('description', $bike->getDescription());
+
+        $prepare->execute();
+    }
 }
