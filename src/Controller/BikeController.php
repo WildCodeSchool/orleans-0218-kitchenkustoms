@@ -39,7 +39,13 @@ class BikeController extends AbstractController
             $newBike->setDescription($bikeDescription);
 
             $bikeManager = new BikeManager();
-            $bikeManager->addBike($newBike);
+            try {
+                $bikeManager->addBike($newBike);
+            } catch (\LogicException $e) {
+                $_SESSION['error_add'] = 'Le vélo n\'a pas été ajouté.';
+                header('Location: /admin/add');
+            }
+
 
             header('Location: /admin/bike');
             exit();
