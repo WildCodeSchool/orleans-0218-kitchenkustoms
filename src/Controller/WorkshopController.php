@@ -25,4 +25,24 @@ class WorkshopController extends AbstractController
             ['itemsGroupByCategories' => $itemsGroupByCategories]
         );
     }
+
+    /**
+     * Controls workshop admin view
+     * route: /admin/atelier
+     *
+     * @return string
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
+    public function adminIndex()
+    {
+        $itemsManager = new ItemWorkshopManager();
+        $items = $itemsManager->selectAllWithCategories();
+
+        return $this->twig->render(
+            'Admin/workshop.html.twig',
+            ['items' => $items]
+        );
+    }
 }
