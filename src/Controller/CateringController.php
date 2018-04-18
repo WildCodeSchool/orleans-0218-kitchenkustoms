@@ -16,10 +16,14 @@ class CateringController extends AbstractController
     public function itemCatering()
     {
         $itemCateringManager = new ItemCateringManager();
-        $itemCatering = $itemCateringManager->selectCantine();
-        var_dump($itemCatering);
+        $itemCateringCantine = $itemCateringManager->selectCantine();
+        $itemCateringCafe = $itemCateringManager->selectCafe();
+        var_dump($itemCateringCafe);
+        var_dump($itemCateringCantine);
         return $this->twig->render('Home/catering.html.twig', [
-            'itemCatering' => $itemCatering
+            'itemCateringCantine' => $itemCateringCantine,
+            'itemCateringCafe' => $itemCateringCafe,
         ]);
     }
+
 }

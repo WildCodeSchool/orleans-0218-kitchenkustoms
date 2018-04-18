@@ -27,4 +27,9 @@ class ItemCateringManager extends AbstractManager
         return $this->pdoConnection
             ->query('SELECT * FROM ' . $this->table . ' WHERE category_catering_id = 1 LIMIT 5;', \PDO::FETCH_CLASS, $this->className)->fetchAll();
     }
+    public function selectCafe(): array
+    {
+        return $this->pdoConnection
+            ->query('SELECT * FROM ' . $this->table . ' WHERE category_catering_id = 2 LIMIT 5;', \PDO::FETCH_CLASS, $this->className)->fetchAll();
+    }
 }
