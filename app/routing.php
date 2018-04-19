@@ -12,7 +12,6 @@
 $routes = [
     'Home' => [ // Controller
         ['index', '/', 'GET'], // action, url, method
-        ['workshop', '/atelier', 'GET'],
         ['kustoms', '/kustoms', 'GET'],
         ['shop', '/boutique', 'GET'],
     ],
@@ -21,9 +20,13 @@ $routes = [
     ],
     'Bike' => [
         ['bike', '/admin/bike', 'GET'],
+        ['bikeAdd', '/admin/bike/add', ['GET', 'POST']],
     ],
     'Catering'=> [
         ['catering', '/restauration', 'GET'],
+    ],
+    'Workshop' => [
+        ['index', '/atelier', 'GET'],
+        ['adminIndex', '/admin/atelier', 'GET']
     ]
-
 ];
