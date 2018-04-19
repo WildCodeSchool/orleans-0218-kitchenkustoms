@@ -12,18 +12,43 @@ use Model\BikeManager;
  */
 class BikeController extends AbstractController
 {
+
+
+    private function bike()
+    {
+        $bikeManager = new BikeManager();
+        $bikes = $bikeManager->selectAll();
+        return $bikes;
+    }
+
     /**
      * @return string
      * @throws \Twig_Error_Loader
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      */
-    public function bike()
+    public function bikeAdmin()
+    {
+        $bikes = $this->bike();
+        return $this->twig->render('Admin/bike.html.twig', [
+            'bikes' => $bikes,
+        ]);
+    }
+
+    public function bikeKustoms()
     {
         $bikeManager = new BikeManager();
-        $bikes = $bikeManager->selectAll();
+        $bikes = $bikeManager->selectAllKustoms();
+        return $this->twig->render('Home/kustom.html.twig', [
+            'bikes' => $bikes,
+        ]);
+    }
 
-        return $this->twig->render('Admin/bike.html.twig', [
+    public function bikeShop()
+    {
+        $bikes = $this->bike();
+
+        return $this->twig->render('Home/Shop.html.twig', [
             'bikes' => $bikes,
         ]);
     }
