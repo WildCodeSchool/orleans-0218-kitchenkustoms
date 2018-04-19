@@ -23,7 +23,7 @@ $routes = [
         ['bike', '/admin/bike', 'GET'],
     ],
     'Catering'=> [
-        ['itemCatering', '/restauration', 'GET'],
+        ['catering', '/restauration', 'GET'],
     ]
 
 ];

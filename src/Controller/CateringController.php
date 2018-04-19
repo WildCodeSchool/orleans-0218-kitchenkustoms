@@ -13,15 +13,15 @@ use Model\ItemCateringManager;
 class CateringController extends AbstractController
 {
 
-    public function itemCatering()
+    public function catering()
     {
         $itemCateringManager = new ItemCateringManager();
-        $itemCateringCantine = $itemCateringManager->selectCantine();
-        $itemCateringCafe = $itemCateringManager->selectCafe();
+        $cafeteriaItems = $itemCateringManager->selectCafeteria();
+        $coffeeItems = $itemCateringManager->selectCoffee();
 
         return $this->twig->render('Home/catering.html.twig', [
-            'itemCateringCantine' => $itemCateringCantine,
-            'itemCateringCafe' => $itemCateringCafe,
+            'cafeteriaItems' => $cafeteriaItems,
+            'coffeeItems' => $coffeeItems,
         ]);
     }
 

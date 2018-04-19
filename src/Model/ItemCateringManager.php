@@ -22,12 +22,12 @@ class ItemCateringManager extends AbstractManager
         parent::__construct(self::TABLE);
         $this->className = __NAMESPACE__ . '\\' . 'ItemCatering';
     }
-    public function selectCantine(): array
+    public function selectCafeteria(): array
     {
         return $this->pdoConnection
             ->query('SELECT * FROM ' . $this->table . ' WHERE category_catering_id = 1 LIMIT 5;', \PDO::FETCH_CLASS, $this->className)->fetchAll();
     }
-    public function selectCafe(): array
+    public function selectCoffee(): array
     {
         return $this->pdoConnection
             ->query('SELECT * FROM ' . $this->table . ' WHERE category_catering_id = 2 LIMIT 5;', \PDO::FETCH_CLASS, $this->className)->fetchAll();
