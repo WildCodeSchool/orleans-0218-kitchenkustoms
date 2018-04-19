@@ -3,7 +3,6 @@
 {% block title %}{{ parent() }} - Boutique{% endblock %}
 
 {% block stylesheet %}
-    {{ parent() }}
     <link rel="stylesheet" href="/assets/css/style_shop.css">
 {% endblock %}
 
@@ -34,27 +33,15 @@
                                     <tbody>
                                         <tr>
                                             <th class="title">FUN</th>
-                                            <th><img class="mark" src="{% if (bike.getRateFun) == (1) %} {{ stars1 }}{% endif %}
-                                                                       {% if (bike.getRateFun) == (2) %} {{ stars2 }} {% endif %}
-                                                                       {% if (bike.getRateFun) == (3) %} {{ stars3 }} {% endif %}
-                                                                       {% if (bike.getRateFun) == (4) %} {{ stars4 }} {% endif %}
-                                                                       {% if (bike.getRateFun) == (5) %} {{ stars5 }} {% endif %}" alt="mark pics"></th>
+                                            <th><img class="mark" src="/assets/images/shop/{{ bike.getRateFun }}stars.png" alt="mark pics"></th>
                                         </tr>
                                         <tr>
                                             <th class="title">PRATIQUE</th>
-                                            <th><img class="mark" src="{% if (bike.getRatePractice) == (1) %} {{ stars1 }}{% endif %}
-                                                                       {% if (bike.getRatePractice) == (2) %} {{ stars2 }} {% endif %}
-                                                                       {% if (bike.getRatePractice) == (3) %} {{ stars3 }} {% endif %}
-                                                                       {% if (bike.getRatePractice) == (4) %} {{ stars4 }} {% endif %}
-                                                                       {% if (bike.getRatePractice) == (5) %} {{ stars5 }} {% endif %}" alt="mark pics"></th>
+                                            <th><img class="mark" src="/assets/images/shop/{{ bike.getRatePractice }}stars.png" alt="mark pics"></th>
                                         </tr>
                                         <tr>
                                             <th class="title">LOOK</th>
-                                            <th><img class="mark" src="{% if (bike.getRateLook) == (1) %} {{ stars1 }}{% endif %}
-                                                                       {% if (bike.getRateLook) == (2) %} {{ stars2 }} {% endif %}
-                                                                       {% if (bike.getRateLook) == (3) %} {{ stars3 }} {% endif %}
-                                                                       {% if (bike.getRateLook) == (4) %} {{ stars4 }} {% endif %}
-                                                                       {% if (bike.getRateLook) == (5) %} {{ stars5 }} {% endif %}" alt="mark pics"></th>
+                                            <th><img class="mark" src="/assets/images/shop/{{ bike.getRateLook }}stars.png" alt="mark pics"></th>
                                         </tr>
                                     </tbody>
                                 </table>
