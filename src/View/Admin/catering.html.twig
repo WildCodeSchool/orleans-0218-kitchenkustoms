@@ -5,35 +5,34 @@
 {% block content %}
     <section class="container">
         <div class="row">
-            <h1>Liste des boissons</h1>
+            <h1>Liste des plats et boissons</h1>
         </div>
         <div class="row">
-            <div class="table-responsive">
-                <table class="table table-hover">
+                <table class="table table-hover table-responsive">
                     <thead>
                     <tr>
-                        <th class="hidden-xs">Id</th>
+                        <th>Id</th>
                         <th>Nom</th>
-                        <th class="hidden-xs">Prix</th>
+                        <th>Prix</th>
                         <th class="hidden-xs">Description</th>
-                        <th class="hidden-xs">Catégorie</th>
-                        <th>Action</th>
+                        <th>Catégorie</th>
                     </tr>
                     </thead>
                     <tbody>
                     {% for item in cateringItems %}
                         <tr>
-                            <th class="hidden-xs">{{ item.id }}</th>
+                            <th>{{ item.id }}</th>
                             <th>{{ item.name }}</th>
-                            <th class="hidden-xs">{{ item.price }}</th>
+                            <th>{{ item.price }}</th>
                             <th class="hidden-xs">{{ item.description }}</th>
-                            <th class="hidden-xs">{{ item.category_catering_id }}</th>
-                            <th>Action</th>
+                            <th>
+                                {% if item.categoryCateringid == 1 %} <span class="label label-info">Cantine</span> {% endif %}
+                                {% if item.categoryCateringid == 2 %} <span class="label label-primary">Café</span> {% endif %}
+                            </th>
                         </tr>
                     {% endfor %}
                     </tbody>
                 </table>
             </div>
-        </div>
     </section>
 {% endblock %}
