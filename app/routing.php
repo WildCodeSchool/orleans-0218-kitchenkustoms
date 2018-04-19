@@ -22,7 +22,7 @@ $routes = [
     'Bike' => [
         ['bike', '/admin/bike', 'GET'],
         ['bikeAdd', '/admin/bike/add', ['GET', 'POST']],
-        ['bikeUpdate', '/admin/bike/update/{id:\d+}', ['GET', 'POST']],
+        ['bikeUpdate', '/admin/bike/{id:\d+}', ['GET', 'POST']],
     ],
     'Workshop' => [
         ['index', '/atelier', 'GET']
