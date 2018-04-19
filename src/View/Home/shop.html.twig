@@ -21,7 +21,7 @@
 
                 {% for bike in bikes %}
                 <div class=" col-xs-12 col-md-6 col-lg-4">
-                    <div class= "card {{ random(['card1', 'card2', 'card3', 'card4', 'card5', 'card1', 'card6', 'card7', 'card8', 'card2']) }} card-inverse card-info">
+                    <div class= "card card{{ random('12345678') }} card-inverse card-info">
                         <img class="card-img-top" src="{% if bike.photoAfter is null %}{{ default_bike }}{% else %}{{ bike.photoAfter }}{% endif %}" alt"{{ bike.name }}">
                         <div class="card-block">
                             <p class="card-title"><span>&nbsp;"{{ bike.name|upper }}"&nbsp;</span></p>
