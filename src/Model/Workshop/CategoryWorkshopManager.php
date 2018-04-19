@@ -11,5 +11,6 @@ class CategoryWorkshopManager extends AbstractManager
     public function __construct()
     {
         parent::__construct(self::TABLE);
+        $this->className = __NAMESPACE__ . '\\' . 'CategoryWorkshop';
     }
 }

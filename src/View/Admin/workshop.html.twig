@@ -1,0 +1,44 @@
+{% extends 'layout-admin.html.twig' %}
+
+{% block title %}{{ parent() }} - Vélos{% endblock %}
+
+{% block content %}
+    <section class="container">
+        <div class="row">
+            <h1>Atelier</h1>
+            <h2>Liste des réparations courantes</h2>
+        </div>
+        <div class="row">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th class="hidden-xs">id</th>
+                        <th>Nom</th>
+                        <th>Prix</th>
+                        <th>Catégorie</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in items %}
+                        <tr>
+                            <td class="hidden-xs">
+                                {{ item.id }}
+                            </td>
+                            <td>
+                                {{ item.name }}
+                            </td>
+                            <td>
+                                {{ item.price|number_format(2,',') }} €
+                            </td>
+                            <td>
+                                {{ item.category_name }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+{% endblock %}
