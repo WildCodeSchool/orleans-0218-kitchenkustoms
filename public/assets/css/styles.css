@@ -48,10 +48,16 @@ a:focus {
     padding-top: 5px;
 }
 
+.mr-5 {
+    margin-right: 5px;
+}
 
+.ml-5 {
+    margin-left: 5px;
+}
 
-.pt-10 {
-    padding-top: 10px;
+.mt-10 {
+    margin-top: 10px;
 }
 
 .pb-10 {
@@ -523,4 +529,8 @@ p.footer-kustoms {
     margin-left: 15px;
     margin-right: 15px;
 }
-
+.thumbnail {
+    -webkit-box-shadow: 9px 8px 7px -6px rgba(158,149,158,0.69);
+    -moz-box-shadow: 9px 8px 7px -6px rgba(158,149,158,0.69);
+    box-shadow: 9px 8px 7px -6px rgba(158,149,158,0.69);
+}
