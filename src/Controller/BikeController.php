@@ -2,7 +2,6 @@
 
 namespace Controller;
 
-
 use Model\Bike;
 use Model\BikeManager;
 
