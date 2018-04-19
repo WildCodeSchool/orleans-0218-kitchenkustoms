@@ -5,6 +5,7 @@ namespace Controller;
 use Controller\AbstractController;
 use Model\Bike;
 use Model\BikeManager;
+use PHP_CodeSniffer\Tokenizers\PHP;
 
 /**
  * Class BikeController
@@ -61,9 +62,13 @@ class BikeController extends AbstractController
         $bikeManager = new BikeManager();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $bike = $_POST['bike'];
 
+            $bike = Bike::hydrate($_POST);
 
+            $bikeManager->updateBike($bike);
+
+            header('Location: /admin/bike');
+            exit();
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {

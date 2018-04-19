@@ -11,6 +11,7 @@
         </div>
         <div class="row">
             <form method="POST" action="/admin/bike/{{ bike.id }}" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="{{ bike.id }}">
                 <div class="row">
                     <div class="col-sm-6">
                         <h2>General</h2>
@@ -79,57 +80,27 @@
                     <h2>Notes</h2>
                     <div class="col-sm-4">
                         <h3>Look</h3>
-                        <label class="radio-inline">
-                            <input type="radio" name="look" id="inlineRadio1" value="1"> 1
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="look" id="inlineRadio1" value="2"> 2
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="look" id="inlineRadio1" value="3"> 3
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="look" id="inlineRadio1" value="4"> 4
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="look" id="inlineRadio1" value="5"> 5
-                        </label>
+                            {% for i in 1 .. 5 %}
+                                <label class="radio-inline">
+                                    <input type="radio" name="rate_look" value="{{ i }}" {% if bike.rateLook == i %}checked{% endif %} > {{ i }}
+                                </label>
+                            {% endfor %}
                     </div>
                     <div class="col-sm-4">
                         <h3>Fun</h3>
-                        <label class="radio-inline">
-                            <input type="radio" name="fun" id="inlineRadio1" value="1"> 1
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="fun" id="inlineRadio1" value="2"> 2
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="fun" id="inlineRadio1" value="3"> 3
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="fun" id="inlineRadio1" value="4"> 4
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="fun" id="inlineRadio1" value="5"> 5
-                        </label>
+                        {% for i in 1 .. 5 %}
+                            <label class="radio-inline">
+                                <input type="radio" name="rate_fun" value="{{ i }}" {% if bike.rateFun == i %}checked{% endif %} > {{ i }}
+                            </label>
+                        {% endfor %}
                     </div>
                     <div class="col-sm-4">
                         <h3>Pratique</h3>
-                        <label class="radio-inline">
-                            <input type="radio" name="practice" id="inlineRadio1" value="1"> 1
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="practice" id="inlineRadio1" value="2"> 2
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="practice" id="inlineRadio1" value="3"> 3
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="practice" id="inlineRadio1" value="4"> 4
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="practice" id="inlineRadio1" value="5"> 5
-                        </label>
+                        {% for i in 1 .. 5 %}
+                            <label class="radio-inline">
+                                <input type="radio" name="rate_practice" value="{{ i }}" {% if bike.ratePractice == i %}checked{% endif %} > {{ i }}
+                            </label>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="row">

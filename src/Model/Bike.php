@@ -23,6 +23,28 @@ class Bike
     private $is_kustom;
     private $is_sold;
 
+
+    public static function hydrate(array $attributes) :Bike
+    {
+        $bike = new Bike();
+
+        foreach ($attributes as $attribute => $value) {
+            $words = explode('_', $attribute);
+            $upperWords = array_map('ucfirst', $words);
+            $word = implode('', $upperWords);
+            $method = 'set' . $word;
+
+            if (method_exists(self::class, $method)) {
+                if ($value === '') {
+                    $value = null;
+                }
+                $bike->$method($value);
+            }
+        }
+
+        return $bike;
+    }
+
     /**
      * @return int
      */
@@ -122,6 +144,9 @@ class Bike
      */
     public function getRateLook(): int
     {
+        if ($this->rate_look === null) {
+            $this->rate_look = 1;
+        }
         return $this->rate_look;
     }
 
@@ -142,6 +167,9 @@ class Bike
      */
     public function getRatePractice(): int
     {
+        if ($this->rate_practice === null) {
+            $this->rate_practice = 1;
+        }
         return $this->rate_practice;
     }
 
@@ -162,6 +190,9 @@ class Bike
      */
     public function getRateFun(): int
     {
+        if ($this->rate_fun === null) {
+            $this->rate_fun = 1;
+        }
         return $this->rate_fun;
     }
 
@@ -202,6 +233,9 @@ class Bike
      */
     public function getSold(): bool
     {
+        if ($this->sold === null) {
+            $this->sold = false;
+        }
         return $this->sold;
     }
 
@@ -222,6 +256,9 @@ class Bike
      */
     public function getIsKustom(): bool
     {
+        if ($this->is_kustom === null) {
+            $this->is_kustom = false;
+        }
         return $this->is_kustom;
     }
 
@@ -241,6 +278,9 @@ class Bike
      */
     public function getIsSold(): bool
     {
+        if ($this->is_sold === null) {
+            $this->is_sold = false;
+        }
         return $this->is_sold;
     }
 
