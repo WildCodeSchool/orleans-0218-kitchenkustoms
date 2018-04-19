@@ -5,12 +5,6 @@
     src: url('../fonts/Impact Label.ttf');
 }
 
-body{
-    background-image: url("../images/shop/background3.jpg");
-    background-size: 100%;
-    background-repeat: repeat-y;
-}
-
 .no-gutters {
     margin-left: 0px;
     margin-right: 0px;
@@ -128,7 +122,6 @@ body{
 }
 
 .card-mark > table {
-
 width: 100%;
 }
 
