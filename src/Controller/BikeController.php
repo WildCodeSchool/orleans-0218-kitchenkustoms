@@ -62,7 +62,6 @@ class BikeController extends AbstractController
         $bikeManager = new BikeManager();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
             $imagePath = '../assets/images/bikes/';
 
             foreach ($_FILES as $photo => $details) {
@@ -100,7 +99,6 @@ class BikeController extends AbstractController
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-
             $bike = $bikeManager->selectOneById($id);
 
             return $this->twig->render('Admin/updateBike.html.twig', [
