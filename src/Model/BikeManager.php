@@ -21,7 +21,5 @@ class BikeManager extends AbstractManager
     {
         return $this->pdoConnection
             ->query('SELECT * FROM ' . $this->table . ' WHERE is_sold=1', \PDO::FETCH_CLASS, $this->className)->fetchAll();
-
     }
-
 }

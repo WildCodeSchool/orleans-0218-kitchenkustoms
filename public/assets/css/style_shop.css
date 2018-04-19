@@ -155,10 +155,8 @@ th.title{
     padding-bottom: .5vw;
 }
 
-
 /* big mobile Mquery */
 @media (min-width: 480px) and (max-width: 991px) {
-
 
     .card {
         min-height: 90vw;
@@ -166,7 +164,6 @@ th.title{
         margin-left: 9vw;
         margin-right: 9vw;
     }
-
 
     .card-img-top {
         padding: 2.5vw;
@@ -176,7 +173,6 @@ th.title{
         margin-left: 1.5vw;
         margin-right: 1.5vw;
     }
-
 }
 
 /* small Mobile Mquery */
@@ -219,6 +215,7 @@ th.title{
         margin-bottom: 1vw;
         font-size: 1.5rem;
     }
+    
     .card-footer {
         margin-bottom: 1vw;
     }
@@ -228,6 +225,4 @@ th.title{
         padding-top: 1vw;
         padding-bottom: .5vw;
     }
-
 }
-
