@@ -44,5 +44,4 @@ class BikeController extends AbstractController
             'default_bike' => $defaultPics,
         ]);
     }
-
 }
