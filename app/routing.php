@@ -15,12 +15,12 @@ $routes = [
         ['catering', '/restauration', 'GET'],
         ['workshop', '/atelier', 'GET'],
         ['kustoms', '/kustoms', 'GET'],
-        ['shop', '/boutique', 'GET'],
     ],
     'Admin' => [
         ['index', '/admin', 'GET'],
     ],
     'Bike' => [
         ['bike', '/admin/bike', 'GET'],
+        ['bikeShop', '/boutique', 'GET'],
     ],
 ];
