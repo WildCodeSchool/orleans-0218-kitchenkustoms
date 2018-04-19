@@ -11,13 +11,15 @@ class ItemWorkshopManager extends AbstractManager
     public function __construct()
     {
         parent::__construct(self::TABLE);
+        $this->className = __NAMESPACE__ . '\\' . 'ItemWorkshop';
     }
 
     /**
-     * Find all Items group by category names
-     * @return array An assoc. array of WorkshopItems Objects
+     * Select all items join with category
+     *
+     * @return array
      */
-    public function selectAllGroupByCategories(): array
+    public function selectAllWithCategories(): array
     {
         $categoriesTable = CategoryWorkshopManager::TABLE;
 
@@ -30,14 +32,24 @@ class ItemWorkshopManager extends AbstractManager
             FROM
                 ' . $this->table . ' AS I
                     INNER JOIN
-                ' . $categoriesTable . ' AS C ON (C.id = I.category_workshop_id)';
+                ' . $categoriesTable . ' AS C ON (C.id = I.category_workshop_id)
+            ORDER BY C.id, I.id';
 
-        $query = $this->pdoConnection->query($statement, \PDO::FETCH_ASSOC);
+        $query = $this->pdoConnection->query($statement, \PDO::FETCH_CLASS, $this->className);
+        return $query->fetchAll();
+    }
 
+    /**
+     * Find all Items group by category names
+     *
+     * @return array An assoc. array of WorkshopItems Objects
+     */
+    public function selectAllGroupByCategories(): array
+    {
+        $allWithCategories = $this->selectAllWithCategories();
         $results = [];
-        while ($row = $query->fetch()) {
-            $item = new ItemWorkshop();
-            $results[$row['category_name']][] = $item->hydrate($row);
+        foreach ($allWithCategories as $row) {
+            $results[$row->category_name][] = $row;
         }
         return $results;
     }
