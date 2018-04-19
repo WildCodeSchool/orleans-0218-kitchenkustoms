@@ -31,7 +31,8 @@ abstract class AbstractManager
         $connexion = new Connection();
         $this->pdoConnection = $connexion->getPdoConnection();
         $this->table = $table;
-        $this->className = __NAMESPACE__ . '\\' . ucfirst($table);
+        $className = str_replace('_', '', ucwords($table, '_'));
+        $this->className = __NAMESPACE__ . '\\' . $className;
     }
 
     /**

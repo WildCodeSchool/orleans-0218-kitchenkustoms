@@ -529,8 +529,60 @@ p.footer-kustoms {
     margin-left: 15px;
     margin-right: 15px;
 }
+
 .thumbnail {
     -webkit-box-shadow: 9px 8px 7px -6px rgba(158,149,158,0.69);
     -moz-box-shadow: 9px 8px 7px -6px rgba(158,149,158,0.69);
     box-shadow: 9px 8px 7px -6px rgba(158,149,158,0.69);
+}
+
+/******* SECTION CAFE CANTINE*******/
+
+.link-menu{
+    text-align: center;
+    margin-bottom: 60px;
+}
+.space-drink{
+    margin-bottom: 30px;
+    margin-top: 30px;
+    max-height: 50%;
+}
+.space-eat{
+    margin-top: 30px;
+    margin-bottom: 60px;
+    max-height: 50%;
+}
+.list-group-item{
+    padding: 20px;
+    font-size: 16px;
+}
+.badge{
+    font-size: 15px;
+}
+.list-group-item>img{
+    margin-right: 10px;
+    padding: 7px;
+}
+.drink-img{
+    margin-top: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.eat-img{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.home-drink-eat{
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+.addinfo{
+    color: grey;
+    font-size: 20px;
+}
+.item-description{
+    margin-left: 40px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: grey;
 }
