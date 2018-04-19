@@ -2,10 +2,8 @@
 
 namespace Controller;
 
-use Controller\AbstractController;
 use Model\Bike;
 use Model\BikeManager;
-use PHP_CodeSniffer\Tokenizers\PHP;
 
 /**
  * Class BikeController
