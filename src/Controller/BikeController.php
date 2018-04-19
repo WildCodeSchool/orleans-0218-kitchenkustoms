@@ -2,10 +2,9 @@
 
 namespace Controller;
 
-use Controller\AbstractController;
+
 use Model\Bike;
 use Model\BikeManager;
-use PHP_CodeSniffer\Tokenizers\PHP;
 
 /**
  * Class BikeController
@@ -62,34 +61,7 @@ class BikeController extends AbstractController
         $bikeManager = new BikeManager();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $imagePath = '../assets/images/bikes/';
-
-            foreach ($_FILES as $photo => $details) {
-                if ($details['error'] === 0) {
-                    $newPath = $id;
-
-                    if ($photo === 'photo_before') {
-                        $newPath .= '_before.';
-                    } elseif ($photo === 'photo_after') {
-                        $newPath .= '_after.';
-                    }
-
-                    $fileInfo = new \SplFileInfo($details['name']);
-                    $extension = $fileInfo->getExtension();
-                    $newPath .= $extension;
-                    $newImagePath = $imagePath . $newPath;
-
-                    move_uploaded_file($details['tmp_name'], $newImagePath);
-
-                    if ($photo === 'photo_before') {
-                        $path = substr($newImagePath, 2, mb_strlen($newImagePath)-2);
-                        $_POST['photo_before'] = $path;
-                    } elseif ($photo === 'photo_after') {
-                        $path = substr($newImagePath, 2, mb_strlen($newImagePath)-2);
-                        $_POST['photo_after'] = $path;
-                    }
-                }
-            }
+            Bike::checkPhotos($id);
 
             $bike = Bike::hydrate($_POST);
             $bikeManager->updateBike($bike);
