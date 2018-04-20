@@ -2,7 +2,6 @@
 
 namespace Controller;
 
-use Controller\AbstractController;
 use Model\Bike;
 use Model\BikeManager;
 
@@ -88,6 +87,29 @@ class BikeController extends AbstractController
 
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             return $this->twig->render('Admin/addBike.html.twig', []);
+        }
+    }
+
+    public function bikeUpdate(int $id)
+    {
+        $bikeManager = new BikeManager();
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            Bike::checkPhotos($id);
+
+            $bike = Bike::hydrate($_POST);
+            $bikeManager->updateBike($bike);
+
+            header('Location: /admin/bike');
+            exit();
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $bike = $bikeManager->selectOneById($id);
+
+            return $this->twig->render('Admin/updateBike.html.twig', [
+                'bike' => $bike,
+            ]);
         }
     }
 }
