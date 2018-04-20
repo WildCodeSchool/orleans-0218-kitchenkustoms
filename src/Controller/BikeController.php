@@ -44,12 +44,22 @@ class BikeController extends AbstractController
         ]);
     }
 
+   
+    /**
+     * @return string
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
     public function bikeShop()
     {
-        $bikes = $this->bike();
+        $defaultPics = "assets/images/bikes/default.png";
 
-        return $this->twig->render('Home/Shop.html.twig', [
+        $bikeManager = new BikeManager();
+        $bikes = $bikeManager->selectAllShop();
+        return $this->twig->render('Home/shop.html.twig', [
             'bikes' => $bikes,
+            'default_bike' => $defaultPics,
         ]);
     }
 
