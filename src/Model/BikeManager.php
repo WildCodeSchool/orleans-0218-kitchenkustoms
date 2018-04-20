@@ -64,7 +64,7 @@ class BikeManager extends AbstractManager
             $querySet .= ' , photo_after=:photo_after';
         }
 
-        $query = 'UPDATE ' . $this->table . $querySet .  ' WHERE id=:id';
+        $query = 'UPDATE ' . $this->table . $querySet . ' WHERE id=:id';
         $prepare = $this->pdoConnection->prepare($query);
 
         $prepare->bindValue('id', $bike->getId(), \PDO::PARAM_INT);
