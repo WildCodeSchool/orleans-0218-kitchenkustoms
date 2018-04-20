@@ -2,3 +2,5 @@
 /temp/*
 *.cache
 app/db.php
+/public/assets/images/bikes/*
+!/public/assets/images/bikes/default.png
