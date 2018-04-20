@@ -5,13 +5,13 @@
 {% block content %}
     <div class="container">
         <h1 class="text-center">Nos Kustoms</h1>
-        <p class="text-presentation">Voici nos créations unique fait a partir de chinage et de l'incroyable savoir faire de bruno !</p>
+        <p class="text-presentation text-center">Voici nos créations uniques faites à partir de chinage et de l'incroyable savoir-faire de Bruno !</p>
         {% for bike in bikes %}
             {% if bike.photoBefore is not empty %}
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="thumbnail">
-                            <div class="row ml-5 mr-5   ">
+                            <div class="row">
                                 <div class="col-md-6 col-sm-6 hidden-xs">
                                     <img class="img-responsive img-rounded" src="{{ bike.photoBefore }}" alt="...">
                                 </div>
