@@ -25,4 +25,15 @@ class CateringController extends AbstractController
         ]);
     }
 
+    public function adminCatering()
+    {
+        $itemCateringManager = new ItemCateringManager();
+
+        $cateringItems = $itemCateringManager->selectAll();
+
+        return $this->twig->render('Admin/catering.html.twig', [
+            'cateringItems' => $cateringItems,
+        ]);
+    }
+
 }

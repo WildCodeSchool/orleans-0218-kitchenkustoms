@@ -1,0 +1,228 @@
+/*todo CARD*/
+
+@font-face {
+    font-family: "ImpactLabel";
+    src: url('../fonts/Impact Label.ttf');
+}
+
+.no-gutters {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.card {
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    width: auto;
+    min-height: 45vw;
+
+    font-size: 1rem;
+    overflow: hidden;
+    padding: 1vw;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 5em;
+    border: 0px;
+    border-radius: .5rem;
+}
+
+.card1 {
+    background-image: url("../images/shop/card1.png");
+}
+
+.card2 {
+    background-image: url("../images/shop/card2.png");
+}
+
+.card3 {
+    background-image: url("../images/shop/card3.png");
+}
+
+.card4 {
+    background-image: url("../images/shop/card4.png");
+}
+
+.card5 {
+    background-image: url("../images/shop/card5.png");
+}
+
+.card6 {
+    background-image: url("../images/shop/card6.png");
+}
+
+.card7 {
+    background-image: url("../images/shop/card7.png");
+}
+
+.card8 {
+    background-image: url("../images/shop/card8.png");
+}
+
+.card-block {
+    font-size: 1em;
+    position: relative;
+    margin: 0;
+    padding: 1em;
+    border: none;
+    box-shadow: none;
+}
+
+.card-img-top {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 1.3vw;
+    border: 0px;
+    padding: 1.1vw;
+    padding-bottom: 0vw;
+}
+
+.card-title {
+    display: block;
+    text-align: center;
+    font-family: ImpactLabel;
+    font-size: 3rem;
+    background-color: transparent;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.card-text {
+    font-family: Roboto;
+    font-size: 1.8rem;
+    color: #e6e6e6;
+    color: black;
+
+    border-radius: .75rem;
+    min-height: 12vw;
+    margin-left: .2vw;
+    margin-right: .2vw;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    clear: both;
+}
+
+.card-mark {
+    justify-content: center;
+    display: block;
+    font-family: Linowrite;
+    font-size: 1.8rem;
+    font-weight: 500;
+
+    margin-top: .5em;
+    margin-bottom: 2vw;
+
+    clear: both;
+}
+
+.mark {
+    width: 7em;
+    background-color: transparent;
+}
+
+.card-mark > table {
+width: 100%;
+}
+
+th {
+    width: 25vw;
+}
+
+th.title{
+    width: 22vw;
+    text-align: right;
+    padding-right: .5vw;
+}
+
+.card-footer {
+    font-family: Linowrite;
+    font-size: 1.2em;
+    font-weight: 700;
+
+    position: static;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    margin-bottom: 2vw;
+
+    background: transparent;
+}
+
+.card-footer > .btn {
+    font-size: 1.4em;
+    padding-top: .5vw;
+    padding-bottom: .5vw;
+}
+
+/* big mobile Mquery */
+@media (min-width: 480px) and (max-width: 991px) {
+
+    .card {
+        min-height: 90vw;
+        padding: 1vw;
+        margin-left: 9vw;
+        margin-right: 9vw;
+    }
+
+    .card-img-top {
+        padding: 2.5vw;
+    }
+
+    .card-text {
+        margin-left: 1.5vw;
+        margin-right: 1.5vw;
+    }
+}
+
+/* small Mobile Mquery */
+@media screen and (max-width: 480px) {
+
+    .card {
+        width: auto;
+        min-height: 90vw;
+
+        padding: 2vw;
+        margin-left: .5vw;/*todo*/
+        margin-right: .5vw;
+        margin-bottom: 2vw;
+    }
+
+    .card-img-top {
+        padding: 2vw;
+    }
+
+    .card-title {
+        font-size: 2rem;
+    }
+
+    .card-text {
+        font-family: Roboto;
+        font-size: 1.2em;
+        /*    background-color: #333333; */
+
+        border-radius: .75rem;
+        min-height: 10vw;
+        margin-left: .1vw;
+        margin-right: .1vw ;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        clear: both;
+    }
+
+    .card-mark {
+        margin-top: 1vw;
+        margin-bottom: 1vw;
+        font-size: 1.5rem;
+    }
+    
+    .card-footer {
+        margin-bottom: 1vw;
+    }
+
+    .card-footer > .btn {
+        font-size: 1em;
+        padding-top: 1vw;
+        padding-bottom: .5vw;
+    }
+}

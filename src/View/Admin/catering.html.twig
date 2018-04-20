@@ -1,0 +1,38 @@
+{% extends 'layout-admin.html.twig' %}
+
+{% block title %}{{ parent() }} Café et Cantine{% endblock %}
+
+{% block content %}
+    <section class="container">
+        <div class="row">
+            <h1>Liste des plats et boissons</h1>
+        </div>
+        <div class="row">
+                <table class="table table-hover table-responsive">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom</th>
+                        <th>Prix</th>
+                        <th class="hidden-xs">Description</th>
+                        <th>Catégorie</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in cateringItems %}
+                        <tr>
+                            <th>{{ item.id }}</th>
+                            <th>{{ item.name }}</th>
+                            <th>{{ item.price }}</th>
+                            <th class="hidden-xs">{{ item.description }}</th>
+                            <th>
+                                {% if item.categoryCateringid == 1 %} <span class="label label-info">Cantine</span> {% endif %}
+                                {% if item.categoryCateringid == 2 %} <span class="label label-primary">Café</span> {% endif %}
+                            </th>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+    </section>
+{% endblock %}

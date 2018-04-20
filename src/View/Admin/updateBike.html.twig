@@ -1,0 +1,114 @@
+{% extends 'layout-admin.html.twig' %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="/admin/assets/css/updateBike.css">
+{% endblock %}
+
+{% block content %}
+    <section class="container">
+        <div class="row">
+            <h1>Modification du vélo n° : {{ bike.id }}</h1>
+        </div>
+        <div class="row">
+            <form method="POST" action="/admin/bike/{{ bike.id }}" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="{{ bike.id }}">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h2>General</h2>
+                        <div class="form-group">
+                            <label for="name">Nom</label>
+                            <input class="form-control" id="name" name="name" placeholder="Nom du vélo... (obligatoire)"
+                                   value="{{ bike.name }}" required>
+                            <label for="description">Description</label>
+                            <textarea class="form-control" id="description" name="description"
+                                      placeholder="Description du vélo...">{{ bike.description }}</textarea>
+                            <label for="price">Prix</label>
+                            <input class="form-control" id="price" name="price" placeholder="Prix du vélo..."
+                                   value="{{ bike.price }}">
+
+                            <div class="checkbox">
+                                <label for="sold">
+                                    <input id="sold" class="checkbox" type="checkbox" name="sold" {% if bike.sold == 1 %}checked{% endif %}>
+                                    Vendu
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <h2>Affichage</h2>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label for="is_sold">
+                                    <input id="is_sold" type="checkbox" name="is_sold"
+                                           {% if bike.isSold == 1 %}checked{% endif %}>
+                                    dans la boutique
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label for="is_kustom">
+                                    <input id="is_kustom" type="checkbox" name="is_kustom"
+                                           {% if bike.isKustom == 1 %}checked{% endif %}>
+                                    dans les kustoms
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <h3>Photo Kustom</h3>
+                            {% if bike.photoAfter is null %}
+                                <img class="img-admin" src="/assets/images/bikes/default.png" alt="vélo par défaut">
+                            {% else %}
+                                <img class="img-admin" src="{{ bike.photoAfter }}" alt="vélo kustomisé">
+                            {% endif %}
+                            <div class="form-group">
+                                <input class="form-control-file" name="photo_after" type="file" value="{{ bike.photoAfter }}" accept=".jpg, .jpeg, .png">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <h3>Photo Avant</h3>
+                            {% if bike.photoBefore is null %}
+                                <img class="img-admin" src="/assets/images/bikes/default.png" alt="vélo par défaut">
+                            {% else %}
+                                <img class="img-admin" src="{{ bike.photoBefore }}" alt="vélo non kustomisé">
+                            {% endif %}
+                            <div class="form-group">
+                                <input class="form-control-file" name="photo_before" type="file" accept=".jpg, .jpeg, .png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <h2>Notes</h2>
+                    <div class="col-sm-4">
+                        <h3>Look</h3>
+                            {% for i in 1 .. 5 %}
+                                <label class="radio-inline">
+                                    <input type="radio" name="rate_look" value="{{ i }}" {% if bike.rateLook == i %}checked{% endif %} > {{ i }}
+                                </label>
+                            {% endfor %}
+                    </div>
+                    <div class="col-sm-4">
+                        <h3>Fun</h3>
+                        {% for i in 1 .. 5 %}
+                            <label class="radio-inline">
+                                <input type="radio" name="rate_fun" value="{{ i }}" {% if bike.rateFun == i %}checked{% endif %} > {{ i }}
+                            </label>
+                        {% endfor %}
+                    </div>
+                    <div class="col-sm-4">
+                        <h3>Pratique</h3>
+                        {% for i in 1 .. 5 %}
+                            <label class="radio-inline">
+                                <input type="radio" name="rate_practice" value="{{ i }}" {% if bike.ratePractice == i %}checked{% endif %} > {{ i }}
+                            </label>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group mt-15">
+                        <input class="form-control btn btn-warning" type="submit" value="Modifier">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock %}

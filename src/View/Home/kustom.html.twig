@@ -3,5 +3,47 @@
 {% block title %}{{ parent() }} - Kustom{% endblock %}
 
 {% block content %}
-    <h1>Bienvenue sur la page kustoms.</h1>
+    <div class="container">
+        <h1 class="text-center">Nos Kustoms</h1>
+        <p class="text-presentation">Voici nos créations unique fait a partir de chinage et de l'incroyable savoir faire de bruno !</p>
+        {% for bike in bikes %}
+            {% if bike.photoBefore is not empty %}
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="thumbnail">
+                            <div class="row ml-5 mr-5   ">
+                                <div class="col-md-6 col-sm-6 hidden-xs">
+                                    <img class="img-responsive img-rounded" src="{{ bike.photoBefore }}" alt="...">
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <img class="img-responsive img-rounded" src="{{ bike.photoAfter }}" alt="...">
+                                </div>
+                            </div>
+
+                            <div class="caption">
+                                <h2 class="text-center">{{ bike.name }}</h2>
+                                <p class="text-center">{{ bike.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="thumbnail">
+                            <div class="row">
+                                <div class="col-md-offset-3 col-md-6 col-sm-12 col-xs-12">
+                                    <img class="img-responsive img-rounded" src="{{ bike.photoAfter }}" alt="...">
+                                </div>
+                            </div>
+                            <div class="caption">
+                                <h2 class="text-center">{{ bike.name }}</h2>
+                                <p class="text-center">{{ bike.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
 {% endblock %}
