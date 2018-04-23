@@ -365,6 +365,9 @@ MEDIA QUERY NAVBAR LINKS
 
     }
 
+    .footer-kustoms {
+        background-size:auto 100%;
+    }
     /* color rows */
     .bg-black {
         background-color: #A72222;
@@ -507,14 +510,21 @@ MEDIA QUERY NAVBAR LINKS
 }
 
 .footer-kustoms {
-    background-color: #A72222;
-    margin-top: 50px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    background-image:  url("../images/bg_footer.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: bottom;
+    margin-top: 10vw;
+}
+
+.footer-content {
+    padding-top: 3vw;
+    padding-bottom: 3vw;
 }
 
 .footer-kustoms .address {
-    padding: 15px;
+    padding: 1vw;
 }
 
 p.footer-kustoms {
