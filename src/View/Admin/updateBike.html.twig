@@ -7,7 +7,14 @@
 {% block content %}
     <section class="container">
         <div class="row">
-            <h1>Modification du vélo n° : {{ bike.id }}</h1>
+            <div class="col-sm-10">
+                <h1>Modification du vélo n° : {{ bike.id }}</h1>
+            </div>
+            <div class="col-sm-2">
+                <form method="POST" action="/admin/bike/delete/{{ bike.id }}">
+                    <input type="submit" class="btn btn-danger" value="Supprimer">
+                </form>
+            </div>
         </div>
         <div class="row">
             <form method="POST" action="/admin/bike/{{ bike.id }}" enctype="multipart/form-data">
