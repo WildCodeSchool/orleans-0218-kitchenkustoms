@@ -11,15 +11,6 @@ use Model\BikeManager;
  */
 class BikeController extends AbstractController
 {
-
-
-    private function bike()
-    {
-        $bikeManager = new BikeManager();
-        $bikes = $bikeManager->selectAll();
-        return $bikes;
-    }
-
     /**
      * @return string
      * @throws \Twig_Error_Loader
@@ -111,5 +102,17 @@ class BikeController extends AbstractController
                 'bike' => $bike,
             ]);
         }
+    }
+
+    public function bikeDelete(int $id)
+    {
+        $bikeManager = new BikeManager();
+
+        $bikeManager->delete($id);
+
+        $_SESSION['deleted_bike'] = $id;
+
+        header('Location: /admin');
+        exit();
     }
 }
