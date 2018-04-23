@@ -53,4 +53,42 @@ class ItemWorkshopManager extends AbstractManager
         }
         return $results;
     }
+
+    /**
+     * Check errors for Post data
+     *
+     * @param array $data
+     * @return array
+     */
+    public static function checkErrors(array $data)
+    {
+        $errors = [];
+
+        $fieldsNames = ['name', 'price', 'category_workshop_id'];
+        foreach ($fieldsNames as $fieldName) {
+            $errors[$fieldName] = ['value' => $data[$fieldName], 'error' => false];
+
+            if (empty(trim($_POST[$fieldName]))) {
+                $errors[$fieldName]['error'] = 'Ce champ ne peut pas être vide.';
+            }
+        }
+
+        if (!isset($errors['price'])) {
+            if (!is_numeric($_POST['price'])) {
+                $errors['price']['error'] = 'Le prix doit être un nombre';
+            } else {
+                if ($_POST['price'] < 0 || $_POST['price'] >= 1000) {
+                    $errors['price']['error'] = 'Le prix doit être compris entre 0 et 999.99';
+                }
+            }
+        }
+        if (!isset($errors['category_workshop_id'])) {
+            $categoriesManager = new CategoryWorkshopManager();
+            $categoryIds = $categoriesManager->selectAllOnlyIds();
+            if (!in_array($_POST['category_workshop_id'], $categoryIds)) {
+                $errors['category_workshop_id']['error'] = 'La catégorie doit exister';
+            }
+        }
+        return $errors;
+    }
 }

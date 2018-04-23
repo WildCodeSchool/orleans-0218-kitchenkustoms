@@ -29,6 +29,7 @@ $routes = [
     ],
     'Workshop' => [
         ['index', '/atelier', 'GET'],
-        ['adminIndex', '/admin/atelier', 'GET']
+        ['adminIndex', '/admin/atelier', 'GET'],
+        ['adminAdd', '/admin/atelier', 'POST']
     ]
 ];

@@ -76,13 +76,19 @@ abstract class AbstractManager
 
 
     /**
-     * INSERT one row in dataase
+     * Simple INSERT one row in database
      *
-     * @param Array $data
+     * @param array $data
+     * @return bool
      */
-    public function insert(array $data)
+    public function insert(array $data): bool
     {
-        //TODO : Implements SQL INSERT request
+        $queryFields = implode(',', array_keys($data));
+        $markers = array_fill(0, count($data), '?');
+        $queryMarkers = implode(',', $markers);
+        $query = "INSERT INTO $this->table ($queryFields) VALUES ($queryMarkers)";
+        $statement = $this->pdoConnection->prepare($query);
+        return $statement->execute(array_values($data));
     }
 
 

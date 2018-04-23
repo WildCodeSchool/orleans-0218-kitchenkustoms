@@ -7,6 +7,11 @@
         <div class="row">
             <h1>Atelier</h1>
             <h2>Liste des réparations courantes</h2>
+            {% if notification %}
+                <div class="alert alert-info" role="alert">
+                    {{ notification }}
+                </div>
+            {% endif %}
         </div>
         <div class="row">
             <div class="table-responsive">
@@ -17,9 +22,48 @@
                         <th>Nom</th>
                         <th>Prix</th>
                         <th>Catégorie</th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
+                    <form method="post">
+                        <tr class="active">
+                            <td class=hidden-xs></td>
+                            <td>
+                                <input class="form-control" type="text" name="name" placeholder="Changement de roue..."
+                                       value="{{ itemworkshopFormErrors.name.value }}"
+                                       required>
+                                {% if itemworkshopFormErrors.name.error %}
+                                    <span class="help-block">{{ itemworkshopFormErrors.name.error }}</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <input class="form-control" type="number" name="price"
+                                       value="{{ itemworkshopFormErrors.price.value }}" placeholder="0.00" step="0.01"
+                                       min="0" max="999.99" required>
+                                {% if itemworkshopFormErrors.price.error %}
+                                    <span class="help-block">{{ itemworkshopFormErrors.price.error }}</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <select class="form-control" name="category_workshop_id" required>
+                                    {% for category in categories %}
+                                        {% set isSelected = (category.id == itemworkshopFormErrors.category_workshop_id.value) ? 'selected' : '' %}
+                                        <option {{ isSelected }} value="{{ category.id }}">
+                                            {{ category.name }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                                {% if itemworkshopFormErrors.category_workshop_id.error %}
+                                    <span class="help-block">{{ itemworkshopFormErrors.category_workshop_id.error }}</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <button type="submit" class="btn btn-default">Ajouter</button>
+                            </td>
+                        </tr>
+                    </form>
+
                     {% for item in items %}
                         <tr>
                             <td class="hidden-xs">
@@ -34,6 +78,7 @@
                             <td>
                                 {{ item.category_name }}
                             </td>
+                            <td></td>
                         </tr>
                     {% endfor %}
                     </tbody>

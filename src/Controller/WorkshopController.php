@@ -2,10 +2,16 @@
 
 namespace Controller;
 
+use Model\Workshop\CategoryWorkshopManager;
 use Model\Workshop\ItemWorkshopManager;
 
 class WorkshopController extends AbstractController
 {
+
+    private $form_errors = [];
+
+    private $notification = '';
+
     /**
      * Controls workshop public view
      * route: /atelier
@@ -39,10 +45,48 @@ class WorkshopController extends AbstractController
     {
         $itemsManager = new ItemWorkshopManager();
         $items = $itemsManager->selectAllWithCategories();
+        $categoriesManager = new CategoryWorkshopManager();
+        $categories = $categoriesManager->selectAll();
+
+        $errors = $this->form_errors;
+        $this->form_errors = [];
 
         return $this->twig->render(
             'Admin/workshop.html.twig',
-            ['items' => $items]
+            [
+                'items' => $items,
+                'categories' => $categories,
+                'itemworkshopFormErrors' => $errors,
+                'notification'=>$this->notification
+            ]
         );
+    }
+
+    /**
+     * Admin add a new item
+     * route: /admin/atelier with POST
+     *
+     * @return string
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
+    public function adminAdd()
+    {
+        $errors = ItemWorkshopManager::checkErrors($_POST);
+
+        $nbErrors = array_reduce($errors, function ($nb, $error) {
+            return $nb + ($error['error'] !== false);
+        }, 0);
+
+        if ($nbErrors === 0) {
+            $itemsManager = new ItemWorkshopManager();
+            $itemsManager->insert($_POST);
+            $this->notification = '1 nouvel item ajouté.';
+        } else {
+            $this->notification = sprintf('Erreur lors de l\'ajout: %d erreur(s) dans le formulaire', $nbErrors);
+            $this->form_errors = $errors;
+        }
+        return $this->adminIndex();
     }
 }
