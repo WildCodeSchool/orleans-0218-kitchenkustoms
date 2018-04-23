@@ -71,7 +71,13 @@ abstract class AbstractManager
      */
     public function delete(int $id)
     {
-        //TODO : Implements SQL DELETE request
+        $query = 'DELETE FROM ' . $this->table . ' WHERE id=:id';
+
+        $prepare = $this->pdoConnection->prepare($query);
+
+        $prepare->bindValue('id', $id, \PDO::PARAM_INT);
+
+        $prepare->excute();
     }
 
 
