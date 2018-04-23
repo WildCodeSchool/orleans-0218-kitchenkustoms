@@ -83,10 +83,11 @@ abstract class AbstractManager
 
             $prepare->execute();
 
-            $_SESSION['bike_deleted'] = "Le vélo $id a été supprimé.";
+            $deleted = true;
         } else {
-            $_SESSION['bike_deleted'] = "Le vélo $id n'existe pas.";
+            $deleted = false;
         }
+        return $deleted;
     }
 
 
