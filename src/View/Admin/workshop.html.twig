@@ -6,7 +6,14 @@
     <section class="container">
         <div class="row">
             <h1>Atelier</h1>
-            <h2>Liste des réparations courantes</h2>
+            <ul class="nav nav-tabs">
+                <li role="presentation" class="active">
+                    <a href="/admin/atelier">Liste des réparations</a>
+                </li>
+                <li role="presentation">
+                    <a href="/admin/atelier/categories">Modifier les catégories</a>
+                </li>
+            </ul>
             {% if notification %}
                 <div class="alert alert-info" role="alert">
                     {{ notification }}

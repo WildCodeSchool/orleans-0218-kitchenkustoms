@@ -8,8 +8,16 @@ use Model\Workshop\ItemWorkshopManager;
 class WorkshopController extends AbstractController
 {
 
+    /**
+     * stores errors in form
+     * @var array
+     */
     private $form_errors = [];
 
+    /**
+     * stores a notification string
+     * @var string
+     */
     private $notification = '';
 
     /**
