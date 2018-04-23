@@ -592,3 +592,10 @@ p.footer-kustoms {
     font-size: 14px;
     color: grey;
 }
+
+
+/******** MENTIONS LEGALES ******/
+.legalNotice h2, .legalNotice h3 {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+/******** FIN MENTIONS LEGALES *****/
