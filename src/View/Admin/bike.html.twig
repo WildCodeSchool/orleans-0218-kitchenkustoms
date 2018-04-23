@@ -59,6 +59,9 @@
                             </td>
                             <td>
                                 <a href="/admin/bike/{{ bike.id }}" class="btn btn-warning">Modifier</a>
+                                <form method="POST" action="/admin/bike/delete/{{ bike.id }}">
+                                    <input type="submit" class="btn btn-danger" value="Supprimer">
+                                </form>
                             </td>
                         </tr>
                     {% endfor %}
