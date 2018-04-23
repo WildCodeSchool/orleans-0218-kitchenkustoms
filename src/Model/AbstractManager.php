@@ -71,13 +71,22 @@ abstract class AbstractManager
      */
     public function delete(int $id)
     {
-        $query = 'DELETE FROM ' . $this->table . ' WHERE id=:id';
+        $query = 'SELECT * FROM ' . $this->table . ' WHERE id=' . $id;
+        $res = $this->pdoConnection->query($query);
+        $data = $res->fetch(\PDO::FETCH_ASSOC);
 
-        $prepare = $this->pdoConnection->prepare($query);
+        if ($data !== false) {
+            $query = 'DELETE FROM ' . $this->table . ' WHERE id=:id';
 
-        $prepare->bindValue('id', $id, \PDO::PARAM_INT);
+            $prepare = $this->pdoConnection->prepare($query);
+            $prepare->bindValue('id', $id, \PDO::PARAM_INT);
 
-        $prepare->excute();
+            $prepare->execute();
+
+            $_SESSION['bike_deleted'] = "Le vélo $id a été supprimé.";
+        } else {
+            $_SESSION['bike_deleted'] = "Le vélo $id n'existe pas.";
+        }
     }
 
 

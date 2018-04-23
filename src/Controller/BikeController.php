@@ -19,7 +19,8 @@ class BikeController extends AbstractController
      */
     public function bikeAdmin()
     {
-        $bikes = $this->bike();
+        $bikeManager = new BikeManager();
+        $bikes = $bikeManager->selectAll();
         return $this->twig->render('Admin/bike.html.twig', [
             'bikes' => $bikes,
         ]);
@@ -110,9 +111,8 @@ class BikeController extends AbstractController
 
         $bikeManager->delete($id);
 
-        $_SESSION['deleted_bike'] = $id;
 
-        header('Location: /admin');
+        header('Location: /admin/bike');
         exit();
     }
 }
