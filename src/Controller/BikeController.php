@@ -11,15 +11,6 @@ use Model\BikeManager;
  */
 class BikeController extends AbstractController
 {
-
-
-    private function bike()
-    {
-        $bikeManager = new BikeManager();
-        $bikes = $bikeManager->selectAll();
-        return $bikes;
-    }
-
     /**
      * @return string
      * @throws \Twig_Error_Loader
@@ -28,9 +19,11 @@ class BikeController extends AbstractController
      */
     public function bikeAdmin()
     {
-        $bikes = $this->bike();
+        $bikeManager = new BikeManager();
+        $bikes = $bikeManager->selectAll();
         return $this->twig->render('Admin/bike.html.twig', [
             'bikes' => $bikes,
+            'get' => $_GET,
         ]);
     }
 
@@ -111,5 +104,21 @@ class BikeController extends AbstractController
                 'bike' => $bike,
             ]);
         }
+    }
+
+    public function bikeDelete(int $id)
+    {
+        $bikeManager = new BikeManager();
+
+        $deleted = $bikeManager->delete($id);
+
+        if ($deleted) {
+            $get = '?deleted=true&id=' . $id;
+        } else {
+            $get = '?deleted=false&id=' . $id;
+        }
+
+        header('Location: /admin/bike' . $get);
+        exit();
     }
 }

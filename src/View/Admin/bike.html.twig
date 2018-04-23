@@ -4,6 +4,15 @@
 
 {% block content %}
     <section class="container">
+        {% if get.deleted is defined %}
+            <section class="row">
+                {% if get.deleted == 'true' %}
+                    <div class="alert alert-success">Le vélo {{ get.id }} a été supprimé.</div>
+                {% elseif get.deleted == 'false' %}
+                    <div class="alert alert-danger">Le vélo {{ get.id }} n'existe pas.</div>
+                {% endif %}
+            </section>
+        {% endif %}
         <div class="row">
             <h1>Liste des vélos enregistrés</h1>
         </div>
@@ -50,6 +59,9 @@
                             </td>
                             <td>
                                 <a href="/admin/bike/{{ bike.id }}" class="btn btn-warning">Modifier</a>
+                                <form id="delete" method="POST" action="/admin/bike/delete/{{ bike.id }}">
+                                    <input type="submit" id="deleteButton" class="btn btn-danger" value="Supprimer">
+                                </form>
                             </td>
                         </tr>
                     {% endfor %}
@@ -58,4 +70,8 @@
             </div>
         </div>
     </section>
+{% endblock %}
+
+{% block javascript %}
+    <script src="/admin/assets/js/delete.js"></script>
 {% endblock %}
