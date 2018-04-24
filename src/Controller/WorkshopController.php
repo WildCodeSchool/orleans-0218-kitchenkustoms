@@ -4,6 +4,7 @@ namespace Controller;
 
 use Model\Workshop\CategoryWorkshopManager;
 use Model\Workshop\ItemWorkshopManager;
+use Validation\ItemWorkshopValidator;
 
 class WorkshopController extends AbstractController
 {
@@ -65,7 +66,7 @@ class WorkshopController extends AbstractController
                 'items' => $items,
                 'categories' => $categories,
                 'itemworkshopFormErrors' => $errors,
-                'notification'=>$this->notification
+                'notification' => $this->notification
             ]
         );
     }
@@ -81,20 +82,19 @@ class WorkshopController extends AbstractController
      */
     public function adminAdd()
     {
-        $errors = ItemWorkshopManager::checkErrors($_POST);
+        $postData = array_map('trim', $_POST);
 
-        $nbErrors = array_reduce($errors, function ($nb, $error) {
-            return $nb + ($error['error'] !== false);
-        }, 0);
+        $validator = new ItemWorkshopValidator($postData);
 
-        if ($nbErrors === 0) {
+        if ($validator->isValid()) {
             $itemsManager = new ItemWorkshopManager();
-            $itemsManager->insert($_POST);
-            $this->notification = '1 nouvel item ajouté.';
+            $itemsManager->insert($postData);
+            $this->notification = 'Un nouvel item ajouté.';
         } else {
-            $this->notification = sprintf('Erreur lors de l\'ajout: %d erreur(s) dans le formulaire', $nbErrors);
-            $this->form_errors = $errors;
+            $this->notification = sprintf('Erreur lors de l\'ajout: %d erreur(s) dans le formulaire', $validator->nbErrors());
+            $this->form_errors = $validator->getErrors();
         }
+
         return $this->adminIndex();
     }
 }

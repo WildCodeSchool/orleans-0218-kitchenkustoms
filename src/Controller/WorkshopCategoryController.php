@@ -3,6 +3,7 @@
 namespace Controller;
 
 use Model\Workshop\CategoryWorkshopManager;
+use Validation\CategoryWorkshopValidator;
 
 class WorkshopCategoryController extends AbstractController
 {
@@ -49,16 +50,18 @@ class WorkshopCategoryController extends AbstractController
      */
     public function adminAdd()
     {
-        if (empty(trim($_POST['name']))) {
-            $this->form_errors['name'] = [
-                'value' => $_POST['name'],
-                'error' => 'Le champ ne peut pas être vide'
-            ];
+        $postData = array_map('trim', $_POST);
+
+        $validator = new CategoryWorkshopValidator($postData);
+
+        if (!$validator->isValid()) {
+            $this->form_errors = $validator->getErrors();
         } else {
             $categoriesManager = new CategoryWorkshopManager();
-            $categoriesManager->insert($_POST);
+            $categoriesManager->insert($postData);
             $this->notification = 'Une nouvelle catégorie ajoutée.';
         }
+
         return $this->adminIndex();
     }
 }
