@@ -17,6 +17,13 @@ class BikeManager extends AbstractManager
         parent::__construct(self::TABLE);
     }
 
+    /**
+     * @return int
+     */
+    public function lastId(): int
+    {
+        return (int)$this->pdoConnection->lastInsertId();
+    }
 
     public function selectAllShop()
     {
@@ -31,7 +38,7 @@ class BikeManager extends AbstractManager
     public function selectAllKustoms()
     {
         return $this->pdoConnection
-            ->query(    'SELECT * FROM '. $this->table . ' WHERE is_kustom',
+            ->query('SELECT * FROM ' . $this->table . ' WHERE is_kustom',
                 \PDO::FETCH_CLASS, $this->className)->fetchAll();
     }
 

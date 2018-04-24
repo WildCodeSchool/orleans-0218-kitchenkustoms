@@ -57,30 +57,18 @@ class BikeController extends AbstractController
 
     public function bikeAdd()
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $bikeName = $_POST['name'];
-            $bikeDescription = $_POST['description'];
+        $bikeManager = new BikeManager();
 
-            $newBike = new Bike();
-            $newBike->setName($bikeName);
-            $newBike->setDescription($bikeDescription);
+        $newBike = new Bike();
+        $newBike->setName('Nom à remplacer...');
 
-            $bikeManager = new BikeManager();
-            try {
-                $bikeManager->addBike($newBike);
-            } catch (\LogicException $e) {
-                $_SESSION['error_add'] = 'Le vélo n\'a pas été ajouté.';
-                header('Location: /admin/add');
-            }
+        $bikeManager->addBike($newBike);
 
+        $newBike = $bikeManager->selectOneById($bikeManager->lastId());
 
-            header('Location: /admin/bike');
-            exit();
-        }
-
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            return $this->twig->render('Admin/addBike.html.twig', []);
-        }
+        return $this->twig->render('Admin/updateBike.html.twig', [
+            'bike' => $newBike,
+        ]);
     }
 
     public function bikeUpdate(int $id)
@@ -98,7 +86,11 @@ class BikeController extends AbstractController
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            $bike = $bikeManager->selectOneById($id);
+            if (isset($_GET['id'])) {
+                $bike = $bikeManager->selectOneById($_GET['id']);
+            } else {
+                $bike = $bikeManager->selectOneById($id);
+            }
 
             return $this->twig->render('Admin/updateBike.html.twig', [
                 'bike' => $bike,
