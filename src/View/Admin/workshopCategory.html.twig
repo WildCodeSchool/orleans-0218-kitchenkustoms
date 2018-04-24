@@ -1,0 +1,67 @@
+{% extends 'layout-admin.html.twig' %}
+
+{% block title %}{{ parent() }} - Vélos{% endblock %}
+
+{% block content %}
+    <section class="container">
+        <div class="row">
+            <h1>Atelier</h1>
+            <ul class="nav nav-tabs">
+                <li role="presentation">
+                    <a href="/admin/atelier">Liste des réparations</a>
+                </li>
+                <li role="presentation" class="active">
+                    <a href="/admin/atelier/categories"  >Modifier les catégories</a>
+                </li>
+            </ul>
+            {% if notification %}
+                <div class="alert alert-info" role="alert">
+                    {{ notification }}
+                </div>
+            {% endif %}
+        </div>
+        <div class="row">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Nom</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <form method="post">
+                        <tr class="active">
+                            <td></td>
+                            <td>
+                                <input class="form-control" type="text" name="name" placeholder="Nouvelle catégorie..."
+                                       value="{{ catworkshopFormErrors.name.value }}"
+                                       required>
+                                {% if catworkshopFormErrors.name.error %}
+                                    <span class="help-block">{{ catworkshopFormErrors.name.error }}</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <button type="submit" class="btn btn-default">Ajouter</button>
+                            </td>
+                        </tr>
+                    </form>
+
+                    {% for category in categories %}
+                        <tr>
+                            <td>
+                                {{ category.id }}
+                            </td>
+                            <td>
+                                {{ category.name }}
+                            </td>
+                            <td></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+{% endblock %}
