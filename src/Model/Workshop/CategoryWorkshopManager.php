@@ -13,4 +13,15 @@ class CategoryWorkshopManager extends AbstractManager
         parent::__construct(self::TABLE);
         $this->className = __NAMESPACE__ . '\\' . 'CategoryWorkshop';
     }
+
+    /**
+     * Find all categories ids
+     *
+     * @return array Indexed array of ids
+     */
+    public function selectAllOnlyIds(): array
+    {
+        return $this->pdoConnection
+            ->query('SELECT id FROM ' . $this->table, \PDO::FETCH_COLUMN, 0)->fetchAll();
+    }
 }
