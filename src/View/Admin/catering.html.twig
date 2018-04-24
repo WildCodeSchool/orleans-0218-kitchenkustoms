@@ -4,6 +4,16 @@
 
 {% block content %}
     <section class="container">
+        {% if get.deleted is defined %}
+            <section class="row">
+                {% if get.deleted == 'true' %}
+                    <div class="alert alert-success">L'item {{ get.id }} a été supprimé.</div>
+                {% elseif get.deleted == 'false' %}
+                    <div class="alert alert-danger">L'item {{ get.id }} n'existe pas.</div>
+                {% endif %}
+            </section>
+        {% endif %}
+        {{ dump }}
         <div class="row">
             <h1>Liste des plats et boissons</h1>
         </div>
@@ -41,6 +51,6 @@
             </div>
     </section>
 {% endblock %}
-    {% block javascript %}
-    <script src="/admin/assets/js/cateringDelete.js"></script>
-    {% endblock %}
+{% block javascript %}
+<script src="/admin/assets/js/cateringDelete.js"></script>
+{% endblock %}
