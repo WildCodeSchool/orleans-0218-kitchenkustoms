@@ -2,6 +2,11 @@
 
 {% block content %}
     <section class="container">
+        {% if error is defined %}
+            <section class="row">
+                <div class="alert alert-warning">{{ errror }}</div>
+            </section>
+        {% endif %}
         <div class="row">
             <h1>Ajout d'un nouveau Vélo</h1>
         </div>

@@ -57,6 +57,8 @@ class BikeController extends AbstractController
 
     public function bikeAdd()
     {
+        $bikeManager = new BikeManager();
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $bikeName = $_POST['name'];
             $bikeDescription = $_POST['description'];
@@ -65,21 +67,32 @@ class BikeController extends AbstractController
             $newBike->setName($bikeName);
             $newBike->setDescription($bikeDescription);
 
-            $bikeManager = new BikeManager();
             try {
                 $bikeManager->addBike($newBike);
             } catch (\LogicException $e) {
-                $_SESSION['error_add'] = 'Le vélo n\'a pas été ajouté.';
-                header('Location: /admin/add');
+                $error = 'Le vélo n\'a pas été ajouté.';
+
+                $this->twig->render('Admin/addBike.html.twig', [
+                    'error' =>$error,
+                ]);
             }
 
-
-            header('Location: /admin/bike');
+            header('Location: Admin/bike');
             exit();
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            return $this->twig->render('Admin/addBike.html.twig', []);
+
+            $newBike = new Bike();
+            $newBike->setName('Nom à remplacer...');
+
+            $bikeManager->addBike($newBike);
+
+            $newBike = $bikeManager->selectOneById($bikeManager->lastId());
+
+            return $this->twig->render('Admin/updateBike.html.twig', [
+                'bike' => $newBike,
+            ]);
         }
     }
 
@@ -98,7 +111,11 @@ class BikeController extends AbstractController
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            $bike = $bikeManager->selectOneById($id);
+            if (isset($_GET['id'])) {
+                $bike = $bikeManager->selectOneById($_GET['id']);
+            } else {
+                $bike = $bikeManager->selectOneById($id);
+            }
 
             return $this->twig->render('Admin/updateBike.html.twig', [
                 'bike' => $bike,
