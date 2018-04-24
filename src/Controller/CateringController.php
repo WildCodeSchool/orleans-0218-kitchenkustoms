@@ -36,4 +36,18 @@ class CateringController extends AbstractController
         ]);
     }
 
+    public function cateringDelete(int $id)
+    {
+        $manager = new ItemCateringManager();
+        $deleted = $manager->delete($id);
+        if ($deleted) {
+            $get = '?deleted=true&id='. $id;
+        }else {
+            $get = '?deleted=false&id='. $id;
+        }
+        var_dump($get);
+        header('Location: /admin/restauration'. $get);
+        exit();
+    }
+
 }
