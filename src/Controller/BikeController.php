@@ -59,41 +59,16 @@ class BikeController extends AbstractController
     {
         $bikeManager = new BikeManager();
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $bikeName = $_POST['name'];
-            $bikeDescription = $_POST['description'];
+        $newBike = new Bike();
+        $newBike->setName('Nom à remplacer...');
 
-            $newBike = new Bike();
-            $newBike->setName($bikeName);
-            $newBike->setDescription($bikeDescription);
+        $bikeManager->addBike($newBike);
 
-            try {
-                $bikeManager->addBike($newBike);
-            } catch (\LogicException $e) {
-                $error = 'Le vélo n\'a pas été ajouté.';
+        $newBike = $bikeManager->selectOneById($bikeManager->lastId());
 
-                $this->twig->render('Admin/addBike.html.twig', [
-                    'error' =>$error,
-                ]);
-            }
-
-            header('Location: Admin/bike');
-            exit();
-        }
-
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-
-            $newBike = new Bike();
-            $newBike->setName('Nom à remplacer...');
-
-            $bikeManager->addBike($newBike);
-
-            $newBike = $bikeManager->selectOneById($bikeManager->lastId());
-
-            return $this->twig->render('Admin/updateBike.html.twig', [
-                'bike' => $newBike,
-            ]);
-        }
+        return $this->twig->render('Admin/updateBike.html.twig', [
+            'bike' => $newBike,
+        ]);
     }
 
     public function bikeUpdate(int $id)
