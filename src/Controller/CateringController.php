@@ -35,5 +35,4 @@ class CateringController extends AbstractController
             'cateringItems' => $cateringItems,
         ]);
     }
-
 }

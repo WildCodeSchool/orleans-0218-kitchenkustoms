@@ -8,7 +8,6 @@
 
 namespace Model;
 
-
 use App\Connection;
 use Controller\AbstractController;
 

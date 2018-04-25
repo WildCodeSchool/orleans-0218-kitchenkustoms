@@ -35,8 +35,6 @@ class PdfController extends AbstractController
                     'pdfErrors' => $this->form_pdf_error,
                 ]);
             }
-
-
         }
     }
 }

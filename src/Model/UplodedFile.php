@@ -8,7 +8,6 @@
 
 namespace Model;
 
-
 /**
  * Class UplodedFile
  * @package Model
@@ -63,7 +62,7 @@ class UplodedFile
     /**
      * @return bool
      */
-    private function move() : bool
+    private function move(): bool
     {
         return move_uploaded_file($this->file['tmp_name'], $this->destination . $this->newName);
     }

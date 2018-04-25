@@ -21,7 +21,8 @@ class BikeManager extends AbstractManager
     public function selectAllShop()
     {
         return $this->pdoConnection
-            ->query('SELECT * FROM ' . $this->table . ' WHERE is_sold=1', \PDO::FETCH_CLASS, $this->className)->fetchAll();
+            ->query('SELECT * FROM ' . $this->table . ' WHERE is_sold=1', \PDO::FETCH_CLASS, $this->className)
+            ->fetchAll();
     }
 
     /**
@@ -31,8 +32,8 @@ class BikeManager extends AbstractManager
     public function selectAllKustoms()
     {
         return $this->pdoConnection
-            ->query(    'SELECT * FROM '. $this->table . ' WHERE is_kustom',
-                \PDO::FETCH_CLASS, $this->className)->fetchAll();
+            ->query('SELECT * FROM ' . $this->table . ' WHERE is_kustom', \PDO::FETCH_CLASS, $this->className)
+            ->fetchAll();
     }
 
     public function addBike(Bike $bike)
