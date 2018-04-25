@@ -40,5 +40,4 @@ $routes = [
     'Pdf'=>[
         ['adminUpdatePdf', '/admin/carte', ['GET', 'POST']],
     ]
-
 ];

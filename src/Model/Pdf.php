@@ -9,8 +9,17 @@
 namespace Model;
 
 
+/**
+ * Class Pdf
+ * @package Model
+ */
 class Pdf
 {
+    /**
+     * @param $file
+     * @param string $destination
+     * @return null|string
+     */
     public function updatePdf($file,string $destination)
     {
         $file = $file['pdf'];
