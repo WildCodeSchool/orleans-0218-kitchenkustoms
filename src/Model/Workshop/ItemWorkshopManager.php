@@ -53,4 +53,17 @@ class ItemWorkshopManager extends AbstractManager
         }
         return $results;
     }
+
+    public function updateItem(ItemWorkshop $item)
+    {
+        $queryValues = 'name=:name, price=:price, category_workshop_id=:category_workshop_id';
+        $statement = $this->pdoConnection->prepare("UPDATE $this->table SET $queryValues WHERE id=:id");
+
+        $statement->bindValue(':name', $item->getName(), \PDO::PARAM_STR);
+        $statement->bindValue(':price', $item->getPrice(), \PDO::PARAM_STR);
+        $statement->bindValue(':category_workshop_id', $item->getCategoryWorkshopId(), \PDO::PARAM_INT);
+        $statement->bindValue(':id', $item->getId());
+
+        return $statement->execute();
+    }
 }

@@ -78,6 +78,26 @@
     padding-bottom: 0vw;
 }
 
+.vendu {
+    -webkit-filter: saturate(25%) contrast(85%) brightness(75%);
+    filter: sepia(100%) contrast(50%) brightness(50%);
+}
+
+.vendu:hover {
+    -webkit-filter: saturate(95%);
+    filter: saturate(95%);
+}
+
+.sold {
+    display: block;
+    height: 25%;
+    width: 25%;
+    position: relative;
+    bottom: 3.7vw;
+    left: 83.5%;
+    margin: -12%;
+}
+
 .card-title {
     display: block;
     text-align: center;
@@ -149,13 +169,23 @@ th.title{
     background: transparent;
 }
 
-.card-footer > .btn {
+.card-footer > .label {
+    color: black;
     font-size: 1.4em;
     padding-top: .5vw;
-    padding-bottom: .5vw;
+
 }
 
-/* big mobile Mquery */
+@media (min-width: 991px) and (max-width: 1199px) {
+
+    .sold {
+        bottom: 5.5vw;
+        left: 84.6%;
+        margin: -12%;
+    }
+}
+
+    /* big mobile Mquery */
 @media (min-width: 480px) and (max-width: 991px) {
 
     .card {
@@ -167,6 +197,12 @@ th.title{
 
     .card-img-top {
         padding: 2.5vw;
+    }
+
+    .sold {
+        bottom: 11.3vw;
+        left: 83.7%;
+        margin: -12%;
     }
 
     .card-text {
@@ -190,6 +226,12 @@ th.title{
 
     .card-img-top {
         padding: 2vw;
+    }
+
+    .sold {
+        bottom: 11.5vw;
+        left: 85.2%;
+        margin: -12.5%;
     }
 
     .card-title {
@@ -220,7 +262,8 @@ th.title{
         margin-bottom: 1vw;
     }
 
-    .card-footer > .btn {
+    .card-footer > .label {
+        color: black;
         font-size: 1em;
         padding-top: 1vw;
         padding-bottom: .5vw;

@@ -4,6 +4,15 @@
 
 {% block content %}
     <section class="container">
+        {% if get.deleted is defined %}
+            <section class="row">
+                {% if get.deleted == 'true' %}
+                    <div class="alert alert-success">L'item {{ get.id }} a été supprimé.</div>
+                {% elseif get.deleted == 'false' %}
+                    <div class="alert alert-danger">L'item {{ get.id }} n'existe pas.</div>
+                {% endif %}
+            </section>
+        {% endif %}
         <div class="row">
             <div class="col-md-6">
                 <h1>Liste des plats et boissons</h1>
@@ -28,18 +37,26 @@
                     <tbody>
                     {% for item in cateringItems %}
                         <tr>
-                            <th>{{ item.id }}</th>
-                            <th>{{ item.name }}</th>
-                            <th>{{ item.price }}</th>
-                            <th class="hidden-xs">{{ item.description }}</th>
-                            <th>
+                            <td>{{ item.id }}</td>
+                            <td>{{ item.name }}</td>
+                            <td>{{ item.price }}</td>
+                            <td class="hidden-xs">{{ item.description }}</td>
+                            <td>
                                 {% if item.categoryCateringid == 1 %} <span class="label label-info">Cantine</span> {% endif %}
                                 {% if item.categoryCateringid == 2 %} <span class="label label-primary">Café</span> {% endif %}
-                            </th>
+                            </td>
+                            <td>
+                                <form method="POST" action="/admin/restauration/delete/{{ item.id }}">
+                                    <input type="submit" class="btn btn-danger" value="Supprimer">
+                                </form>
+                            </td>
                         </tr>
                     {% endfor %}
                     </tbody>
                 </table>
             </div>
     </section>
+{% endblock %}
+{% block javascript %}
+<script src="/admin/assets/js/cateringDelete.js"></script>
 {% endblock %}

@@ -6,7 +6,7 @@ a.navbar-brand {
     padding: 0;
 }
 
-a {
+.navbar-kustoms a {
     color: white;
     font-weight: bold;
     font-size: 1.6em;

@@ -8,7 +8,6 @@
 
 namespace Model;
 
-
 class ItemCatering
 {
     private $id;
@@ -96,5 +95,4 @@ class ItemCatering
     {
         $this->category_catering_id = $category_catering_id;
     }
-
-    }
+}

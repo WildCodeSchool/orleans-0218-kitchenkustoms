@@ -35,6 +35,7 @@ class CateringController extends AbstractController
 
         return $this->twig->render('Admin/catering.html.twig', [
             'cateringItems' => $cateringItems,
+            'get' => $_GET,
         ]);
     }
 
@@ -59,3 +60,18 @@ class CateringController extends AbstractController
     }
 
 }
+
+    public function cateringDelete(int $id)
+    {
+        $cateringManager = new ItemCateringManager();
+        $deleted = $cateringManager->delete($id);
+        if ($deleted) {
+            $get = '?deleted=true&id='. $id;
+        }else {
+            $get = '?deleted=false&id='. $id;
+        }
+        header('Location: /admin/restauration'. $get);
+        exit();
+    }
+}
+

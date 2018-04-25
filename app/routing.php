@@ -20,17 +20,28 @@ $routes = [
         ['bikeShop', '/boutique', 'GET'],
         ['bikeAdmin', '/admin/bike', 'GET'],
         ['bikeKustoms', '/kustoms', 'GET'],
-        ['bikeAdd', '/admin/bike/add', ['GET', 'POST']],
+        ['bikeAdd', '/admin/bike/add', 'GET'],
         ['bikeUpdate', '/admin/bike/{id:\d+}', ['GET', 'POST']],
         ['bikeDelete', '/admin/bike/delete/{id:\d+}', 'POST'],
     ],
-    'Catering'=> [
+    'Catering' => [
         ['catering', '/restauration', 'GET'],
         ['adminCatering', '/admin/restauration', 'GET'],
         ['cateringAdd', '/admin/restauration/add', ['GET', 'POST']],
+        ['cateringDelete', '/admin/restauration/delete/{id:\d+}', 'POST'],
     ],
     'Workshop' => [
         ['index', '/atelier', 'GET'],
-        ['adminIndex', '/admin/atelier', 'GET']
+        ['adminIndex', '/admin/atelier', 'GET'],
+        ['adminAdd', '/admin/atelier', 'POST'],
+        ['adminUpdate', '/admin/atelier/{id:\d+}', ['GET','POST']],
+        ['adminDelete', '/admin/atelier/delete/{id:\d+}', 'POST'],
+    ],
+    'WorkshopCategory' => [
+        ['adminIndex', '/admin/atelier/categories', 'GET'],
+        ['adminAdd', '/admin/atelier/categories', 'POST'],
+    ],
+    'Pdf'=>[
+        ['adminUpdatePdf', '/admin/carte', ['GET', 'POST']],
     ]
 ];

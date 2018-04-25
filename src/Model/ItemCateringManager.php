@@ -9,6 +9,8 @@
 namespace Model;
 
 
+use App\Connection;
+use Controller\AbstractController;
 
 class ItemCateringManager extends AbstractManager
 {
