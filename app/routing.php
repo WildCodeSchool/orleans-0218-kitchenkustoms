@@ -26,7 +26,8 @@ $routes = [
     ],
     'Catering'=> [
         ['catering', '/restauration', 'GET'],
-        ['adminCatering', '/admin/restauration', 'GET']
+        ['adminCatering', '/admin/restauration', 'GET'],
+        ['cateringAdd', '/admin/restauration/add', ['GET', 'POST']],
     ],
     'Workshop' => [
         ['index', '/atelier', 'GET'],

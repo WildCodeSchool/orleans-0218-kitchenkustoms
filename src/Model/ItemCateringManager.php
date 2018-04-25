@@ -9,8 +9,6 @@
 namespace Model;
 
 
-use App\Connection;
-use Controller\AbstractController;
 
 class ItemCateringManager extends AbstractManager
 {
@@ -33,5 +31,23 @@ class ItemCateringManager extends AbstractManager
     {
         return $this->pdoConnection
             ->query('SELECT * FROM ' . $this->table . ' WHERE category_catering_id = 2 LIMIT 5;', \PDO::FETCH_CLASS, $this->className)->fetchAll();
+    }
+
+    public function cateringAdd(itemCatering $newItem)
+    {
+        $name = $newItem->getName();
+        $description = $newItem->getDescription();
+        $price = $newItem->getPrice();
+        $category_catering_id = $newItem->getCategoryCateringId();
+
+            $query = ('INSERT INTO ' . $this->table . ' (name, price, description, category_catering_id) VALUES (:name, :price, :description, :category_catering_id)');
+        $prepare = $this->pdoConnection->prepare($query);
+
+        $prepare->bindValue('name', $name, \PDO::PARAM_STR);
+        $prepare->bindValue('description', $description);
+        $prepare->bindValue('price', $price);
+        $prepare->bindValue('category_catering_id', $category_catering_id);
+
+        $prepare->execute();
     }
 }
