@@ -169,10 +169,11 @@ th.title{
     background: transparent;
 }
 
-.card-footer > .btn {
+.card-footer > .label {
+    color: black;
     font-size: 1.4em;
     padding-top: .5vw;
-    padding-bottom: .5vw;
+
 }
 
 @media (min-width: 991px) and (max-width: 1199px) {
@@ -261,7 +262,8 @@ th.title{
         margin-bottom: 1vw;
     }
 
-    .card-footer > .btn {
+    .card-footer > .label {
+        color: black;
         font-size: 1em;
         padding-top: 1vw;
         padding-bottom: .5vw;
