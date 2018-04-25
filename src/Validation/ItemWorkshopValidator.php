@@ -30,13 +30,13 @@ class ItemWorkshopValidator
             }
         }
 
-        if (!isset($errors['name'])) {
-            if (mb_strlen($data['name'] > 45)) {
+        if (!$errors['name']['error']) {
+            if (mb_strlen($data['name']) > 45) {
                 $errors['name']['error'] = 'Le nom ne peut excéder 45 caractères.';
             }
         }
 
-        if (!isset($errors['price'])) {
+        if (!$errors['price']['error']) {
             if (!is_numeric($data['price'])) {
                 $errors['price']['error'] = 'Le prix doit être un nombre';
             } else {
@@ -46,7 +46,7 @@ class ItemWorkshopValidator
             }
         }
 
-        if (!isset($errors['category_workshop_id'])) {
+        if (!$errors['category_workshop_id']['error']) {
             $categoriesManager = new CategoryWorkshopManager();
             $categoryIds = $categoriesManager->selectAllOnlyIds();
             if (!in_array($data['category_workshop_id'], $categoryIds)) {
