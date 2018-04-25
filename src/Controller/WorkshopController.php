@@ -66,7 +66,8 @@ class WorkshopController extends AbstractController
                 'items' => $items,
                 'categories' => $categories,
                 'itemworkshopFormErrors' => $errors,
-                'notification' => $this->notification
+                'notification' => $this->notification,
+                'get' => $_GET,
             ]
         );
     }
@@ -96,5 +97,18 @@ class WorkshopController extends AbstractController
         }
 
         return $this->adminIndex();
+    }
+
+    public function adminDelete(int $id)
+    {
+        $itemWorkshopManager = new ItemWorkshopManager();
+        $deleted = $itemWorkshopManager->delete($id);
+        if ($deleted) {
+            $get = '?deleted=true&id='. $id;
+        } else {
+            $get = '?deleted=false&id='. $id;
+        }
+        header('Location: /admin/atelier'. $get);
+        exit();
     }
 }
