@@ -85,7 +85,9 @@
                             <td>
                                 {{ item.category_name }}
                             </td>
-                            <td></td>
+                            <td>
+                                <a href="/admin/atelier/{{ item.id }}" class="btn btn-default"> Modifier </a>
+                            </td>
                         </tr>
                     {% endfor %}
                     </tbody>

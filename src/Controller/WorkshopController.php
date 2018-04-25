@@ -3,6 +3,7 @@
 namespace Controller;
 
 use Model\Workshop\CategoryWorkshopManager;
+use Model\Workshop\ItemWorkshop;
 use Model\Workshop\ItemWorkshopManager;
 use Validation\ItemWorkshopValidator;
 
@@ -96,5 +97,31 @@ class WorkshopController extends AbstractController
         }
 
         return $this->adminIndex();
+    }
+
+
+    public function adminUpdate($id)
+    {
+        $itemsManager = new ItemWorkshopManager();
+        $formerrors = [];
+
+        if (!empty($_POST)) {
+            $postData = array_map('trim', $_POST);
+            $validator = new ItemWorkshopValidator($postData);
+            if ($validator->isValid()) {
+                $item = new ItemWorkshop();
+                $item->hydrate($postData);
+                $itemsManager->updateItem($item);
+                header('Location: /admin/atelier');
+                exit();
+            } else {
+                $formerrors = $validator->getErrors();
+            }
+        }
+        $item = $itemsManager->selectOneById($id);
+        $categoriesManager = new CategoryWorkshopManager();
+        $categories = $categoriesManager->selectAll();
+
+        return $this->twig->render('Admin/updateItemWorkshop.html.twig', compact('item', 'categories', 'formerrors'));
     }
 }
