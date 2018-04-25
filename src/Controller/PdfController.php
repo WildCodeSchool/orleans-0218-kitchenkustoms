@@ -2,7 +2,7 @@
 
 namespace Controller;
 
-use Model\Pdf;
+use Model\UplodedFile;
 
 class PdfController extends AbstractController
 {
@@ -18,20 +18,25 @@ class PdfController extends AbstractController
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $pdf = new Pdf();
-            $this->form_pdf_error = $pdf->updatePdf($_FILES, 'atelier');
+            try {
+                $pdf = new UplodedFile($_FILES['pdf'], '../assets/pdf/', 'tarifs-atelier.pdf');
+                $uploaded = $pdf->process();
+            } catch (\Exception $e) {
+                $uploaded = false;
+                $this->form_pdf_error[] = $e->getMessage();
+            }
 
-            if ($this->form_pdf_error === null) {
-                $success = true;
-
+            if ($uploaded) {
                 return $this->twig->render('Admin/uploadPdf.html.twig', [
-                    'success' => $success,
+                    'success' => true,
+                ]);
+            } else {
+                return $this->twig->render('Admin/uploadPdf.html.twig', [
+                    'pdfErrors' => $this->form_pdf_error,
                 ]);
             }
 
-            return $this->twig->render('Admin/uploadPdf.html.twig', [
-                'pdfError' => $this->form_pdf_error,
-            ]);
+
         }
     }
 }

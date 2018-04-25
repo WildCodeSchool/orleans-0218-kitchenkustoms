@@ -9,10 +9,12 @@
             <h2>Atelier</h2>
         </div>
         <div class="row">
-            {% if pdfError is not null %}
-                <div class="alert alert-danger">
-                    {{ pdfError }}
-                </div>
+            {% if pdfErrors is not null %}
+                {% for error in pdfErrors %}
+                    <div class="alert alert-danger">
+                        {{ error }}
+                    </div>
+                {% endfor %}
             {% endif %}
             {% if success %}
                 <div class="alert alert-success">
