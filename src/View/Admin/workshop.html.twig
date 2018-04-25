@@ -4,6 +4,15 @@
 
 {% block content %}
     <section class="container">
+        {% if get.deleted is defined %}
+            <section class="row">
+                {% if get.deleted == 'true' %}
+                    <div class="alert alert-success">L'item {{ get.id }} a été supprimé.</div>
+                {% elseif get.deleted == 'false' %}
+                    <div class="alert alert-danger">L'item {{ get.id }} n'existe pas.</div>
+                {% endif %}
+            </section>
+        {% endif %}
         <div class="row">
             <h1>Atelier</h1>
             <ul class="nav nav-tabs">
@@ -85,7 +94,12 @@
                             <td>
                                 {{ item.category_name }}
                             </td>
-                            <td></td>
+                            <td>
+                                <a href="/admin/atelier/{{ item.id }}" class="btn btn-warning"> Modifier </a>
+                                <form class ="deleteButton" method="POST" action="/admin/atelier/delete/{{ item.id }}">
+                                    <input type="submit" class="btn btn-danger " value="Supprimer">
+                                </form>
+                            </td>
                         </tr>
                     {% endfor %}
                     </tbody>
@@ -94,3 +108,7 @@
         </div>
     </section>
 {% endblock %}
+{% block javascript %}
+<script src="/admin/assets/js/itemWorkshopDelete.js"></script>
+{% endblock %}
+

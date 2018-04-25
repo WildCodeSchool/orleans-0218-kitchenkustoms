@@ -20,18 +20,21 @@ $routes = [
         ['bikeShop', '/boutique', 'GET'],
         ['bikeAdmin', '/admin/bike', 'GET'],
         ['bikeKustoms', '/kustoms', 'GET'],
-        ['bikeAdd', '/admin/bike/add', ['GET', 'POST']],
+        ['bikeAdd', '/admin/bike/add', 'GET'],
         ['bikeUpdate', '/admin/bike/{id:\d+}', ['GET', 'POST']],
         ['bikeDelete', '/admin/bike/delete/{id:\d+}', 'POST'],
     ],
     'Catering' => [
         ['catering', '/restauration', 'GET'],
-        ['adminCatering', '/admin/restauration', 'GET']
+        ['adminCatering', '/admin/restauration', 'GET'],
+        ['cateringDelete', '/admin/restauration/delete/{id:\d+}', 'POST'],
     ],
     'Workshop' => [
         ['index', '/atelier', 'GET'],
         ['adminIndex', '/admin/atelier', 'GET'],
         ['adminAdd', '/admin/atelier', 'POST'],
+        ['adminUpdate', '/admin/atelier/{id:\d+}', ['GET','POST']],
+        ['adminDelete', '/admin/atelier/delete/{id:\d+}', 'POST'],
     ],
     'WorkshopCategory' => [
         ['adminIndex', '/admin/atelier/categories', 'GET'],

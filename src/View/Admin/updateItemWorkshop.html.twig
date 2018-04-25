@@ -1,0 +1,44 @@
+{% extends 'layout-admin.html.twig' %}
+
+{% block title %}{{ parent() }} - Atelier{% endblock %}
+
+{% block content %}
+    <section class="container">
+        <h1>Atelier</h1>
+        <h3>Modifier une réparation</h3>
+        <form method="post" role="form">
+            <input type="hidden" name="id" value="{{ item.id }}">
+            <div class="form-group">
+                <label for="form-name">Nom</label>
+                <input type="text" class="form-control" name="name" id="form-name" value="{{ item.name }}" required>
+                {% if formerrors.name.error %}
+                    <span class="help-block">{{ formerrors.name.error }}</span>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="form-price">Prix</label>
+                <input id="form-price" class="form-control" type="number" name="price"
+                       value="{{ item.price }}" placeholder="0.00" step="0.01"
+                       min="0" max="999.99" required>
+                {% if formerrors.price.error %}
+                    <span class="help-block">{{ formerrors.price.error }}</span>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="form-cat_id">Catégorie</label>
+                <select id="form-cat_id" class="form-control" name="category_workshop_id" required>
+                    {% for category in categories %}
+                        {% set isSelected = (category.id == item.id) ? 'selected' : '' %}
+                        <option {{ isSelected }} value="{{ category.id }}">
+                            {{ category.name }}
+                        </option>
+                    {% endfor %}
+                </select>
+                {% if category_workshop_id.name.error %}
+                    <span class="help-block">{{ category_workshop_id.name.error }}</span>
+                {% endif %}
+            </div>
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+        </form>
+    </section>
+{% endblock %}
