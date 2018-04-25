@@ -41,22 +41,19 @@ class CateringController extends AbstractController
     public function cateringAdd()
     {
        if(!empty($_POST)) {
-           $postData = array_map('trim', $_POST);
-           $validator = new ItemCateringValidator($postData);
+            $postData = array_map('trim', $_POST);
+            $data = new ItemCatering();
 
-           if ($validator->isValid()) {
-                $data = new ItemCatering();
-                $data->setName($postData['name']);
-                $data->setDescription($postData['description']);
-                $data->setPrice($postData['price']);
-                $data->setCategoryCateringId($postData['category_catering_id']);
+            $data->setName($postData['name']);
+            $data->setDescription($postData['description']);
+            $data->setPrice($postData['price']);
+            $data->setCategoryCateringId($postData['category_catering_id']);
 
+           $itemsManager = new ItemCateringManager();
+           $itemsManager->cateringAdd($data);
 
-               $itemsManager = new ItemCateringManager();
-               $itemsManager->cateringAdd($data);
-               $this->notification = 'Un nouvel item ajouté.';
-
-           }
+           header('Location: /admin/restauration');
+           exit();
        }
         return $this->twig->render('Admin/addCatering.html.twig');
     }
