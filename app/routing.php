@@ -24,7 +24,7 @@ $routes = [
         ['bikeUpdate', '/admin/bike/{id:\d+}', ['GET', 'POST']],
         ['bikeDelete', '/admin/bike/delete/{id:\d+}', 'POST'],
     ],
-    'Catering'=> [
+    'Catering' => [
         ['catering', '/restauration', 'GET'],
         ['adminCatering', '/admin/restauration', 'GET']
     ],
@@ -32,10 +32,13 @@ $routes = [
         ['index', '/atelier', 'GET'],
         ['adminIndex', '/admin/atelier', 'GET'],
         ['adminAdd', '/admin/atelier', 'POST'],
-        ['adminUpdatePdf', '/admin/atelier/carte', 'POST'],
     ],
-    'WorkshopCategory'=>[
+    'WorkshopCategory' => [
         ['adminIndex', '/admin/atelier/categories', 'GET'],
         ['adminAdd', '/admin/atelier/categories', 'POST'],
+    ],
+    'Pdf'=>[
+        ['adminUpdatePdf', '/admin/carte', ['GET', 'POST']],
     ]
+
 ];

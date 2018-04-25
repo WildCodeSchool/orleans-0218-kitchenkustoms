@@ -1,11 +1,33 @@
-<section class="container">
-    <div class="row">
-        <form method="POST" enctype="multipart/form-data" action="/admin/atelier/carte" >
-            <div class="form-group">
-                <label for="pdf">Coix du nouveau PDF : </label>
-                <input type="file" name="pdf" id="pdf">
-                <input type="submit" value="Envoyer">
-            </div>
-        </form>
-    </div>
-</section>
+{% extends 'layout-admin.html.twig' %}
+
+{% block content %}
+    <section class="container">
+        <div class="row">
+            <h1>Modification des PDF</h1>
+        </div>
+        <div class="row">
+            <h2>Atelier</h2>
+        </div>
+        <div class="row">
+            {% if pdfError is not null %}
+                <div class="alert alert-danger">
+                    {{ pdfError }}
+                </div>
+            {% endif %}
+            {% if success %}
+                <div class="alert alert-success">
+                    Le PDF a bien été modifié.
+                </div>
+            {% endif %}
+        </div>
+        <div class="row">
+            <form method="POST" enctype="multipart/form-data" action="/admin/carte">
+                <div class="form-group">
+                    <label for="pdf">Coix du nouveau PDF : </label>
+                    <input type="file" accept="application/pdf" name="pdf" id="pdf">
+                    <input type="submit" value="Envoyer">
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock %}

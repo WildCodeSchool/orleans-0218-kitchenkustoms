@@ -4,6 +4,7 @@ namespace Controller;
 
 use Model\Workshop\CategoryWorkshopManager;
 use Model\Workshop\ItemWorkshopManager;
+use Model\Workshop\PdfWorkshop;
 use Validation\ItemWorkshopValidator;
 
 class WorkshopController extends AbstractController
