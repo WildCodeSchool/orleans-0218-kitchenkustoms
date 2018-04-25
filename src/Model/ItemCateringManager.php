@@ -50,4 +50,5 @@ class ItemCateringManager extends AbstractManager
 
         $prepare->execute();
     }
+
 }

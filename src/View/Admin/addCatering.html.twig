@@ -1,6 +1,9 @@
 {% extends 'layout-admin.html.twig' %}
 
 {% block content %}
+    {{ vardump }}
+    {{ dump.errors }}
+
     <section class="container">
         <div class="row">
             <h1>Ajout d'un plat ou une boisson</h1>
@@ -25,7 +28,7 @@
                     </div>
                 <div class="form-group">
                     <label for="category">Catégorie*</label>
-                    <select class="form-control" name="category" required>
+                    <select class="form-control" name="category_catering_id" required>
                         <option>1</option>
                         <option>2</option>
                     </select>
