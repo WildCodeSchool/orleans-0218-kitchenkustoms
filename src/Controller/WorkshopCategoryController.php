@@ -2,6 +2,7 @@
 
 namespace Controller;
 
+use Model\Workshop\CategoryWorkshop;
 use Model\Workshop\CategoryWorkshopManager;
 use Validation\CategoryWorkshopValidator;
 
@@ -63,5 +64,46 @@ class WorkshopCategoryController extends AbstractController
         }
 
         return $this->adminIndex();
+    }
+
+    /**
+     * Controls workshop categories update
+     * route: /admin/atelier/categories/{id}
+     *
+     * @param $id
+     * @return string
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
+    public function adminUpdate($id)
+    {
+        $formError = false;
+        $categoriesManager = new CategoryWorkshopManager();
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $postName = isset($_POST['name']) ? trim($_POST['name']) : '';
+            if (!empty($postName)) {
+                if (mb_strlen($postName) > 45) {
+                    $formError = 'Le nom de la catégorie ne peut excéder 45 caractères';
+                }
+            } else {
+                $formError = 'Le nom ne peut pas être vide.';
+            }
+            if ($formError === false) {
+                $category = new CategoryWorkshop();
+                $category->setId($id);
+                $category->setName($postName);
+                $categoriesManager->updateCategory($category);
+                header('Location: /admin/atelier/categories');
+                exit();
+            }
+        }
+        $category = $categoriesManager->selectOneById($id);
+
+        return $this->twig->render(
+            'Admin/updateCategoryWorkshop.html.twig',
+            compact('category', 'formError')
+        );
     }
 }

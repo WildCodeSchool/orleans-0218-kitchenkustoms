@@ -37,5 +37,6 @@ $routes = [
     'WorkshopCategory'=>[
         ['adminIndex', '/admin/atelier/categories', 'GET'],
         ['adminAdd', '/admin/atelier/categories', 'POST'],
+        ['adminUpdate', '/admin/atelier/categories/{id:\d+}', ['GET', 'POST']],
     ]
 ];
