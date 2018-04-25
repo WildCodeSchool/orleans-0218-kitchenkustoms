@@ -75,8 +75,6 @@ class UplodedFile
             $moved = $this->move();
             if ($moved) {
                 return true;
-            } else {
-                return false;
             }
         }
         return false;
