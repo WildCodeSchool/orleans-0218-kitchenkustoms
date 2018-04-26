@@ -6,17 +6,20 @@
     <section class="section">
         <div class="container">
             <h1 class="text-center">L'Atelier</h1>
-            <p class="text-presentation text-center">Pour faire réparer son vélo ou changer des pièces, passez par notre
-                atelier&nbsp;!</p>
-            <h2>Nos r<span class="e-cute">é</rspan>parations courantes</h2>
+            <h2 class="text-center add-info">Pour faire r<span class="e-cute">é</span>parer son v<span class="e-cute">é</span>lo ou changer des pi<span class="e-cute">è</span>ces, passez par notre
+                atelier&nbsp;!</h2>
+            <h2 class="title-presentation">Nos r<span class="e-cute">é</span>parations courantes</h2>
             <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <img src="assets/images/atelier.jpg" class="img-responsive center-block" alt="Photo atelier">
+                </div>
                 {% for category, items in itemsGroupByCategories %}
                     <div class="col-sm-6">
-                        <h3>{{ category }}
+                        <h3 class="title-style">{{ category }}
                         </h3>
                         <ul class="list-group">
                             {% for item in items %}
-                                <li class="list-group-item list-group-item-kk">
+                                <li class="list-group-item borderless"><img class="img-boulon" src="assets/images/bolt_BLACK_32.svg" alt="icône boulon">
                                     <span class="badge">{{ item.price|number_format(2,',') }} €</span>
                                     {{ item.name }}
                                 </li>
@@ -27,6 +30,11 @@
                         <div class="clearfix hidden-xs"></div>
                     {% endif %}
                 {% endfor %}
+            </div>
+            <div class="row">
+                <div class="col-md-offset-3 col-md-6">
+                    <img src="assets/images/vis_atelier.jpg" class="img-responsive center-block" alt="Photo atelier">
+                </div>
             </div>
         </div>
     </section>
