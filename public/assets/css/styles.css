@@ -14,6 +14,19 @@
 
 /******* GENERAL *******/
 
+body {
+    background-image: url("/assets/images/white_sand.png");
+}
+
+.borderless {
+    border-top: none;
+    background-image: url("/assets/images/white_sand.png");
+    font-family: albertsthal;
+    font-weight: bold;
+    padding: 20px;
+    font-size: 16px;
+}
+
 h1, h2, h3, .h1, .h2, .h3 {
     font-family: linowrite, sans-serif;
 }
@@ -552,6 +565,8 @@ p.footer-kustoms {
     box-shadow: 9px 8px 7px -6px rgba(158,149,158,0.69);
 }
 
+/******* SECTION WORKSHOP*******/
+
 /******* SECTION CAFE CANTINE*******/
 
 .link-menu{
@@ -568,12 +583,11 @@ p.footer-kustoms {
     margin-bottom: 60px;
     max-height: 50%;
 }
-.list-group-item{
-    padding: 20px;
-    font-size: 16px;
-}
+
 .badge{
-    font-size: 15px;
+    font-size: 16px;
+    background-image: url("/assets/images/white_sand.png");
+    color: black;
 }
 .list-group-item>img{
     margin-right: 10px;
@@ -592,15 +606,20 @@ p.footer-kustoms {
     margin-top: 30px;
     margin-bottom: 50px;
 }
-.addinfo{
-    color: grey;
+.add-info{
+    color: #A72222;
     font-size: 20px;
 }
 .item-description{
     margin-left: 40px;
     margin-top: 10px;
     font-size: 14px;
-    color: grey;
+    color: #A72222;
+}
+.title-style {
+    color: #A72222;
+    padding: 15px;
+    font-size: 26px;
 }
 
 
