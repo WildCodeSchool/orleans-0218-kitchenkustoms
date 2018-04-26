@@ -76,10 +76,16 @@ class WorkshopCategoryController extends AbstractController
     {
         $categoryWorkshopManager = new CategoryWorkshopManager();
 
-        $deleted = $categoryWorkshopManager->delete($id);
+        $existElementCategory = $categoryWorkshopManager->selectElementsByCategoryId($id);
 
-        if (!$deleted) {
-            $this->form_errors['delete'] = 'Categorie inexistante, suppression impossible.';
+        if (!empty($existElementCategory)) {
+            $this->form_errors['delete'] = 'Veuillez supprimer les éléments de la catégorie avant de la supprimer.';
+        } else {
+            $deleted = $categoryWorkshopManager->delete($id);
+
+            if (!$deleted) {
+                $this->form_errors['delete'] = 'Categorie inexistante, suppression impossible.';
+            }
         }
 
         return $this->adminIndex();

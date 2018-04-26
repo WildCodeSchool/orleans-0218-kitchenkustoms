@@ -21,6 +21,9 @@
             {% endif %}
         </div>
         <div class="row">
+            {% if catworkshopFormErrors.delete is defined %}
+                <div class="alert alert-danger">{{ catworkshopFormErrors.delete }}</div>
+            {% endif %}
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thead>
@@ -31,7 +34,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <form method="post">
+                    <form method="post" action="/admin/atelier/categories">
                         <tr class="active">
                             <td></td>
                             <td>
@@ -49,6 +52,7 @@
                     </form>
 
                     {% for category in categories %}
+
                         <tr>
                             <td>
                                 {{ category.id }}
