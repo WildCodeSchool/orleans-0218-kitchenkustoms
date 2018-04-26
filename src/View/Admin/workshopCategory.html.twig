@@ -56,7 +56,11 @@
                             <td>
                                 {{ category.name }}
                             </td>
-                            <td></td>
+                            <td>
+                                <form method="POST" action="/admin/atelier/categories/delete/{{ category.id }}">
+                                    <input class="btn btn-danger" type="submit" value="Supprimer">
+                                </form>
+                            </td>
                         </tr>
                     {% endfor %}
                     </tbody>
