@@ -67,6 +67,7 @@ class WorkshopCategoryController extends AbstractController
     }
 
     /**
+     * @param int $id
      * Controls workshop categories update
      * route: /admin/atelier/categories/{id}
      *
@@ -76,14 +77,24 @@ class WorkshopCategoryController extends AbstractController
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      */
+
+    public function adminDelete(int $id)
+    {
+        $categoryWorkshopManager = new CategoryWorkshopManager();
+        $success = $categoryWorkshopManager->delete($id);
+
+        if (!$success) {
+            $this->form_errors['delete'] = 'Erreur lors de la suppression.';
+        }
+        return $this->adminIndex();
+    }
+  
     public function adminUpdate($id)
     {
         $formError = false;
         $categoriesManager = new CategoryWorkshopManager();
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $postName = isset($_POST['name']) ? trim($_POST['name']) : '';
-
             $validator = new CategoryWorkshopValidator(['name' => $postName]);
             if (!$validator->isValid()) {
                 $formError = $validator->getErrors();
