@@ -2,6 +2,7 @@
 
 namespace Controller;
 
+use Model\Workshop\CategoryWorkshop;
 use Model\Workshop\CategoryWorkshopManager;
 use Validation\CategoryWorkshopValidator;
 
@@ -74,18 +75,11 @@ class WorkshopCategoryController extends AbstractController
      */
     public function adminDelete(int $id)
     {
-        $categoryWorkshopManager = new CategoryWorkshopManager();
+        $categoryWorkshop = new CategoryWorkshop();
+        $error = $categoryWorkshop->delete($id);
 
-        $existElementCategory = $categoryWorkshopManager->selectElementsByCategoryId($id);
-
-        if (!empty($existElementCategory)) {
-            $this->form_errors['delete'] = 'Veuillez supprimer les éléments de la catégorie avant de la supprimer.';
-        } else {
-            $deleted = $categoryWorkshopManager->delete($id);
-
-            if (!$deleted) {
-                $this->form_errors['delete'] = 'Categorie inexistante, suppression impossible.';
-            }
+        if ($error !== null) {
+            $this->form_errors['delete'] = $error;
         }
 
         return $this->adminIndex();
