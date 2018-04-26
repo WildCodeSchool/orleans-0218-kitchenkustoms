@@ -3,6 +3,7 @@
 namespace Controller;
 
 use Model\Workshop\CategoryWorkshopManager;
+use Model\Workshop\ItemWorkshop;
 use Model\Workshop\ItemWorkshopManager;
 use Validation\ItemWorkshopValidator;
 
@@ -66,7 +67,8 @@ class WorkshopController extends AbstractController
                 'items' => $items,
                 'categories' => $categories,
                 'itemworkshopFormErrors' => $errors,
-                'notification' => $this->notification
+                'notification' => $this->notification,
+                'get' => $_GET,
             ]
         );
     }
@@ -96,5 +98,44 @@ class WorkshopController extends AbstractController
         }
 
         return $this->adminIndex();
+    }
+
+
+    public function adminUpdate($id)
+    {
+        $itemsManager = new ItemWorkshopManager();
+        $formerrors = [];
+
+        if (!empty($_POST)) {
+            $postData = array_map('trim', $_POST);
+            $validator = new ItemWorkshopValidator($postData);
+            if ($validator->isValid()) {
+                $item = new ItemWorkshop();
+                $item->hydrate($postData);
+                $itemsManager->updateItem($item);
+                header('Location: /admin/atelier');
+                exit();
+            } else {
+                $formerrors = $validator->getErrors();
+            }
+        }
+        $item = $itemsManager->selectOneById($id);
+        $categoriesManager = new CategoryWorkshopManager();
+        $categories = $categoriesManager->selectAll();
+
+        return $this->twig->render('Admin/updateItemWorkshop.html.twig', compact('item', 'categories', 'formerrors'));
+    }
+  
+    public function adminDelete(int $id)
+    {
+        $itemWorkshopManager = new ItemWorkshopManager();
+        $deleted = $itemWorkshopManager->delete($id);
+        if ($deleted) {
+            $get = '?deleted=true&id='. $id;
+        } else {
+            $get = '?deleted=false&id='. $id;
+        }
+        header('Location: /admin/atelier'. $get);
+        exit();
     }
 }

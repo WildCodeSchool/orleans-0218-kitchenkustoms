@@ -49,5 +49,4 @@ class CateringController extends AbstractController
         header('Location: /admin/restauration'. $get);
         exit();
     }
-
 }
