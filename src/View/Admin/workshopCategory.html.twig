@@ -11,7 +11,7 @@
                     <a href="/admin/atelier">Liste des réparations</a>
                 </li>
                 <li role="presentation" class="active">
-                    <a href="/admin/atelier/categories"  >Modifier les catégories</a>
+                    <a href="/admin/atelier/categories">Modifier les catégories</a>
                 </li>
             </ul>
             {% if notification %}
@@ -38,8 +38,10 @@
                                 <input class="form-control" type="text" name="name" placeholder="Nouvelle catégorie..."
                                        value="{{ catworkshopFormErrors.name.value }}"
                                        required>
-                                {% if catworkshopFormErrors.name.error %}
-                                    <span class="help-block">{{ catworkshopFormErrors.name.error }}</span>
+                                {% if catworkshopFormErrors.name %}
+                                    {% for error in catworkshopFormErrors.name %}
+                                        <span class="help-block">{{ error }}</span>
+                                    {% endfor %}
                                 {% endif %}
                             </td>
                             <td>
@@ -56,7 +58,10 @@
                             <td>
                                 {{ category.name }}
                             </td>
-                            <td></td>
+                            <td>
+                                <a class="btn btn-warning"
+                                   href="/admin/atelier/categories/{{ category.id }}">Modifier</a>
+                            </td>
                         </tr>
                     {% endfor %}
                     </tbody>

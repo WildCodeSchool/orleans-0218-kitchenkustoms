@@ -2,6 +2,7 @@
 
 namespace Controller;
 
+use Model\Workshop\CategoryWorkshop;
 use Model\Workshop\CategoryWorkshopManager;
 use Validation\CategoryWorkshopValidator;
 
@@ -63,5 +64,43 @@ class WorkshopCategoryController extends AbstractController
         }
 
         return $this->adminIndex();
+    }
+
+    /**
+     * Controls workshop categories update
+     * route: /admin/atelier/categories/{id}
+     *
+     * @param $id
+     * @return string
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
+    public function adminUpdate($id)
+    {
+        $formError = false;
+        $categoriesManager = new CategoryWorkshopManager();
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $postName = isset($_POST['name']) ? trim($_POST['name']) : '';
+
+            $validator = new CategoryWorkshopValidator(['name' => $postName]);
+            if (!$validator->isValid()) {
+                $formError = $validator->getErrors();
+            } else {
+                $category = new CategoryWorkshop();
+                $category->setId($id);
+                $category->setName($postName);
+                $categoriesManager->updateCategory($category);
+                header('Location: /admin/atelier/categories');
+                exit();
+            }
+        }
+        $category = $categoriesManager->selectOneById($id);
+
+        return $this->twig->render(
+            'Admin/updateCategoryWorkshop.html.twig',
+            compact('category', 'formError')
+        );
     }
 }
