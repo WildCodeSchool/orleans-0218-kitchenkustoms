@@ -35,6 +35,21 @@ class ItemCateringManager extends AbstractManager
             ->query('SELECT * FROM ' . $this->table . ' WHERE category_catering_id = 2 LIMIT 5;', \PDO::FETCH_CLASS, $this->className)->fetchAll();
     }
 
+
+    public function updateItemCatering(ItemCatering $item)
+    {
+        $queryValues = 'name=:name, price=:price, description=:description, category_catering_id=:category_catering_id';
+        $statement = $this->pdoConnection->prepare("UPDATE $this->table SET $queryValues WHERE id=:id");
+
+        $statement->bindValue(':name', $item->getName(), \PDO::PARAM_STR);
+        $statement->bindValue(':price', $item->getPrice(), \PDO::PARAM_STR);
+        $statement->bindValue(':description', $item->getDescription(), \PDO::PARAM_STR);
+        $statement->bindValue(':category_catering_id', $item->getCategoryCateringId(), \PDO::PARAM_INT);
+        $statement->bindValue(':id', $item->getId());
+
+        return $statement->execute();
+    }
+  
     public function cateringAdd(itemCatering $newItem)
     {
         $name = $newItem->getName();
@@ -52,5 +67,4 @@ class ItemCateringManager extends AbstractManager
 
         $prepare->execute();
     }
-
 }

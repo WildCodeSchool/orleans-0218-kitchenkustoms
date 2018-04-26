@@ -46,6 +46,7 @@
                                 {% if item.categoryCateringid == 2 %} <span class="label label-primary">Café</span> {% endif %}
                             </td>
                             <td>
+                                <a href="/admin/restauration/{{ item.id }}" class="btn btn-warning"> Modifier </a>
                                 <form method="POST" action="/admin/restauration/delete/{{ item.id }}">
                                     <input type="submit" class="btn btn-danger" value="Supprimer">
                                 </form>
