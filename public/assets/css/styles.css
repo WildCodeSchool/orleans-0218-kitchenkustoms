@@ -566,7 +566,12 @@ p.footer-kustoms {
 }
 
 /******* SECTION WORKSHOP*******/
-
+.title-presentation{
+    padding-bottom: 50px;
+}
+.add-info{
+    padding: 20px;
+}
 /******* SECTION CAFE CANTINE*******/
 
 .link-menu{
