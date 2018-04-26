@@ -1,0 +1,42 @@
+{% extends 'layout-admin.html.twig' %}
+
+{% block content %}
+    <section class="container">
+        <div class="row">
+            <h1>Ajout d'un plat ou une boisson</h1>
+        </div>
+        <div class="row">
+            <form method="post" action="/admin/restauration/add">
+                <div class="form-group">
+                    <label for="name">Nom*</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Le nom du plat/boisson" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea class="form-control" id="description" name="description"
+                              placeholder="La description du plat/boisson"></textarea>
+                </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="exampleInputAmount">Prix</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">€</div>
+                            <input type="text" class="form-control" name="price" id="exampleInputAmount" placeholder="Prix" required>
+                        </div>
+                    </div>
+                <div class="form-group">
+                    <label for="category">Catégorie*</label>
+                    <select class="form-control" name="category_catering_id" required>
+                        <option value="1">Cantine</option>
+                        <option value="2">Café</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="submit" class="form-control btn btn-success" id="submit" value="Ajouter">
+                </div>
+            </form>
+            <div class="row">
+                <small>* : champ obligatoire</small>
+            </div>
+        </div>
+    </section>
+{% endblock %}
