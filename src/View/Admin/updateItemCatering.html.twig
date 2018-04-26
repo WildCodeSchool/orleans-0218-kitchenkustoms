@@ -33,7 +33,6 @@
                     {% else %}
                         <option value="1">Cantine</option>
                     {% endif %}
-                    {{ dump(isSelected) }}
                     {% set isSelected = ( item.categoryCateringid  == 2) ? 'selected' : '' %}
                     {% if item.categoryCateringid == 2 %}
                     <option {{ isSelected }} value="{{ item.categoryCateringid }}">
