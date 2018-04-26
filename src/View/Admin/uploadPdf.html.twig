@@ -5,33 +5,53 @@
         <div class="row">
             <h1>Modification des PDF</h1>
         </div>
-        <div class="row">
-            <h2>Atelier</h2>
-        </div>
-        <div class="row">
-            {% if pdfErrors is not null %}
-                {% for error in pdfErrors %}
-                    <div class="alert alert-danger">
-                        {{ error }}
+        <section>
+            <div class="row">
+                {% if pdfErrors is not null %}
+                    {% for error in pdfErrors %}
+                        <div class="alert alert-danger">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                {% if success %}
+                    <div class="alert alert-success">
+                        Le PDF a bien été modifié.
                     </div>
-                {% endfor %}
-            {% endif %}
-            {% if success %}
-                <div class="alert alert-success">
-                    Le PDF a bien été modifié.
-                </div>
-            {% endif %}
-        </div>
-        <div class="row">
-            <form method="POST" enctype="multipart/form-data" action="/admin/carte">
-                <div class="form-group">
-                    <label for="pdf">Choix du nouveau PDF : </label>
-                    <input type="file" accept="application/pdf" name="pdf" id="pdf">
-                </div>
-                <div class="form-group">
-                    <input class="btn btn-success" type="submit" value="Envoyer">
-                </div>
-            </form>
-        </div>
+                {% endif %}
+            </div>
+        </section>
+        <section>
+            <div class="row">
+                <h2>Atelier</h2>
+            </div>
+            <div class="row">
+                <form method="POST" enctype="multipart/form-data" action="/admin/carte">
+                    <div class="form-group">
+                        <label for="workshop">Choix du nouveau PDF : </label>
+                        <input type="file" accept="application/pdf" name="workshop" id="workshop">
+                    </div>
+                    <div class="form-group">
+                        <input class="btn btn-success" type="submit" value="Envoyer">
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section>
+            <div class="row">
+                <h2>Café - Cantine</h2>
+            </div>
+            <div class="row">
+                <form method="POST" enctype="multipart/form-data" action="/admin/carte">
+                    <div class="form-group">
+                        <label for="cafe">Choix du nouveau PDF : </label>
+                        <input type="file" accept="application/pdf" name="cafe" id="cafe">
+                    </div>
+                    <div class="form-group">
+                        <input class="btn btn-success" type="submit" value="Envoyer">
+                    </div>
+                </form>
+            </div>
+        </section>
     </section>
 {% endblock %}
