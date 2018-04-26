@@ -83,14 +83,11 @@ class WorkshopCategoryController extends AbstractController
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $postName = isset($_POST['name']) ? trim($_POST['name']) : '';
-            if (!empty($postName)) {
-                if (mb_strlen($postName) > 45) {
-                    $formError = 'Le nom de la catégorie ne peut excéder 45 caractères';
-                }
+
+            $validator = new CategoryWorkshopValidator(['name' => $postName]);
+            if (!$validator->isValid()) {
+                $formError = $validator->getErrors();
             } else {
-                $formError = 'Le nom ne peut pas être vide.';
-            }
-            if ($formError === false) {
                 $category = new CategoryWorkshop();
                 $category->setId($id);
                 $category->setName($postName);

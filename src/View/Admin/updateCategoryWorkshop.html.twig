@@ -12,8 +12,10 @@
                 <input type="text" class="form-control" name="name" id="form-name" value="{{ category.name }}"
                        maxlength="45"
                        required>
-                {% if formError %}
-                    <span class="help-block">{{ formError }}</span>
+                {% if formError.name %}
+                    {% for error in formError.name %}
+                        <span class="help-block">{{ error }}</span>
+                    {% endfor %}
                 {% endif %}
             </div>
             <button type="submit" class="btn btn-primary">Enregistrer</button>
