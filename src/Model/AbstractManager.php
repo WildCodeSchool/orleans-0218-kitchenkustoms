@@ -66,10 +66,10 @@ abstract class AbstractManager
 
     /**
      * DELETE on row in dataase by ID
-     *
      * @param int $id
+     * @return bool
      */
-    public function delete(int $id)
+    public function delete(int $id): bool
     {
         $query = 'SELECT * FROM ' . $this->table . ' WHERE id=' . $id;
         $res = $this->pdoConnection->query($query);
@@ -83,11 +83,9 @@ abstract class AbstractManager
 
             $prepare->execute();
 
-            $deleted = true;
-        } else {
-            $deleted = false;
+            return true;
         }
-        return $deleted;
+        return false;
     }
 
 
