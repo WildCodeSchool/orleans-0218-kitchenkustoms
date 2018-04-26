@@ -58,7 +58,7 @@
                             </td>
                             <td>
                                 <form method="POST" action="/admin/atelier/categories/delete/{{ category.id }}">
-                                    <input class="btn btn-danger" type="submit" value="Supprimer">
+                                    <input class="btn btn-danger delete" type="submit" value="Supprimer">
                                 </form>
                             </td>
                         </tr>
@@ -68,4 +68,8 @@
             </div>
         </div>
     </section>
+{% endblock %}
+
+{% block javascript %}
+    <script src="/admin/assets/js/deleteWorkshopCategorie.js"></script>
 {% endblock %}
