@@ -71,9 +71,12 @@ abstract class AbstractManager
      */
     public function delete(int $id): bool
     {
-        $query = 'SELECT * FROM ' . $this->table . ' WHERE id=' . $id;
-        $res = $this->pdoConnection->query($query);
-        $data = $res->fetch(\PDO::FETCH_ASSOC);
+        $query = 'SELECT * FROM ' . $this->table . ' WHERE id=:id';
+
+        $prepare = $this->pdoConnection->prepare($query);
+        $prepare->bindValue(':id', $id, \PDO::PARAM_INT);
+        $prepare->execute();
+        $data = $prepare->fetch(\PDO::FETCH_ASSOC);
 
         if ($data !== false) {
             $query = 'DELETE FROM ' . $this->table . ' WHERE id=:id';
