@@ -36,7 +36,7 @@ class ItemCateringManager extends AbstractManager
 
     public function updateItemCatering(ItemCatering $item)
     {
-        $queryValues = 'name=:name, price=:price, description=:description category_catering_id=:category_catering_id';
+        $queryValues = 'name=:name, price=:price, description=:description, category_catering_id=:category_catering_id';
         $statement = $this->pdoConnection->prepare("UPDATE $this->table SET $queryValues WHERE id=:id");
 
         $statement->bindValue(':name', $item->getName(), \PDO::PARAM_STR);
