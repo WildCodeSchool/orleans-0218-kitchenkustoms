@@ -59,7 +59,6 @@ class CateringController extends AbstractController
         return $this->twig->render('Admin/addCatering.html.twig');
     }
 
-}
 
     public function cateringDelete(int $id)
     {
