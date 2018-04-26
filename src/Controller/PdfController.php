@@ -21,7 +21,7 @@ class PdfController extends AbstractController
             $pdfPage = array_keys($_FILES)[0];
 
             try {
-                $pdf = new UplodedFile($_FILES[$pdfPage], '../assets/pdf/', 'tarifs-atelier.pdf');
+                $pdf = new UplodedFile($_FILES[$pdfPage], '../assets/pdf/', 'tarifs-'. $pdfPage . '.pdf');
                 $uploaded = $pdf->process();
             } catch (\Exception $e) {
                 $uploaded = false;
