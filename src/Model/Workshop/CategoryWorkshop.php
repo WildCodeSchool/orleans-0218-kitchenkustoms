@@ -5,28 +5,6 @@ namespace Model\Workshop;
 class CategoryWorkshop
 {
     /**
-     * @param int $id
-     * @return null|string
-     */
-    public function delete(int $id): ?string
-    {
-        $categoryWorkshopManager = new CategoryWorkshopManager();
-
-        $existElementCategory = $categoryWorkshopManager->selectElementsByCategoryId($id);
-
-        if (!empty($existElementCategory)) {
-            return 'Veuillez supprimer les éléments de la catégorie avant de la supprimer.';
-        } else {
-            $deleted = $categoryWorkshopManager->delete($id);
-
-            if (!$deleted) {
-                return 'Categorie inexistante, suppression impossible.';
-            }
-        }
-        return null;
-    }
-
-    /**
      * @var int
      */
     private $id;

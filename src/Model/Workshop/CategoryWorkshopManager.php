@@ -45,4 +45,19 @@ class CategoryWorkshopManager extends AbstractManager
 
         return $elements;
     }
+
+    /**
+     * @param int $id
+     * @return bool
+     */
+    public function delete(int $id): bool
+    {
+        $categoryWorkshopManager = new CategoryWorkshopManager();
+        $existElementCategory = $categoryWorkshopManager->selectElementsByCategoryId($id);
+
+        if (!empty($existElementCategory)) {
+            return false;
+        }
+        return parent::delete($id);
+    }
 }

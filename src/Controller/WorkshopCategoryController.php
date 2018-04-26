@@ -75,11 +75,11 @@ class WorkshopCategoryController extends AbstractController
      */
     public function adminDelete(int $id)
     {
-        $categoryWorkshop = new CategoryWorkshop();
-        $error = $categoryWorkshop->delete($id);
+        $categoryWorkshopManager = new CategoryWorkshopManager();
+        $success = $categoryWorkshopManager->delete($id);
 
-        if ($error !== null) {
-            $this->form_errors['delete'] = $error;
+        if (!$success) {
+            $this->form_errors['delete'] = 'Erreur lors de la suppression.';
         }
 
         return $this->adminIndex();
