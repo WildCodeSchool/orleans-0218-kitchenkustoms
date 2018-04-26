@@ -8,7 +8,9 @@
 
 namespace Controller;
 
+use Model\ItemCatering;
 use Model\ItemCateringManager;
+use Validation\ItemCateringValidator;
 
 class CateringController extends AbstractController
 {
@@ -37,11 +39,11 @@ class CateringController extends AbstractController
         ]);
     }
 
+
     public function adminCateringUpdate($id)
     {
         $itemsManager = new ItemCateringManager();
         $item = $itemsManager->selectOneById($id);
-
         if (!empty($_POST)) {
             $item->setId($_POST['id']);
             $item->setName($_POST['name']);
@@ -50,14 +52,32 @@ class CateringController extends AbstractController
             $item->setCategoryCateringId($_POST['category_catering_id']);
             $itemsManager->updateItemCatering($item);
             header('Location: /admin/restauration');
-
             exit();
-
         }
 
         return $this->twig->render('Admin/updateItemCatering.html.twig',
             ['item' => $item,
             ]);
+    }
+
+    public function cateringAdd()
+    {
+       if(!empty($_POST)) {
+            $postData = array_map('trim', $_POST);
+            $data = new ItemCatering();
+
+            $data->setName($postData['name']);
+            $data->setDescription($postData['description']);
+            $data->setPrice($postData['price']);
+            $data->setCategoryCateringId($postData['category_catering_id']);
+
+           $itemsManager = new ItemCateringManager();
+           $itemsManager->cateringAdd($data);
+
+           header('Location: /admin/restauration');
+           exit();
+       }
+        return $this->twig->render('Admin/addCatering.html.twig');
     }
 
     public function cateringDelete(int $id)
@@ -73,3 +93,4 @@ class CateringController extends AbstractController
         exit();
     }
 }
+
