@@ -22,7 +22,7 @@ class PdfController extends AbstractController
 
             try {
                 $pdf = new UplodedFile($_FILES[$pdfPage], '../assets/pdf/', 'tarifs-'. $pdfPage . '.pdf');
-                $uploaded = $pdf->process();
+                $uploaded = $pdf->process('application/pdf');
             } catch (\Exception $e) {
                 $uploaded = false;
                 $this->form_pdf_error[] = $e->getMessage();
@@ -35,6 +35,7 @@ class PdfController extends AbstractController
             } else {
                 return $this->twig->render('Admin/uploadPdf.html.twig', [
                     'pdfErrors' => $this->form_pdf_error,
+                    'errors' => $pdf->getErrors(),
                 ]);
             }
         }
