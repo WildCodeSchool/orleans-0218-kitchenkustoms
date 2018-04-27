@@ -4,15 +4,27 @@ namespace Validation;
 
 class Validation
 {
+    /**
+     * @var array
+     */
     private $elements = [];
-
+    /**
+     * @var array
+     */
     private $errors = [];
 
+    /**
+     * Validation constructor.
+     * @param array $keysValidators
+     */
     public function __construct(array $keysValidators)
     {
         $this->elements = $keysValidators;
     }
 
+    /**
+     * @return bool
+     */
     public function isValid(): bool
     {
         foreach ($this->elements as $key => $validators) {
@@ -33,6 +45,9 @@ class Validation
         return true;
     }
 
+    /**
+     * @return array
+     */
     public function getErrors(): array
     {
         return $this->errors;
