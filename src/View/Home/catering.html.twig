@@ -13,14 +13,16 @@
         <div class ="container card">
             <div class="row space-drink">
                 <div class="col-md-6 col-xs-12">
-                    <h3 class="text-center title-style">Caf<span class="e-cute">é</span></h3>
-                    <ul class="list-group">
-                        {% for item in coffeeItems %}
-                        <li class="list-group-item borderless"><img src="assets/images/wrench_and_fork_BLACK_24.svg" alt="Petit logo décoration">{{ item.name }}<span class="badge">{{ item.price }} €</span>
-                            <div class="item-description">{{ item.description }}</div>
-                        </li>
-                        {% endfor %}
-                    </ul>
+                    <div class="border-style">
+                        <h3 class="text-center title-style no-marge">Caf<span class="e-cute">é</span></h3>
+                        <ul class="list-group">
+                            {% for item in coffeeItems %}
+                                <li class="list-group-item borderless"><img src="assets/images/wrench_and_fork_BLACK_24.svg" alt="Petit logo décoration">{{ item.name }}<span class="badge">{{ item.price }} €</span>
+                                    <div class="item-description">{{ item.description }}</div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
                 </div>
                 <div class="col-md-6 col-xs-12">
                     <img src="assets/images/cafe_cantine/boissons.jpg" class="img-responsive center-block" alt="Photo de boisson">
@@ -32,15 +34,17 @@
         <div class="container card">
             <div class="row space-eat">
                 <div class="col-md-6 col-md-push-6 col-xs-12">
-                    <h3 class="text-center title-style">Cantine</h3>
-                    <ul class="list-group">
-                        {% for item in cafeteriaItems %}
+                    <div class="border-style">
+                        <h3 class="text-center title-style no-marge">Cantine</h3>
+                        <ul class="list-group">
+                            {% for item in cafeteriaItems %}
 
-                        <li class="list-group-item borderless"><img src="assets/images/wrench_and_fork_BLACK_24.svg" alt="Petit logo décoration">{{ item.name }}<span class="badge">{{ item.price }} €</span>
-                            <div class="item-description">{{ item.description }}</div>
-                        </li>
-                        {% endfor %}
-                    </ul>
+                                <li class="list-group-item borderless"><img src="assets/images/wrench_and_fork_BLACK_24.svg" alt="Petit logo décoration">{{ item.name }}<span class="badge">{{ item.price }} €</span>
+                                    <div class="item-description">{{ item.description }}</div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
                 </div>
                 <div class="col-md-6 col-md-pull-6 col-xs-12">
                     <img src="assets/images/cafe_cantine/salle_repas.jpg" class="img-responsive center-block" alt="Photo d'un plat">

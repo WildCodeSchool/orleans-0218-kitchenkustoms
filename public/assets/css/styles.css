@@ -19,12 +19,12 @@ body {
 }
 
 .borderless {
-    border-top: none;
-    background-image: url("/assets/images/white_sand.png");
     font-family: albertsthal;
     font-weight: bold;
-    padding: 15px;
-    font-size: 16px;
+    padding: 18px;
+    font-size: 18px;
+    background-color: white;
+    border-style: none;
 }
 
 h1, h2, h3, .h1, .h2, .h3 {
@@ -100,6 +100,7 @@ a:focus {
 .section h2 {
     margin: 20px 0;
 }
+
 
 /******* FIN GENERAL *******/
 
@@ -572,7 +573,13 @@ p.footer-kustoms {
 .add-info{
     padding: 20px;
 }
+
 /******* SECTION CAFE CANTINE*******/
+
+.border-style{
+    box-shadow: 3px 3px 2px 2px silver;
+    background-color: #FFFFFF;
+}
 
 .link-menu{
     text-align: center;
@@ -593,6 +600,7 @@ p.footer-kustoms {
     font-size: 16px;
     background-image: url("/assets/images/white_sand.png");
     color: black;
+    margin-top: 10px;
 }
 .list-group-item>img{
     margin-right: 10px;
@@ -613,7 +621,7 @@ p.footer-kustoms {
 }
 .add-info{
     color: #A72222;
-    font-size: 20px;
+    font-size: 25px;
 }
 .item-description{
     margin-left: 40px;
@@ -622,11 +630,17 @@ p.footer-kustoms {
     color: #A72222;
 }
 .title-style {
-    color: #A72222;
+    color: white;
     padding: 15px;
-    font-size: 26px;
+    font-size: 28px;
+    background-color: #A72222;
 }
-
+.no-marge {
+    margin-top: 0;
+    margin-right: 0;
+    margin-left: 0;
+    margin-bottom: 0;
+}
 
 /******** MENTIONS LEGALES ******/
 .legalNotice h2, .legalNotice h3 {
