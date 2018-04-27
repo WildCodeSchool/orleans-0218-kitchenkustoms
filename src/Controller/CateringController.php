@@ -50,12 +50,34 @@ class CateringController extends AbstractController
         ]);
     }
 
+
     /**
      * @return string
      * @throws \Twig_Error_Loader
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      */
+    public function adminCateringUpdate($id)
+    {
+        $itemsManager = new ItemCateringManager();
+        $item = $itemsManager->selectOneById($id);
+        if (!empty($_POST)) {
+            $item->setId($_POST['id']);
+            $item->setName($_POST['name']);
+            $item->setPrice($_POST['price']);
+            $item->setDescription($_POST['description']);
+            $item->setCategoryCateringId($_POST['category_catering_id']);
+            $itemsManager->updateItemCatering($item);
+            header('Location: /admin/restauration');
+            exit();
+        }
+
+        return $this->twig->render('Admin/updateItemCatering.html.twig',
+            ['item' => $item,
+            ]);
+    }
+
+
     public function cateringAdd()
     {
         $formErrors = [];
