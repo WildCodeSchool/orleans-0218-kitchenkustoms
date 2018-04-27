@@ -59,7 +59,7 @@ class UplodedFile
         }
 
         if ($type !== null && $this->file['type'] !== $type) {
-            $this->errors[] = 'Le fichier doit être de type PDF';
+            $this->errors[] = 'Le fichier doit être de type ' . $type;
             return false;
         }
         return true;
