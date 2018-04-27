@@ -23,7 +23,7 @@ body {
     background-image: url("/assets/images/white_sand.png");
     font-family: albertsthal;
     font-weight: bold;
-    padding: 20px;
+    padding: 15px;
     font-size: 16px;
 }
 
@@ -496,7 +496,7 @@ MEDIA QUERY NAVBAR LINKS
     background-color: #A72222;
     color: #FFFFFF;
     font-weight: bold;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'albertsthal', sans-serif;
 }
 
 .btn-download:hover, .btn-download:focus {
