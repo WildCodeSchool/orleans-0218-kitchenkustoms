@@ -6,13 +6,24 @@
 
 {% block content %}
     <section class="container">
+        {% if errors is not empty %}
+            <div class="row">
+                {% for error in errors %}
+                    {% if error is not empty %}
+                        <div class="alert alert-danger">
+                            {{ error.0 }}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
         <div class="row">
             <div class="col-sm-10">
                 <h1>Modification du vélo n° : {{ bike.id }}</h1>
             </div>
             <div class="col-sm-2">
-                <form id="delete" method="POST" action="/admin/bike/delete/{{ bike.id }}">
-                    <input type="submit" id="deleteButton" class="btn btn-danger" value="Supprimer">
+                <form class="delete" method="POST" action="/admin/bike/delete/{{ bike.id }}">
+                    <input type="submit" class="btn btn-danger deleteButton" value="Supprimer">
                 </form>
             </div>
         </div>
@@ -121,5 +132,5 @@
 {% endblock %}
 
 {% block javascript %}
-    <script src="/admin/assets/js/delete.js"></script>
+    <script src="/admin/assets/js/deleteBike.js"></script>
 {% endblock %}

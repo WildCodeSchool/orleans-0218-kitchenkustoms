@@ -9,7 +9,7 @@ class PdfController extends AbstractController
     /**
      * @var array
      */
-    private $form_pdf_error;
+    private $form_pdf_error = [];
 
     public function adminUpdatePdf()
     {
@@ -22,9 +22,10 @@ class PdfController extends AbstractController
 
             try {
                 $pdf = new UplodedFile($_FILES[$pdfPage], '../assets/pdf/', 'tarifs-'. $pdfPage . '.pdf');
-                $uploaded = $pdf->process();
+                $uploaded = $pdf->process('application/pdf');
             } catch (\Exception $e) {
                 $uploaded = false;
+                $pdf = null;
                 $this->form_pdf_error[] = $e->getMessage();
             }
 
@@ -33,8 +34,14 @@ class PdfController extends AbstractController
                     'success' => true,
                 ]);
             } else {
+                if ($pdf === null) {
+                    return $this->twig->render('Admin/uploadPdf.html.twig', [
+                        'pdfErrors' => $this->form_pdf_error,
+                    ]);
+                }
                 return $this->twig->render('Admin/uploadPdf.html.twig', [
                     'pdfErrors' => $this->form_pdf_error,
+                    'errors' => $pdf->getErrors(),
                 ]);
             }
         }

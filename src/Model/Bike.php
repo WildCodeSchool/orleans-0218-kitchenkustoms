@@ -23,7 +23,10 @@ class Bike
     private $is_kustom;
     private $is_sold;
 
-
+    /**
+     * @param array $attributes
+     * @return Bike
+     */
     public static function hydrate(array $attributes) :Bike
     {
         $bike = new Bike();

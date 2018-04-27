@@ -48,12 +48,18 @@ class UplodedFile
     }
 
     /**
-     * @return null|string
+     * @param string|null $type
+     * @return bool
      */
-    private function check(): bool
+    private function check(string $type = null): bool
     {
         if ($this->file['error'] !== 0) {
             $this->errors[] = 'Le fichier n\' a pas été déplacé.';
+            return false;
+        }
+
+        if ($type !== null && $this->file['type'] !== $type) {
+            $this->errors[] = 'Le fichier doit être de type ' . $type;
             return false;
         }
         return true;
@@ -68,9 +74,9 @@ class UplodedFile
     }
 
 
-    public function process(): bool
+    public function process(string $type): bool
     {
-        $checked = $this->check();
+        $checked = $this->check($type);
         if ($checked) {
             $moved = $this->move();
             if ($moved) {
