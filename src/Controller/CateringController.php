@@ -16,12 +16,6 @@ use Validation\ItemCateringValidator;
 class CateringController extends AbstractController
 {
     /**
-     * store errors in form
-     * @var array
-     */
-    private $form_errors = [];
-
-    /**
      * stores a notification string
      * @var string
      */
@@ -84,7 +78,6 @@ class CateringController extends AbstractController
                 header('Location: /admin/restauration');
                 exit();
             } else {
-                $this->notification = sprintf('Erreur lors de l\'ajout: %   d erreur(s) dans le formulaire', $validator->getErrors());
                 $formErrors = $validator->getErrors();
             }
        }
