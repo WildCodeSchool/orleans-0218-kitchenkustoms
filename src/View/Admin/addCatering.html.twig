@@ -5,6 +5,13 @@
         <div class="row">
             <h1>Ajout d'un plat ou une boisson</h1>
         </div>
+        {% if notification %}
+            <div class="row">
+                <div class="alert alert-info" role="alert">
+                    {{ notification }}
+                </div>
+            </div>
+        {% endif %}
         <div class="row">
             <form method="post" action="/admin/restauration/add">
                 <div class="form-group">
