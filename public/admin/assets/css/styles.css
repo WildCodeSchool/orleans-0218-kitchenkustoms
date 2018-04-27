@@ -45,3 +45,7 @@ button.navbar-toggle > span {
 .mt-15 {
     margin-top: 15px;
 }
+
+.admin-form-inline {
+    display: inline-block;
+}
