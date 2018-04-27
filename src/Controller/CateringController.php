@@ -15,11 +15,6 @@ use Validation\ItemCateringValidator;
 
 class CateringController extends AbstractController
 {
-    /**
-     * stores a notification string
-     * @var string
-     */
-    private $notification = '';
 
     /**
      * @return string
