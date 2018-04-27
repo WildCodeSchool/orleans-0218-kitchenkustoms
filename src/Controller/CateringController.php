@@ -69,6 +69,7 @@ class CateringController extends AbstractController
      */
     public function cateringAdd()
     {
+        $formErrors = [];
        if(!empty($_POST)) {
             $postData = array_map('trim', $_POST);
             $validator = new CateringValidator($postData);
@@ -83,12 +84,12 @@ class CateringController extends AbstractController
                 header('Location: /admin/restauration');
                 exit();
             } else {
-                $this->notification = sprintf('Erreur lors de l\'ajout: %d erreur(s) dans le formulaire', $validator->getErrors());
-                $this->form_errors = $validator->getErrors();
+                $this->notification = sprintf('Erreur lors de l\'ajout: %   d erreur(s) dans le formulaire', $validator->getErrors());
+                $formErrors = $validator->getErrors();
             }
        }
         return $this->twig->render('Admin/addCatering.html.twig',[
-            'notification' => $this->notification,
+            'formErrors' => $formErrors,
         ]);
     }
 

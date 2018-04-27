@@ -17,6 +17,11 @@
                 <div class="form-group">
                     <label for="name">Nom*</label>
                     <input type="text" class="form-control" id="name" name="name" placeholder="Le nom du plat/boisson" required>
+                    {% if formErrors.name %}
+                        {% for error in formErrors.name %}
+                            <span class="help-block">{{ error }}</span>
+                        {% endfor %}
+                    {% endif %}
                 </div>
                 <div class="form-group">
                     <label for="description">Description</label>
@@ -29,6 +34,11 @@
                             <div class="input-group-addon">€</div>
                             <input type="text" class="form-control" name="price" id="exampleInputAmount" placeholder="Prix" required>
                         </div>
+                        {% if formErrors.price %}
+                            {% for error in formErrors.price %}
+                                <span class="help-block">{{ error }}</span>
+                            {% endfor %}
+                        {% endif %}
                     </div>
                 <div class="form-group">
                     <label for="category">Catégorie*</label>
