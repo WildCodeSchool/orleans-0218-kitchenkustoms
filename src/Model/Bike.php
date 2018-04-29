@@ -27,10 +27,8 @@ class Bike
      * @param array $attributes
      * @return Bike
      */
-    public static function hydrate(array $attributes) :Bike
+    public function hydrate(array $attributes) :Bike
     {
-        $bike = new Bike();
-
         foreach ($attributes as $attribute => $value) {
             $words = explode('_', $attribute);
             $upperWords = array_map('ucfirst', $words);
@@ -41,11 +39,10 @@ class Bike
                 if ($value === '') {
                     $value = null;
                 }
-                $bike->$method($value);
+                $this->$method($value);
             }
         }
-
-        return $bike;
+        return $this;
     }
 
     public static function checkPhotos(int $id)

@@ -1,0 +1,118 @@
+{% extends 'layout-admin.html.twig' %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="/admin/assets/css/updateBike.css">
+{% endblock %}
+
+{% block content %}
+    <section class="container">
+        {% if errors is not empty %}
+            <div class="row">
+                {% for error in errors %}
+                    {% if error is not empty %}
+                        <div class="alert alert-danger">
+                            {{ error.0 }}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+        <div class="row">
+            <div class="col-sm-10">
+                <h1>Ajouter un vélo</h1>
+            </div>
+        </div>
+        <div class="row">
+            <form method="POST" action="/admin/bike/add" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h2>General</h2>
+                        <div class="form-group">
+                            <label for="name">Nom</label>
+                            <input class="form-control" id="name" name="name" placeholder="Nom du vélo... (obligatoire)" required>
+                            <label for="description">Description</label>
+                            <textarea class="form-control" id="description" name="description"
+                                      placeholder="Description du vélo..."></textarea>
+                            <label for="price">Prix</label>
+                            <input class="form-control" id="price" name="price" placeholder="Prix du vélo...">
+
+                            <div class="checkbox">
+                                <label for="sold">
+                                    <input id="sold" class="checkbox" type="checkbox" name="sold" >
+                                    Vendu
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <h2>Affichage</h2>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label for="is_sold">
+                                    <input id="is_sold" type="checkbox" name="is_sold" >
+                                    dans la boutique
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label for="is_kustom">
+                                    <input id="is_kustom" type="checkbox" name="is_kustom">
+                                    dans les kustoms
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <h3>Photo Kustom</h3>
+                            <img class="img-admin" src="/assets/images/bikes/default.png" alt="vélo par défaut">
+                            <div class="form-group">
+                                <input class="form-control-file" name="photo_after" type="file" accept=".jpg, .jpeg, .png">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <h3>Photo Avant</h3>
+                            <img class="img-admin" src="/assets/images/bikes/default.png" alt="vélo par défaut">
+                            <div class="form-group">
+                                <input class="form-control-file" name="photo_before" type="file" accept=".jpg, .jpeg, .png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <h2>Notes</h2>
+                    <div class="col-sm-4">
+                        <h3>Look</h3>
+                            {% for i in 1 .. 5 %}
+                                <label class="radio-inline">
+                                    <input type="radio" name="rate_look" value="{{ i }}" > {{ i }}
+                                </label>
+                            {% endfor %}
+                    </div>
+                    <div class="col-sm-4">
+                        <h3>Fun</h3>
+                        {% for i in 1 .. 5 %}
+                            <label class="radio-inline">
+                                <input type="radio" name="rate_fun" value="{{ i }}" > {{ i }}
+                            </label>
+                        {% endfor %}
+                    </div>
+                    <div class="col-sm-4">
+                        <h3>Pratique</h3>
+                        {% for i in 1 .. 5 %}
+                            <label class="radio-inline">
+                                <input type="radio" name="rate_practice" value="{{ i }}" > {{ i }}
+                            </label>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group mt-15">
+                        <input class="form-control btn btn-success" type="submit" value="Ajouter">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascript %}
+    <script src="/admin/assets/js/deleteBike.js"></script>
+{% endblock %}
