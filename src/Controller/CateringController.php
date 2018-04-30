@@ -72,16 +72,16 @@ class CateringController extends AbstractController
             exit();
         }
 
-        return $this->twig->render('Admin/updateItemCatering.html.twig',
-            ['item' => $item,
-            ]);
+        return $this->twig->render('Admin/updateItemCatering.html.twig', [
+            'item' => $item,
+        ]);
     }
 
 
     public function cateringAdd()
     {
         $formErrors = [];
-       if(!empty($_POST)) {
+        if (!empty($_POST)) {
             $postData = array_map('trim', $_POST);
             $validator = new CateringValidator($postData);
             if ($validator->isValid()) {
@@ -97,8 +97,8 @@ class CateringController extends AbstractController
             } else {
                 $formErrors = $validator->getErrors();
             }
-       }
-        return $this->twig->render('Admin/addCatering.html.twig',[
+        }
+        return $this->twig->render('Admin/addCatering.html.twig', [
             'formErrors' => $formErrors,
         ]);
     }
@@ -112,11 +112,10 @@ class CateringController extends AbstractController
         $deleted = $cateringManager->delete($id);
         if ($deleted) {
             $get = '?deleted=true&id='. $id;
-        }else {
+        } else {
             $get = '?deleted=false&id='. $id;
         }
         header('Location: /admin/restauration'. $get);
         exit();
     }
 }
-

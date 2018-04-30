@@ -51,7 +51,6 @@ class Bike
 
         foreach ($_FILES as $photo => $file) {
             if ($file['error'] === 0) {
-
                 if ($id === null) {
                     $bikeManager = new BikeManager();
                     $newName = $bikeManager->nextAutoIncrement() + 1;

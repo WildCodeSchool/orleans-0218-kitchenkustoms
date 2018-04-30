@@ -87,7 +87,6 @@ class BikeManager extends AbstractManager
                     $this->updateBike($bike);
                 }
             }
-
         }
     }
 
