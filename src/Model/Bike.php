@@ -45,26 +45,39 @@ class Bike
         return $this;
     }
 
-    public static function checkPhotos(int $id)
+    public function checkPhotos(int $id = null)
     {
         $imagePath = '../assets/images/bikes/';
 
-        foreach ($_FILES as $photo => $details) {
-            if ($details['error'] === 0) {
-                $newPath = $id;
+        foreach ($_FILES as $photo => $file) {
+            if ($file['error'] === 0) {
 
-                if ($photo === 'photo_before') {
-                    $newPath .= '_before.';
-                } elseif ($photo === 'photo_after') {
-                    $newPath .= '_after.';
+                if ($id === null) {
+                    $bikeManager = new BikeManager();
+                    $newName = $bikeManager->nextAutoIncrement() + 1;
+                    die(var_dump($newName));
+                } else {
+                    $newName = $id;
                 }
 
-                $fileInfo = new \SplFileInfo($details['name']);
-                $extension = $fileInfo->getExtension();
-                $newPath .= $extension;
-                $newImagePath = $imagePath . $newPath;
+                if ($photo === 'photo_before') {
+                    $newName .= '_before.';
+                } elseif ($photo === 'photo_after') {
+                    $newName .= '_after.';
+                }
 
-                move_uploaded_file($details['tmp_name'], $newImagePath);
+                $fileInfo = new \SplFileInfo($file['name']);
+                $extension = $fileInfo->getExtension();
+                $newName .= $extension;
+
+                try {
+                    $uploadedPhoto = new UplodedFile($file, $imagePath, $newName);
+                    $uploadedPhoto->process('image/jpeg');
+                } catch (\Exception $e) {
+                    var_dump($e);
+                }
+
+                $newImagePath = $imagePath . $newName;
 
                 if ($photo === 'photo_before') {
                     $path = substr($newImagePath, 2, mb_strlen($newImagePath)-2);

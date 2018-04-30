@@ -93,11 +93,7 @@ class BikeController extends AbstractController
 
                 return $this->bikeAdmin();
             }
-
-
-
         }
-
     }
 
     /**
@@ -119,9 +115,7 @@ class BikeController extends AbstractController
 
             if ($validator->isValid()) {
                 $bike = new Bike();
-
-                Bike::checkPhotos($id);
-
+                $bike->checkPhotos($_POST['id']);
                 $bike->hydrate($_POST);
                 $bikeManager->updateBike($bike);
 
@@ -129,7 +123,6 @@ class BikeController extends AbstractController
                 exit();
             } else {
                 $this->errors = $validator->getErrors();
-
                 $bike = $bikeManager->selectOneById($id);
 
                 return $this->twig->render('Admin/updateBike.html.twig', [
