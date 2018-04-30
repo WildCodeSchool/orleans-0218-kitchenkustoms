@@ -54,7 +54,6 @@ class Bike
                 if ($id === null) {
                     $bikeManager = new BikeManager();
                     $newName = $bikeManager->nextAutoIncrement() + 1;
-                    die(var_dump($newName));
                 } else {
                     $newName = $id;
                 }
@@ -73,7 +72,6 @@ class Bike
                     $uploadedPhoto = new UplodedFile($file, $imagePath, $newName);
                     $uploadedPhoto->process('image/jpeg');
                 } catch (\Exception $e) {
-                    var_dump($e);
                 }
 
                 $newImagePath = $imagePath . $newName;
