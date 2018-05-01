@@ -96,8 +96,8 @@
                             </td>
                             <td>
                                 <a href="/admin/atelier/{{ item.id }}" class="btn btn-warning"> Modifier </a>
-                                <form class="deleteButton admin-form-inline" method="POST" action="/admin/atelier/delete/{{ item.id }}">
-                                    <input type="submit" class="btn btn-danger " value="Supprimer">
+                                <form class="admin-form-inline" method="POST" action="/admin/atelier/delete/{{ item.id }}">
+                                    <input type="submit" class="btn btn-danger deleteButton" value="Supprimer">
                                 </form>
                             </td>
                         </tr>
@@ -109,6 +109,6 @@
     </section>
 {% endblock %}
 {% block javascript %}
-<script src="/admin/assets/js/itemWorkshopDelete.js"></script>
+<script src="/admin/assets/js/delete.js"></script>
 {% endblock %}
 

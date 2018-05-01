@@ -22,7 +22,7 @@
                 <h1>Modification du vélo n° : {{ bike.id }}</h1>
             </div>
             <div class="col-sm-2">
-                <form class="delete" method="POST" action="/admin/bike/delete/{{ bike.id }}">
+                <form method="POST" action="/admin/bike/delete/{{ bike.id }}">
                     <input type="submit" class="btn btn-danger deleteButton" value="Supprimer">
                 </form>
             </div>
@@ -132,5 +132,5 @@
 {% endblock %}
 
 {% block javascript %}
-    <script src="/admin/assets/js/deleteBike.js"></script>
+    <script src="/admin/assets/js/delete.js"></script>
 {% endblock %}
