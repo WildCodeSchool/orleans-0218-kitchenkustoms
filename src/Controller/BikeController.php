@@ -75,10 +75,6 @@ class BikeController extends AbstractController
      */
     public function bikeAdd()
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            return $this->twig->render('Admin/addBike.html.twig', []);
-        }
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $validator = new BikeValidator([
                 'name' => $_POST['name'],
@@ -93,6 +89,8 @@ class BikeController extends AbstractController
 
                 return $this->bikeAdmin();
             }
+        } else {
+            return $this->twig->render('Admin/addBike.html.twig', []);
         }
     }
 
