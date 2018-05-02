@@ -39,8 +39,9 @@
                         <ul class="list-group">
                             {% for item in cafeteriaItems %}
 
-                                <li class="list-group-item borderless"><img src="assets/images/wrench_and_fork_BLACK_24.svg" alt="Petit logo décoration">{{ item.name }}<span class="badge">{{ item.price }} €</span>
-                                    <div class="item-description">{{ item.description }}</div>
+                                <li class="list-group-item borderless"><img src="assets/images/wrench_and_fork_BLACK_24.svg" alt="Petit logo décoration">{{ item.name }}
+                                    <span class="badge">{{ item.price|number_format(2,',') }} €</span>
+                                    {{ item.description }}
                                 </li>
                             {% endfor %}
                         </ul>

@@ -10,21 +10,20 @@
                 atelier&nbsp;!</h2>
             <h2 class="title-presentation">Nos r<span class="e-cute">é</span>parations courantes</h2>
             <div class="row">
-                <div class="col-md-6 col-xs-12">
-                    <img src="assets/images/atelier.jpg" class="img-responsive center-block" alt="Photo atelier">
-                </div>
                 {% for category, items in itemsGroupByCategories %}
                     <div class="col-sm-6">
-                        <h3 class="title-style">{{ category }}
-                        </h3>
-                        <ul class="list-group">
-                            {% for item in items %}
-                                <li class="list-group-item borderless"><img class="img-boulon" src="assets/images/bolt_BLACK_24.svg" alt="icône boulon">
-                                    <span class="badge">{{ item.price|number_format(2,',') }} €</span>
-                                    {{ item.name }}
-                                </li>
-                            {% endfor %}
-                        </ul>
+                        <div class="border-style">
+                            <h3 class="title-style">{{ category }}
+                            </h3>
+                            <ul class="list-group">
+                                {% for item in items %}
+                                    <li class="list-group-item borderless"><img class="img-boulon" src="assets/images/bolt_BLACK_24.svg" alt="icône boulon">
+                                        <span class="badge">{{ item.price|number_format(2,',') }} €</span>
+                                        {{ item.name }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
                     </div>
                     {% if loop.index0%2 ==1 %}
                         <div class="clearfix hidden-xs"></div>
@@ -33,7 +32,7 @@
             </div>
             <div class="row">
                 <div class="col-md-offset-3 col-md-6">
-                    <img src="assets/images/vis_atelier.jpg" class="img-responsive center-block" alt="Photo atelier">
+                    <img src="assets/images/atelier.jpg" class="img-responsive center-block" alt="Photo atelier">
                 </div>
             </div>
         </div>
