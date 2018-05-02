@@ -10,6 +10,10 @@
     src: url('../fonts/Albertsthal Typewriter.ttf');
 }
 
+@font-face {
+    font-family: "ImpactLabel";
+    src: url('../fonts/Impact Label.ttf');
+}
 /******* FIN FONTS *******/
 
 /******* GENERAL *******/
@@ -626,6 +630,14 @@ p.footer-kustoms {
     color: #A72222;
     padding: 15px;
     font-size: 26px;
+}
+
+/**** Kustoms ******/
+.card-kustom {
+    padding: 1.1vw;
+}
+.kustoms-name {
+    font-family: "ImpactLabel";
 }
 
 

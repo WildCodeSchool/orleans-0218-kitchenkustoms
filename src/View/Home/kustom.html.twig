@@ -13,15 +13,14 @@
                         <div class="thumbnail">
                             <div class="row">
                                 <div class="col-md-6 col-sm-6 hidden-xs">
-                                    <img class="img-responsive img-rounded" src="{{ bike.photoBefore }}" alt="...">
+                                    <img class="img-responsive img-rounded card-kustom" src="{{ bike.photoBefore }}" alt="{{ bike.name }}">
                                 </div>
                                 <div class="col-md-6 col-sm-6">
-                                    <img class="img-responsive img-rounded" src="{{ bike.photoAfter }}" alt="...">
+                                    <img class="img-responsive img-rounded card-kustom" src="{{ bike.photoAfter }}" alt="{{ bike.name }}">
                                 </div>
                             </div>
-
                             <div class="caption">
-                                <h2 class="text-center">{{ bike.name }}</h2>
+                                <h2 class="text-center kustoms-name"><span>"{{ bike.name|upper}}"</span></h2>
                                 <p class="text-center">{{ bike.description }}</p>
                             </div>
                         </div>
