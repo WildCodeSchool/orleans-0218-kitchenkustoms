@@ -36,6 +36,23 @@ abstract class AbstractManager
     }
 
     /**
+     * @return int
+     */
+    public function nextAutoIncrement():int
+    {
+        $autoIncrement = $this->pdoConnection
+            ->query('SELECT AUTO_INCREMENT
+                                FROM information_schema.TABLES
+                                WHERE TABLE_SCHEMA = "kitchenkustoms"
+                                AND TABLE_NAME = "' . self::TABLE . '"')
+            ->fetch(\PDO::FETCH_ASSOC);
+
+        $nextAutoIncrement = (int)$autoIncrement['AUTO_INCREMENT'] + 1;
+
+        return $nextAutoIncrement;
+    }
+
+    /**
      * Get all row from database.
      *
      * @return array

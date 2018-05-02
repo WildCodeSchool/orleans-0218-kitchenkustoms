@@ -1,8 +1,8 @@
-$('#deleteButton').click(function (e) {
-   e.preventDefault();
-   let deleteBike = confirm("Voulez-vous supprimer le vélo ?");
+$('.deleteButton').click(function (e) {
+    e.preventDefault();
+    let deletion = confirm("Voulez-vous supprimer cet élément ? ...");
 
-   if (deleteBike) {
-        $('#delete').submit();
-   }
+    if (deletion) {
+        $(this).parent().submit();
+    }
 });

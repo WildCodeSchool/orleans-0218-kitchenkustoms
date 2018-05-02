@@ -23,11 +23,12 @@ class Bike
     private $is_kustom;
     private $is_sold;
 
-
-    public static function hydrate(array $attributes) :Bike
+    /**
+     * @param array $attributes
+     * @return Bike
+     */
+    public function hydrate(array $attributes) :Bike
     {
-        $bike = new Bike();
-
         foreach ($attributes as $attribute => $value) {
             $words = explode('_', $attribute);
             $upperWords = array_map('ucfirst', $words);
@@ -38,41 +39,51 @@ class Bike
                 if ($value === '') {
                     $value = null;
                 }
-                $bike->$method($value);
+                $this->$method($value);
             }
         }
-
-        return $bike;
+        return $this;
     }
 
-    public static function checkPhotos(int $id)
+    public function checkPhotos(int $id = null)
     {
         $imagePath = '../assets/images/bikes/';
 
-        foreach ($_FILES as $photo => $details) {
-            if ($details['error'] === 0) {
-                $newPath = $id;
-
-                if ($photo === 'photo_before') {
-                    $newPath .= '_before.';
-                } elseif ($photo === 'photo_after') {
-                    $newPath .= '_after.';
+        foreach ($_FILES as $photo => $file) {
+            if ($file['error'] === 0) {
+                if ($id === null) {
+                    $bikeManager = new BikeManager();
+                    $newName = $bikeManager->nextAutoIncrement() + 1;
+                } else {
+                    $newName = $id;
                 }
 
-                $fileInfo = new \SplFileInfo($details['name']);
+                if ($photo === 'photo_before') {
+                    $newName .= '_before.';
+                } elseif ($photo === 'photo_after') {
+                    $newName .= '_after.';
+                }
+
+                $fileInfo = new \SplFileInfo($file['name']);
                 $extension = $fileInfo->getExtension();
-                $newPath .= $extension;
-                $newImagePath = $imagePath . $newPath;
+                $newName .= $extension;
 
-                move_uploaded_file($details['tmp_name'], $newImagePath);
+                try {
+                    $uploadedPhoto = new UplodedFile($file, $imagePath, $newName);
+                    $uploadedPhoto->process('image/jpeg');
+                } catch (\Exception $e) {
+                }
 
+                $newImagePath = $imagePath . $newName;
+                $data = $_POST;
                 if ($photo === 'photo_before') {
                     $path = substr($newImagePath, 2, mb_strlen($newImagePath)-2);
-                    $_POST['photo_before'] = $path;
+                    $data['photo_before'] = $path;
                 } elseif ($photo === 'photo_after') {
                     $path = substr($newImagePath, 2, mb_strlen($newImagePath)-2);
-                    $_POST['photo_after'] = $path;
+                    $data['photo_after'] = $path;
                 }
+                return $data;
             }
         }
     }

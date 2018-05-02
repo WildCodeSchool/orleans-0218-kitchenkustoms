@@ -1,6 +1,6 @@
 {% extends 'layout-admin.html.twig' %}
 
-{% block title %}{{ parent() }} - Vélos{% endblock %}
+{% block title %}{{ parent() }} - Atelier - Catégories{% endblock %}
 
 {% block content %}
     <section class="container">
@@ -48,7 +48,7 @@
                                 {% endif %}
                             </td>
                             <td>
-                                <button type="submit" class="btn btn-default">Ajouter</button>
+                                <button type="submit" class="btn btn-success">Ajouter</button>
                             </td>
                         </tr>
                     </form>
@@ -63,8 +63,8 @@
                                 {{ category.name }}
                             </td>
                             <td>
-                                <form method="POST" action="/admin/atelier/categories/delete/{{ category.id }}">
-                                    <input class="btn btn-danger delete" type="submit" value="Supprimer">
+                                <form class="admin-form-inline" method="POST" action="/admin/atelier/categories/delete/{{ category.id }}">
+                                    <input class="btn btn-danger deleteButton" type="submit" value="Supprimer">
                                 </form>
                                 <a class="btn btn-warning"
                                    href="/admin/atelier/categories/{{ category.id }}">Modifier</a>
@@ -79,5 +79,5 @@
 {% endblock %}
 
 {% block javascript %}
-    <script src="/admin/assets/js/deleteWorkshopCategorie.js"></script>
+    <script src="/admin/assets/js/delete.js"></script>
 {% endblock %}

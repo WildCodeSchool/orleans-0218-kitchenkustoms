@@ -4,6 +4,7 @@ namespace Controller;
 
 use Model\Bike;
 use Model\BikeManager;
+use Validation\BikeValidator;
 
 /**
  * Class BikeController
@@ -11,6 +12,11 @@ use Model\BikeManager;
  */
 class BikeController extends AbstractController
 {
+    /**
+     * @var array
+     */
+    private $errors = [];
+
     /**
      * @return string
      * @throws \Twig_Error_Loader
@@ -27,6 +33,12 @@ class BikeController extends AbstractController
         ]);
     }
 
+    /**
+     * @return string
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
     public function bikeKustoms()
     {
         $bikeManager = new BikeManager();
@@ -55,49 +67,79 @@ class BikeController extends AbstractController
         ]);
     }
 
+    /**
+     * @return string
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
     public function bikeAdd()
     {
-        $bikeManager = new BikeManager();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $validator = new BikeValidator([
+                'name' => $_POST['name'],
+                'description' => $_POST['description']
+            ]);
 
-        $newBike = new Bike();
-        $newBike->setName('Nom à remplacer...');
+            if ($validator->isValid()) {
+                $newBike = new Bike();
+                $newBike->hydrate($_POST);
+                $bikeManager = new BikeManager();
+                $bikeManager->addBike($newBike);
 
-        $bikeManager->addBike($newBike);
-
-        $newBike = $bikeManager->selectOneById($bikeManager->lastId());
-
-        return $this->twig->render('Admin/updateBike.html.twig', [
-            'bike' => $newBike,
-        ]);
+                return $this->bikeAdmin();
+            }
+        } else {
+            return $this->twig->render('Admin/addBike.html.twig', []);
+        }
     }
 
+    /**
+     * @param int $id
+     * @return string
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
     public function bikeUpdate(int $id)
     {
         $bikeManager = new BikeManager();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            Bike::checkPhotos($id);
+            $validator = new BikeValidator([
+                'name' => $_POST['name'],
+                'description' => $_POST['description']
+            ]);
 
-            $bike = Bike::hydrate($_POST);
-            $bikeManager->updateBike($bike);
+            if ($validator->isValid()) {
+                $bike = new Bike();
+                $data = $bike->checkPhotos($_POST['id']);
+                $bike->hydrate($data);
+                $bikeManager->updateBike($bike);
 
-            header('Location: /admin/bike');
-            exit();
-        }
-
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            if (isset($_GET['id'])) {
-                $bike = $bikeManager->selectOneById($_GET['id']);
+                header('Location: /admin/bike');
+                exit();
             } else {
+                $this->errors = $validator->getErrors();
                 $bike = $bikeManager->selectOneById($id);
-            }
 
+                return $this->twig->render('Admin/updateBike.html.twig', [
+                    'errors' => $this->errors,
+                    'bike' => $bike
+                ]);
+            }
+        } else {
+            $bike = $bikeManager->selectOneById($id);
+            
             return $this->twig->render('Admin/updateBike.html.twig', [
                 'bike' => $bike,
             ]);
         }
     }
 
+    /**
+     * @param int $id
+     */
     public function bikeDelete(int $id)
     {
         $bikeManager = new BikeManager();
