@@ -131,12 +131,8 @@ class BikeController extends AbstractController
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            if (isset($_GET['id'])) {
-                $bike = $bikeManager->selectOneById($_GET['id']);
-            } else {
-                $bike = $bikeManager->selectOneById($id);
-            }
-
+            $bike = $bikeManager->selectOneById($id);
+            
             return $this->twig->render('Admin/updateBike.html.twig', [
                 'bike' => $bike,
             ]);
