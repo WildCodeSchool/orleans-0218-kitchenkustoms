@@ -9,11 +9,8 @@
     margin-left: 0px;
     margin-right: 0px;
 }
-
 .card {
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-
+    background-color: white;
     width: auto;
     min-height: 45vw;
 
@@ -25,38 +22,6 @@
     margin-bottom: 5em;
     border: 0px;
     border-radius: .5rem;
-}
-
-.card1 {
-    background-image: url("../images/shop/card1.png");
-}
-
-.card2 {
-    background-image: url("../images/shop/card2.png");
-}
-
-.card3 {
-    background-image: url("../images/shop/card3.png");
-}
-
-.card4 {
-    background-image: url("../images/shop/card4.png");
-}
-
-.card5 {
-    background-image: url("../images/shop/card5.png");
-}
-
-.card6 {
-    background-image: url("../images/shop/card6.png");
-}
-
-.card7 {
-    background-image: url("../images/shop/card7.png");
-}
-
-.card8 {
-    background-image: url("../images/shop/card8.png");
 }
 
 .card-block {

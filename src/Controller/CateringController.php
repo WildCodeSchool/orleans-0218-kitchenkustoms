@@ -61,27 +61,38 @@ class CateringController extends AbstractController
     {
         $itemsManager = new ItemCateringManager();
         $item = $itemsManager->selectOneById($id);
+        $formErrors = [];
+
         if (!empty($_POST)) {
-            $item->setId($_POST['id']);
-            $item->setName($_POST['name']);
-            $item->setPrice($_POST['price']);
-            $item->setDescription($_POST['description']);
-            $item->setCategoryCateringId($_POST['category_catering_id']);
-            $itemsManager->updateItemCatering($item);
-            header('Location: /admin/restauration');
-            exit();
+            $postData = array_map('trim', $_POST);
+            $validator = new CateringValidator($postData);
+            if ($validator->isValid()) {
+                $data = new ItemCatering();
+                $data->setId($id);
+                $data->setName($postData['name']);
+                $data->setDescription($postData['description']);
+                $data->setPrice($postData['price']);
+                $data->setCategoryCateringId($postData['category_catering_id']);
+                $itemsManager = new ItemCateringManager();
+                $itemsManager->updateItemCatering($data);
+                header('Location: /admin/restauration');
+                exit();
+            } else {
+                $formErrors = $validator->getErrors();
+            }
         }
 
-        return $this->twig->render('Admin/updateItemCatering.html.twig',
-            ['item' => $item,
-            ]);
+        return $this->twig->render('Admin/updateItemCatering.html.twig', [
+            'item' => $item,
+            'formErrors' => $formErrors,
+        ]);
     }
 
 
     public function cateringAdd()
     {
         $formErrors = [];
-       if(!empty($_POST)) {
+        if (!empty($_POST)) {
             $postData = array_map('trim', $_POST);
             $validator = new CateringValidator($postData);
             if ($validator->isValid()) {
@@ -97,8 +108,8 @@ class CateringController extends AbstractController
             } else {
                 $formErrors = $validator->getErrors();
             }
-       }
-        return $this->twig->render('Admin/addCatering.html.twig',[
+        }
+        return $this->twig->render('Admin/addCatering.html.twig', [
             'formErrors' => $formErrors,
         ]);
     }
@@ -112,11 +123,10 @@ class CateringController extends AbstractController
         $deleted = $cateringManager->delete($id);
         if ($deleted) {
             $get = '?deleted=true&id='. $id;
-        }else {
+        } else {
             $get = '?deleted=false&id='. $id;
         }
         header('Location: /admin/restauration'. $get);
         exit();
     }
 }
-

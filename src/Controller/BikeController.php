@@ -75,18 +75,23 @@ class BikeController extends AbstractController
      */
     public function bikeAdd()
     {
-        $bikeManager = new BikeManager();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $validator = new BikeValidator([
+                'name' => $_POST['name'],
+                'description' => $_POST['description']
+            ]);
 
-        $newBike = new Bike();
-        $newBike->setName('Nom à remplacer...');
+            if ($validator->isValid()) {
+                $newBike = new Bike();
+                $newBike->hydrate($_POST);
+                $bikeManager = new BikeManager();
+                $bikeManager->addBike($newBike);
 
-        $bikeManager->addBike($newBike);
-
-        $newBike = $bikeManager->selectOneById($bikeManager->lastId());
-
-        return $this->twig->render('Admin/updateBike.html.twig', [
-            'bike' => $newBike,
-        ]);
+                return $this->bikeAdmin();
+            }
+        } else {
+            return $this->twig->render('Admin/addBike.html.twig', []);
+        }
     }
 
     /**
@@ -101,25 +106,21 @@ class BikeController extends AbstractController
         $bikeManager = new BikeManager();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-
-
             $validator = new BikeValidator([
                 'name' => $_POST['name'],
                 'description' => $_POST['description']
             ]);
 
             if ($validator->isValid()) {
-                Bike::checkPhotos($id);
-
-                $bike = Bike::hydrate($_POST);
+                $bike = new Bike();
+                $data = $bike->checkPhotos($_POST['id']);
+                $bike->hydrate($data);
                 $bikeManager->updateBike($bike);
 
                 header('Location: /admin/bike');
                 exit();
             } else {
                 $this->errors = $validator->getErrors();
-
                 $bike = $bikeManager->selectOneById($id);
 
                 return $this->twig->render('Admin/updateBike.html.twig', [
@@ -127,15 +128,9 @@ class BikeController extends AbstractController
                     'bike' => $bike
                 ]);
             }
-        }
-
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            if (isset($_GET['id'])) {
-                $bike = $bikeManager->selectOneById($_GET['id']);
-            } else {
-                $bike = $bikeManager->selectOneById($id);
-            }
-
+        } else {
+            $bike = $bikeManager->selectOneById($id);
+            
             return $this->twig->render('Admin/updateBike.html.twig', [
                 'bike' => $bike,
             ]);

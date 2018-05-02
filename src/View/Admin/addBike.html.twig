@@ -19,34 +19,26 @@
         {% endif %}
         <div class="row">
             <div class="col-sm-10">
-                <h1>Modification du vélo n° : {{ bike.id }}</h1>
-            </div>
-            <div class="col-sm-2">
-                <form method="POST" action="/admin/bike/delete/{{ bike.id }}">
-                    <input type="submit" class="btn btn-danger deleteButton" value="Supprimer">
-                </form>
+                <h1>Ajouter un vélo</h1>
             </div>
         </div>
         <div class="row">
-            <form method="POST" action="/admin/bike/{{ bike.id }}" enctype="multipart/form-data">
-                <input type="hidden" name="id" value="{{ bike.id }}">
+            <form method="POST" action="/admin/bike/add" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-sm-6">
                         <h2>General</h2>
                         <div class="form-group">
                             <label for="name">Nom</label>
-                            <input class="form-control" id="name" name="name" placeholder="Nom du vélo... (obligatoire)"
-                                   value="{{ bike.name }}" required>
+                            <input class="form-control" id="name" name="name" placeholder="Nom du vélo... (obligatoire)" required>
                             <label for="description">Description</label>
                             <textarea class="form-control" id="description" name="description"
-                                      placeholder="Description du vélo...">{{ bike.description }}</textarea>
+                                      placeholder="Description du vélo..."></textarea>
                             <label for="price">Prix</label>
-                            <input class="form-control" id="price" name="price" placeholder="Prix du vélo..."
-                                   value="{{ bike.price }}">
+                            <input class="form-control" id="price" name="price" placeholder="Prix du vélo...">
 
                             <div class="checkbox">
                                 <label for="sold">
-                                    <input id="sold" class="checkbox" type="checkbox" name="sold" {% if bike.sold == 1 %}checked{% endif %}>
+                                    <input id="sold" class="checkbox" type="checkbox" name="sold" >
                                     Vendu
                                 </label>
                             </div>
@@ -57,37 +49,27 @@
                         <div class="form-group">
                             <div class="checkbox">
                                 <label for="is_sold">
-                                    <input id="is_sold" type="checkbox" name="is_sold"
-                                           {% if bike.isSold == 1 %}checked{% endif %}>
+                                    <input id="is_sold" type="checkbox" name="is_sold" >
                                     dans la boutique
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label for="is_kustom">
-                                    <input id="is_kustom" type="checkbox" name="is_kustom"
-                                           {% if bike.isKustom == 1 %}checked{% endif %}>
+                                    <input id="is_kustom" type="checkbox" name="is_kustom">
                                     dans les kustoms
                                 </label>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <h3>Photo Kustom</h3>
-                            {% if bike.photoAfter is null %}
-                                <img class="img-admin" src="/assets/images/bikes/default.png" alt="vélo par défaut">
-                            {% else %}
-                                <img class="img-admin" src="{{ bike.photoAfter }}" alt="vélo kustomisé">
-                            {% endif %}
+                            <img class="img-admin" src="/assets/images/bikes/default.png" alt="vélo par défaut">
                             <div class="form-group">
-                                <input class="form-control-file" name="photo_after" type="file" value="{{ bike.photoAfter }}" accept=".jpg, .jpeg, .png">
+                                <input class="form-control-file" name="photo_after" type="file" accept=".jpg, .jpeg, .png">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <h3>Photo Avant</h3>
-                            {% if bike.photoBefore is null %}
-                                <img class="img-admin" src="/assets/images/bikes/default.png" alt="vélo par défaut">
-                            {% else %}
-                                <img class="img-admin" src="{{ bike.photoBefore }}" alt="vélo non kustomisé">
-                            {% endif %}
+                            <img class="img-admin" src="/assets/images/bikes/default.png" alt="vélo par défaut">
                             <div class="form-group">
                                 <input class="form-control-file" name="photo_before" type="file" accept=".jpg, .jpeg, .png">
                             </div>
@@ -100,7 +82,7 @@
                         <h3>Look</h3>
                             {% for i in 1 .. 5 %}
                                 <label class="radio-inline">
-                                    <input type="radio" name="rate_look" value="{{ i }}" {% if bike.rateLook == i %}checked{% endif %} > {{ i }}
+                                    <input type="radio" name="rate_look" value="{{ i }}" > {{ i }}
                                 </label>
                             {% endfor %}
                     </div>
@@ -108,7 +90,7 @@
                         <h3>Fun</h3>
                         {% for i in 1 .. 5 %}
                             <label class="radio-inline">
-                                <input type="radio" name="rate_fun" value="{{ i }}" {% if bike.rateFun == i %}checked{% endif %} > {{ i }}
+                                <input type="radio" name="rate_fun" value="{{ i }}" > {{ i }}
                             </label>
                         {% endfor %}
                     </div>
@@ -116,14 +98,14 @@
                         <h3>Pratique</h3>
                         {% for i in 1 .. 5 %}
                             <label class="radio-inline">
-                                <input type="radio" name="rate_practice" value="{{ i }}" {% if bike.ratePractice == i %}checked{% endif %} > {{ i }}
+                                <input type="radio" name="rate_practice" value="{{ i }}" > {{ i }}
                             </label>
                         {% endfor %}
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group mt-15">
-                        <input class="form-control btn btn-warning" type="submit" value="Modifier">
+                        <input class="form-control btn btn-success" type="submit" value="Ajouter">
                     </div>
                 </div>
             </form>
@@ -132,5 +114,5 @@
 {% endblock %}
 
 {% block javascript %}
-    <script src="/admin/assets/js/delete.js"></script>
+    <script src="/admin/assets/js/deleteBike.js"></script>
 {% endblock %}

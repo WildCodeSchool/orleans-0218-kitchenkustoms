@@ -10,6 +10,10 @@
     src: url('../fonts/Albertsthal Typewriter.ttf');
 }
 
+@font-face {
+    font-family: "ImpactLabel";
+    src: url('../fonts/Impact Label.ttf');
+}
 /******* FIN FONTS *******/
 
 /******* GENERAL *******/
@@ -19,12 +23,12 @@ body {
 }
 
 .borderless {
-    border-top: none;
-    background-image: url("/assets/images/white_sand.png");
     font-family: albertsthal;
     font-weight: bold;
-    padding: 15px;
-    font-size: 16px;
+    padding: 18px;
+    font-size: 18px;
+    background-color: white;
+    border-style: none;
 }
 
 h1, h2, h3, .h1, .h2, .h3 {
@@ -100,6 +104,7 @@ a:focus {
 .section h2 {
     margin: 20px 0;
 }
+
 
 /******* FIN GENERAL *******/
 
@@ -497,6 +502,7 @@ MEDIA QUERY NAVBAR LINKS
     color: #FFFFFF;
     font-weight: bold;
     font-family: 'albertsthal', sans-serif;
+    white-space: normal;
 }
 
 .btn-download:hover, .btn-download:focus {
@@ -559,7 +565,7 @@ p.footer-kustoms {
     margin-right: 15px;
 }
 
-.thumbnail {
+.thumbnail, .gallery_image, .image_catering {
     -webkit-box-shadow: 9px 8px 7px -6px rgba(158,149,158,0.69);
     -moz-box-shadow: 9px 8px 7px -6px rgba(158,149,158,0.69);
     box-shadow: 9px 8px 7px -6px rgba(158,149,158,0.69);
@@ -572,7 +578,13 @@ p.footer-kustoms {
 .add-info{
     padding: 20px;
 }
+
 /******* SECTION CAFE CANTINE*******/
+
+.border-style{
+    box-shadow: 3px 3px 2px 2px silver;
+    background-color: #FFFFFF;
+}
 
 .link-menu{
     text-align: center;
@@ -593,6 +605,7 @@ p.footer-kustoms {
     font-size: 16px;
     background-image: url("/assets/images/white_sand.png");
     color: black;
+    margin-top: 10px;
 }
 .list-group-item>img{
     margin-right: 10px;
@@ -613,7 +626,7 @@ p.footer-kustoms {
 }
 .add-info{
     color: #A72222;
-    font-size: 20px;
+    font-size: 25px;
 }
 .item-description{
     margin-left: 40px;
@@ -622,11 +635,25 @@ p.footer-kustoms {
     color: #A72222;
 }
 .title-style {
-    color: #A72222;
+    color: white;
     padding: 15px;
-    font-size: 26px;
+    font-size: 28px;
+    background-color: #A72222;
+}
+.no-marge {
+    margin-top: 0;
+    margin-right: 0;
+    margin-left: 0;
+    margin-bottom: 0;
 }
 
+/**** Kustoms ******/
+.card-kustom {
+    padding: 1.1vw;
+}
+.kustoms-name {
+    font-family: "ImpactLabel";
+}
 
 /******** MENTIONS LEGALES ******/
 .legalNotice h2, .legalNotice h3 {

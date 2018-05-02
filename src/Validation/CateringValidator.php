@@ -8,7 +8,6 @@
 
 namespace Validation;
 
-
 use Validation\Validator\IsNumeric;
 use Validation\Validator\MaxLength;
 use Validation\Validator\NotEmpty;
@@ -20,11 +19,11 @@ class CateringValidator extends Validation
         $validators = [
             'name' => [
                 new NotEmpty($data['name']),
-                new MaxLength($data['name'],45)
+                new MaxLength($data['name'], 45)
             ],
             'price' => [
                 new NotEmpty($data['price']),
-                new MaxLength($data['price'],11),
+                new MaxLength($data['price'], 11),
                 new IsNumeric($data['price'])
             ]
         ];
