@@ -497,6 +497,7 @@ MEDIA QUERY NAVBAR LINKS
     color: #FFFFFF;
     font-weight: bold;
     font-family: 'albertsthal', sans-serif;
+    white-space: normal;
 }
 
 .btn-download:hover, .btn-download:focus {
