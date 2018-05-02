@@ -20,7 +20,7 @@ $routes = [
         ['bikeShop', '/boutique', 'GET'],
         ['bikeAdmin', '/admin/bike', 'GET'],
         ['bikeKustoms', '/kustoms', 'GET'],
-        ['bikeAdd', '/admin/bike/add', 'GET'],
+        ['bikeAdd', '/admin/bike/add', ['GET', 'POST']],
         ['bikeUpdate', '/admin/bike/{id:\d+}', ['GET', 'POST']],
         ['bikeDelete', '/admin/bike/delete/{id:\d+}', 'POST'],
     ],

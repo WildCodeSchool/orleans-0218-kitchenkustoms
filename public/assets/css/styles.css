@@ -10,6 +10,10 @@
     src: url('../fonts/Albertsthal Typewriter.ttf');
 }
 
+@font-face {
+    font-family: "ImpactLabel";
+    src: url('../fonts/Impact Label.ttf');
+}
 /******* FIN FONTS *******/
 
 /******* GENERAL *******/
@@ -497,6 +501,7 @@ MEDIA QUERY NAVBAR LINKS
     color: #FFFFFF;
     font-weight: bold;
     font-family: 'albertsthal', sans-serif;
+    white-space: normal;
 }
 
 .btn-download:hover, .btn-download:focus {
@@ -559,7 +564,7 @@ p.footer-kustoms {
     margin-right: 15px;
 }
 
-.thumbnail {
+.thumbnail, .gallery_image, .image_catering {
     -webkit-box-shadow: 9px 8px 7px -6px rgba(158,149,158,0.69);
     -moz-box-shadow: 9px 8px 7px -6px rgba(158,149,158,0.69);
     box-shadow: 9px 8px 7px -6px rgba(158,149,158,0.69);
@@ -625,6 +630,14 @@ p.footer-kustoms {
     color: #A72222;
     padding: 15px;
     font-size: 26px;
+}
+
+/**** Kustoms ******/
+.card-kustom {
+    padding: 1.1vw;
+}
+.kustoms-name {
+    font-family: "ImpactLabel";
 }
 
 

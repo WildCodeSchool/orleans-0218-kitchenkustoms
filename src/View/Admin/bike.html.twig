@@ -59,7 +59,7 @@
                             </td>
                             <td>
                                 <a href="/admin/bike/{{ bike.id }}" class="btn btn-warning">Modifier</a>
-                                <form class="delete" method="POST" action="/admin/bike/delete/{{ bike.id }}">
+                                <form method="POST" action="/admin/bike/delete/{{ bike.id }}">
                                     <input type="submit" class="btn btn-danger deleteButton" value="Supprimer">
                                 </form>
                             </td>
@@ -73,5 +73,5 @@
 {% endblock %}
 
 {% block javascript %}
-    <script src="/admin/assets/js/deleteBike.js"></script>
+    <script src="/admin/assets/js/delete.js"></script>
 {% endblock %}

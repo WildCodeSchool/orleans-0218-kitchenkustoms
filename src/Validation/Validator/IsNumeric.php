@@ -8,7 +8,6 @@
 
 namespace Validation\Validator;
 
-
 class IsNumeric extends AbstractValidator
 {
     const ERROR = 'La valeur doit être numérique.';
