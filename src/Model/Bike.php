@@ -75,14 +75,15 @@ class Bike
                 }
 
                 $newImagePath = $imagePath . $newName;
-
+                $data = $_POST;
                 if ($photo === 'photo_before') {
                     $path = substr($newImagePath, 2, mb_strlen($newImagePath)-2);
-                    $_POST['photo_before'] = $path;
+                    $data['photo_before'] = $path;
                 } elseif ($photo === 'photo_after') {
                     $path = substr($newImagePath, 2, mb_strlen($newImagePath)-2);
-                    $_POST['photo_after'] = $path;
+                    $data['photo_after'] = $path;
                 }
+                return $data;
             }
         }
     }

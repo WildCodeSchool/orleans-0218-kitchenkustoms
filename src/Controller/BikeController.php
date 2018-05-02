@@ -113,8 +113,8 @@ class BikeController extends AbstractController
 
             if ($validator->isValid()) {
                 $bike = new Bike();
-                $bike->checkPhotos($_POST['id']);
-                $bike->hydrate($_POST);
+                $data = $bike->checkPhotos($_POST['id']);
+                $bike->hydrate($data);
                 $bikeManager->updateBike($bike);
 
                 header('Location: /admin/bike');
