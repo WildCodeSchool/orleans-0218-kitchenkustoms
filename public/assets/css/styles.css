@@ -560,7 +560,7 @@ p.footer-kustoms {
     margin-right: 15px;
 }
 
-.thumbnail {
+.thumbnail, .gallery_image, .image_catering {
     -webkit-box-shadow: 9px 8px 7px -6px rgba(158,149,158,0.69);
     -moz-box-shadow: 9px 8px 7px -6px rgba(158,149,158,0.69);
     box-shadow: 9px 8px 7px -6px rgba(158,149,158,0.69);
