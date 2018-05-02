@@ -128,9 +128,7 @@ class BikeController extends AbstractController
                     'bike' => $bike
                 ]);
             }
-        }
-
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+        } else {
             $bike = $bikeManager->selectOneById($id);
             
             return $this->twig->render('Admin/updateBike.html.twig', [
