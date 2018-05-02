@@ -8,7 +8,13 @@
             <h1 class="text-center">L'Atelier</h1>
             <h2 class="text-center add-info">Pour faire r<span class="e-cute">é</span>parer son v<span class="e-cute">é</span>lo ou changer des pi<span class="e-cute">è</span>ces, passez par notre
                 atelier&nbsp;!</h2>
-            <h2 class="title-presentation">Nos r<span class="e-cute">é</span>parations courantes</h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <img src="assets/images/atelier.jpg" class="img-responsive center-block" alt="Photo atelier">
+                </div>
+            </div>
+            <h2>Nos r<span class="e-cute">é</span>parations courantes</h2>
+
             <div class="row">
                 {% for category, items in itemsGroupByCategories %}
                     <div class="col-sm-6">
@@ -30,11 +36,7 @@
                     {% endif %}
                 {% endfor %}
             </div>
-            <div class="row">
-                <div class="col-md-offset-3 col-md-6">
-                    <img src="assets/images/atelier.jpg" class="img-responsive center-block" alt="Photo atelier">
-                </div>
-            </div>
+
         </div>
     </section>
     <section class="section">
